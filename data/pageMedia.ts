@@ -46,7 +46,7 @@ export const pageMedia = {
   },
   linkedin: {
     src: '/static/images/pages/hub-linkedin.webp',
-    alt: 'SEO GEO AEO hero: Eugene Boyle, Ph.D. LinkedIn profile hub — sameAs entity page for research citations',
+    alt: 'Eugene Boyle, Ph.D. professional profile — LinkedIn and research overview',
   },
   about: {
     src: '/static/images/pages/about-eugene-boyle.webp',

@@ -9,9 +9,9 @@ import { pageMedia } from '@/data/pageMedia'
 import { genPageMetadata } from 'app/seo'
 import { breadcrumbSchema, organizationSchema, personSchema, webPageSchema } from '@/lib/schema'
 
-const title = 'LinkedIn Profile Hub — Eugene Boyle, Ph.D.'
+const title = 'Eugene Boyle, Ph.D. on LinkedIn'
 const description =
-  'Canonical website hub for Eugene Boyle, Ph.D. (linkedin.com/in/geneboyle): Person/Organization schema with sameAs, ORCID, featured research pages, and share-ready URLs.'
+  'Professional profile overview for Eugene Boyle, Ph.D.—Managing Director at KLB Consultants, Fielding Clinical Psychology Ph.D., LinkedIn and ORCID links, and featured research.'
 const path = '/linkedin'
 
 export const metadata = genPageMetadata({
@@ -31,27 +31,27 @@ const featured = [
   {
     href: '/topics/motherhood-and-smi',
     title: 'Topic hub: Motherhood and SMI',
-    blurb: 'Pillar page for LinkedIn carousels and posts on the 2019 study.',
+    blurb: 'Overview of the 2019 Psychiatric Rehabilitation Journal study on motherhood and SMI.',
   },
   {
     href: '/blog/motherhood-reimagined-smi-parenting',
     title: 'Research brief: Motherhood Reimagined',
-    blurb: 'Cited summary of Mizock, Merg, Boyle & Kompaniez-Dunigan (2019).',
+    blurb: 'Summary of Mizock, Merg, Boyle & Kompaniez-Dunigan (2019).',
   },
   {
     href: '/faq/motherhood-smi',
     title: 'FAQ',
-    blurb: 'Copy-paste answers for comments and research citations.',
+    blurb: 'Short answers to common questions about the motherhood and SMI research.',
   },
   {
     href: '/glossary',
     title: 'Glossary',
-    blurb: 'Canonical definitions with DefinedTerm schema.',
+    blurb: 'Plain-language definitions of key clinical and research terms.',
   },
   {
     href: '/about',
     title: 'About Eugene Boyle, Ph.D.',
-    blurb: 'Full bio aligned with LinkedIn experience and education.',
+    blurb: 'Full biography, education, and professional background.',
   },
 ]
 
@@ -94,9 +94,9 @@ export default function LinkedInHubPage() {
       <JsonLd data={schemas} />
       <div className="space-y-8 pt-6">
         <PageHero
-          eyebrow="Entity · sameAs LinkedIn + ORCID"
+          eyebrow="Professional profile"
           title={title}
-          summary="Connect website identity to linkedin.com/in/geneboyle for search and generative engines."
+          summary="Managing Director at KLB Consultants and clinical researcher—connect on LinkedIn or explore featured work below."
           imageSrc={pageMedia.linkedin.src}
           imageAlt={pageMedia.linkedin.alt}
           priority
@@ -106,25 +106,29 @@ export default function LinkedInHubPage() {
           ]}
         />
 
-        <AnswerCallout>
-          This page is the canonical web hub for{' '}
+        <AnswerCallout label="Overview">
+          Eugene Boyle, Ph.D. (Eugene Joseph Boyle) is Managing Director at KLB Consultants and
+          Investment Director at Boyle Family Office. Find him on{' '}
           <a href={siteIdentity.linkedin} rel="noopener noreferrer">
-            linkedin.com/in/geneboyle
+            LinkedIn
+          </a>{' '}
+          and{' '}
+          <a href={siteIdentity.orcid} rel="noopener noreferrer">
+            ORCID
           </a>
-          —so engines resolve one person (Eugene Joseph Boyle / Eugene Boyle, Ph.D.), one ORCID, and
-          one set of citable topic pages.
+          , or continue on this site for research briefs and contact details.
         </AnswerCallout>
 
         <section className="rounded-xl border border-gray-200 bg-white/80 p-6 dark:border-gray-700 dark:bg-gray-900/50">
           <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
-            Profile identity
+            Contact & profiles
           </h2>
           <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
             <li>
               <strong>Name:</strong> {siteIdentity.name} (Eugene Joseph Boyle)
             </li>
             <li>
-              <strong>Headline:</strong> {siteIdentity.headline}
+              <strong>Role:</strong> {siteIdentity.headline}
             </li>
             <li>
               <strong>Location:</strong> {siteIdentity.address.addressLocality} Metropolitan Area
@@ -132,7 +136,7 @@ export default function LinkedInHubPage() {
             <li>
               <strong>LinkedIn:</strong>{' '}
               <a href={siteIdentity.linkedin} className="text-primary-500 hover:underline">
-                {siteIdentity.linkedin}
+                linkedin.com/in/geneboyle
               </a>
             </li>
             <li>
@@ -147,12 +151,18 @@ export default function LinkedInHubPage() {
                 {siteIdentity.telephone}
               </a>
             </li>
+            <li>
+              <strong>Email:</strong>{' '}
+              <a href={`mailto:${siteIdentity.email}`} className="text-primary-500 hover:underline">
+                {siteIdentity.email}
+              </a>
+            </li>
           </ul>
         </section>
 
         <section>
           <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Experience highlights (from LinkedIn)
+            Experience highlights
           </h2>
           <ul className="mt-6 grid gap-4 md:grid-cols-2">
             {experienceHighlights.map((item) => (
@@ -171,7 +181,7 @@ export default function LinkedInHubPage() {
 
         <section>
           <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Featured pages to link from LinkedIn
+            Featured research & pages
           </h2>
           <ul className="mt-6 divide-y divide-gray-200 rounded-xl border border-gray-200 bg-white/70 dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-900/50">
             {featured.map((item) => (
