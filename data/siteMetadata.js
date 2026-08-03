@@ -10,7 +10,7 @@ const siteMetadata = {
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
   siteRepo: 'https://github.com/LetMeHelpYouREALTY/tailwind-css-starter-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.webp`,
   email: 'eboyle@fielding.edu',
   github: 'https://github.com/geneboyle',
   x: 'https://twitter.com/x',

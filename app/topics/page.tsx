@@ -1,9 +1,12 @@
 import Link from '@/components/Link'
+import Image from '@/components/Image'
 import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
+import PageHero from '@/components/PageHero'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
+import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Topics'
@@ -12,6 +15,7 @@ const description = `Topic hubs supporting ${siteIdentity.name}'s LinkedIn profi
 export const metadata = genPageMetadata({
   title,
   description,
+  image: pageMedia.topics.src,
   alternates: { canonical: `${siteMetadata.siteUrl}/topics` },
 })
 
@@ -21,23 +25,27 @@ const topics = [
     title: 'Motherhood and serious mental illness (SMI)',
     summary:
       'Pillar for Mizock et al. (2019)—co-authored by Eugene Joseph Boyle—with five themes, clinician takeaways, FAQ, and glossary.',
+    image: pageMedia.motherhoodSmi,
   },
   {
     href: '/faq/motherhood-smi',
     title: 'FAQ: Motherhood and SMI',
     summary:
       'Answer-first Q&A for snippets, AI overviews, and LinkedIn replies—with matching FAQPage schema.',
+    image: pageMedia.faq,
   },
   {
     href: '/glossary',
     title: 'Glossary: SMI & parenting terms',
     summary: 'Canonical definitions (DefinedTerm) readers and generative engines can cite cleanly.',
+    image: pageMedia.glossary,
   },
   {
     href: '/linkedin',
     title: 'LinkedIn profile hub',
     summary:
       'Canonical website ↔ linkedin.com/in/geneboyle entity page with sameAs, ORCID, and share-ready URLs.',
+    image: pageMedia.linkedin,
   },
 ]
 
@@ -53,34 +61,45 @@ export default function TopicsPage() {
   return (
     <>
       <JsonLd data={schemas} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl md:text-5xl dark:text-gray-100">
-            Topics
-          </h1>
-          <p className="max-w-3xl text-lg text-gray-600 dark:text-gray-400">{description}</p>
-        </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div className="space-y-10 pt-6">
+        <PageHero
+          eyebrow="Topic architecture"
+          title={title}
+          summary={description}
+          imageSrc={pageMedia.topics.src}
+          imageAlt={pageMedia.topics.alt}
+          priority
+        />
+        <ul className="grid gap-6 md:grid-cols-2">
           {topics.map((topic) => (
-            <li key={topic.href} className="py-8">
-              <h2 className="text-2xl font-bold tracking-tight">
-                <Link href={topic.href} className="text-gray-900 dark:text-gray-100">
-                  {topic.title}
-                </Link>
-              </h2>
-              <p className="mt-2 max-w-3xl text-gray-600 dark:text-gray-400">{topic.summary}</p>
+            <li key={topic.href}>
               <Link
                 href={topic.href}
-                className="text-primary-500 mt-3 inline-block text-sm font-medium"
+                className="group block overflow-hidden rounded-xl border border-gray-200 bg-white/80 transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-700 dark:bg-gray-900/60"
               >
-                Open topic →
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={topic.image.src}
+                    alt={topic.image.alt}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="p-5">
+                  <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
+                    {topic.title}
+                  </h2>
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{topic.summary}</p>
+                  <span className="text-primary-500 mt-3 inline-block text-sm font-medium">
+                    Open topic →
+                  </span>
+                </div>
               </Link>
             </li>
           ))}
         </ul>
-        <div className="pt-10">
-          <NapBlock />
-        </div>
+        <NapBlock />
       </div>
     </>
   )

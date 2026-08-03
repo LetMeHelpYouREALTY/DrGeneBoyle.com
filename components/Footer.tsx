@@ -7,15 +7,17 @@ export default function Footer() {
   const { addressLocality, addressRegion } = siteIdentity.address
 
   return (
-    <footer>
-      <div className="mt-16 flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
+    <footer className="mt-16 border-t border-gray-200 pt-10 dark:border-gray-800">
+      <div className="flex flex-col items-center">
+        <div className="mb-4 flex space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
           <SocialIcon kind="github" href={siteMetadata.github} size={6} />
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
         </div>
-        <div className="mb-2 max-w-xl px-4 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p className="font-medium text-gray-700 dark:text-gray-300">{siteIdentity.name}</p>
+        <div className="mb-3 max-w-xl px-4 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p className="font-display text-base font-semibold text-gray-900 dark:text-gray-100">
+            {siteIdentity.name}
+          </p>
           <p>
             {siteIdentity.jobTitle}, {siteIdentity.worksFor.name}
           </p>
@@ -25,17 +27,18 @@ export default function Footer() {
               {siteIdentity.telephone}
             </a>
           </p>
-          <p className="mt-1">
-            <Link href="/linkedin" className="hover:underline">
+          <p className="mt-2 flex flex-wrap justify-center gap-x-3 gap-y-1">
+            <Link href="/linkedin" className="text-primary-500 hover:underline">
               LinkedIn hub
             </Link>
-            {' · '}
-            <Link href="/topics/motherhood-and-smi" className="hover:underline">
+            <Link href="/topics/motherhood-and-smi" className="text-primary-500 hover:underline">
               Motherhood & SMI
             </Link>
-            {' · '}
-            <Link href="/glossary" className="hover:underline">
+            <Link href="/glossary" className="text-primary-500 hover:underline">
               Glossary
+            </Link>
+            <Link href="/faq/motherhood-smi" className="text-primary-500 hover:underline">
+              FAQ
             </Link>
           </p>
         </div>
@@ -43,8 +46,6 @@ export default function Footer() {
           <div>{siteMetadata.author}</div>
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
         </div>
       </div>
     </footer>

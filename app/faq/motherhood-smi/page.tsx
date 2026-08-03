@@ -1,7 +1,10 @@
 import Link from '@/components/Link'
 import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
+import PageHero from '@/components/PageHero'
+import AnswerCallout from '@/components/AnswerCallout'
 import { motherhoodSmiFaqs } from '@/data/faqs/motherhood-smi'
+import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { genPageMetadata } from 'app/seo'
 import { breadcrumbSchema, faqPageSchema, webPageSchema } from '@/lib/schema'
@@ -14,6 +17,7 @@ const path = '/faq/motherhood-smi'
 export const metadata = genPageMetadata({
   title,
   description,
+  image: pageMedia.faq.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
@@ -31,44 +35,37 @@ export default function MotherhoodSmiFaqPage() {
   return (
     <>
       <JsonLd data={schemas} />
-      <div className="pt-6">
-        <p className="text-primary-500 text-sm font-medium tracking-wide uppercase">
-          AEO · FAQPage schema
-        </p>
-        <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-100">
-          {title}
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
-          Short, self-contained answers for search snippets, AI overviews, and LinkedIn comment
-          replies. Full brief:{' '}
-          <Link
-            href="/blog/motherhood-reimagined-smi-parenting"
-            className="text-primary-500 hover:underline"
-          >
-            Motherhood Reimagined
-          </Link>
-          . Topic hub:{' '}
-          <Link href="/topics/motherhood-and-smi" className="text-primary-500 hover:underline">
-            Motherhood and SMI
-          </Link>
-          .
-        </p>
+      <div className="space-y-8 pt-6">
+        <PageHero
+          eyebrow="AEO · FAQPage schema"
+          title={title}
+          summary="Short, self-contained answers for search snippets, AI overviews, and LinkedIn comment replies."
+          imageSrc={pageMedia.faq.src}
+          imageAlt={pageMedia.faq.alt}
+          priority
+        />
 
-        <div className="mt-10 space-y-8">
+        <AnswerCallout>
+          Use these Q&A blocks as the canonical short answers when citing this site. Full research
+          brief: <Link href="/blog/motherhood-reimagined-smi-parenting">Motherhood Reimagined</Link>
+          . Topic hub: <Link href="/topics/motherhood-and-smi">Motherhood and SMI</Link>.
+        </AnswerCallout>
+
+        <div className="space-y-8">
           {motherhoodSmiFaqs.map((faq) => (
             <section
               key={faq.question}
-              className="border-b border-gray-200 pb-8 dark:border-gray-700"
+              className="rounded-xl border border-gray-200 bg-white/70 p-6 dark:border-gray-700 dark:bg-gray-900/50"
             >
-              <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{faq.question}</h2>
+              <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
+                {faq.question}
+              </h2>
               <p className="mt-3 max-w-3xl text-gray-700 dark:text-gray-300">{faq.answer}</p>
             </section>
           ))}
         </div>
 
-        <div className="mt-10">
-          <NapBlock />
-        </div>
+        <NapBlock />
       </div>
     </>
   )

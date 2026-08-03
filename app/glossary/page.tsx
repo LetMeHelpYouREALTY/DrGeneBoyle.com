@@ -1,7 +1,10 @@
 import Link from '@/components/Link'
 import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
+import PageHero from '@/components/PageHero'
+import AnswerCallout from '@/components/AnswerCallout'
 import { motherhoodSmiGlossary } from '@/data/glossary/motherhood-smi'
+import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { genPageMetadata } from 'app/seo'
 import { breadcrumbSchema, definedTermSchema, webPageSchema } from '@/lib/schema'
@@ -14,6 +17,7 @@ const path = '/glossary'
 export const metadata = genPageMetadata({
   title,
   description,
+  image: pageMedia.glossary.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
@@ -33,41 +37,37 @@ export default function GlossaryPage() {
   return (
     <>
       <JsonLd data={schemas} />
-      <div className="pt-6">
-        <p className="text-primary-500 text-sm font-medium tracking-wide uppercase">
-          GEO · DefinedTerm schema
-        </p>
-        <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-100">
-          {title}
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
-          Use these definitions when posting on{' '}
-          <Link href="/linkedin" className="text-primary-500 hover:underline">
-            LinkedIn
-          </Link>{' '}
-          or answering comments. Related hub:{' '}
-          <Link href="/topics/motherhood-and-smi" className="text-primary-500 hover:underline">
-            Motherhood and SMI
-          </Link>
-          .
-        </p>
+      <div className="space-y-8 pt-6">
+        <PageHero
+          eyebrow="GEO · DefinedTerm schema"
+          title={title}
+          summary="Canonical wording for posts, comments, and generative citations."
+          imageSrc={pageMedia.glossary.src}
+          imageAlt={pageMedia.glossary.alt}
+          priority
+        />
 
-        <dl className="mt-10 space-y-8">
+        <AnswerCallout>
+          Prefer these definitions when writing on <Link href="/linkedin">LinkedIn</Link>. Related
+          hub: <Link href="/topics/motherhood-and-smi">Motherhood and SMI</Link>.
+        </AnswerCallout>
+
+        <dl className="space-y-6">
           {motherhoodSmiGlossary.map((item) => (
             <div
               key={item.slug}
               id={item.slug}
-              className="scroll-mt-24 border-b border-gray-200 pb-8 dark:border-gray-700"
+              className="scroll-mt-24 rounded-xl border border-gray-200 bg-white/70 p-6 dark:border-gray-700 dark:bg-gray-900/50"
             >
-              <dt className="text-xl font-bold text-gray-900 dark:text-gray-100">{item.term}</dt>
+              <dt className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
+                {item.term}
+              </dt>
               <dd className="mt-3 max-w-3xl text-gray-700 dark:text-gray-300">{item.definition}</dd>
             </div>
           ))}
         </dl>
 
-        <div className="mt-10">
-          <NapBlock />
-        </div>
+        <NapBlock />
       </div>
     </>
   )

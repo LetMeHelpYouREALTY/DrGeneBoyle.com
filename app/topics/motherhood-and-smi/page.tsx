@@ -1,9 +1,12 @@
 import Link from '@/components/Link'
 import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
+import PageHero from '@/components/PageHero'
+import AnswerCallout from '@/components/AnswerCallout'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
+import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Motherhood and Serious Mental Illness (SMI)'
@@ -13,6 +16,7 @@ const description =
 export const metadata = genPageMetadata({
   title,
   description,
+  image: pageMedia.motherhoodSmi.src,
   alternates: { canonical: `${siteMetadata.siteUrl}/topics/motherhood-and-smi` },
 })
 
@@ -57,89 +61,87 @@ export default function MotherhoodSmiTopicPage() {
   return (
     <>
       <JsonLd data={schemas} />
-      <article className="prose dark:prose-invert max-w-none pt-6">
-        <p className="text-primary-500 text-sm font-medium tracking-wide uppercase">Topic hub</p>
-        <h1>{title}</h1>
-        <p className="lead text-lg">
-          <strong>Direct answer:</strong> Women with serious mental illness (SMI) may decline
-          motherhood, face derailed plans, encounter disability-related constraints, reimagine the
-          mothering role, or find mattering through motherhood—according to qualitative research by
-          Mizock, Merg, Boyle, and Kompaniez-Dunigan (2019) in{' '}
-          <em>Psychiatric Rehabilitation Journal</em>.
-        </p>
+      <div className="space-y-8 pt-6">
+        <PageHero
+          eyebrow="Topic hub"
+          title={title}
+          summary="A citable pillar for LinkedIn posts, clinician education, and generative-engine answers."
+          imageSrc={pageMedia.motherhoodSmi.src}
+          imageAlt={pageMedia.motherhoodSmi.alt}
+          priority
+          ctas={[
+            {
+              href: '/blog/motherhood-reimagined-smi-parenting',
+              label: 'Read research brief',
+              primary: true,
+            },
+            { href: '/faq/motherhood-smi', label: 'Open FAQ' },
+          ]}
+        />
 
-        <h2>Key takeaways</h2>
-        <ul>
-          {keyTakeaways.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <AnswerCallout>
+          Women with serious mental illness (SMI) may decline motherhood, face derailed plans,
+          encounter disability-related constraints, reimagine the mothering role, or find mattering
+          through motherhood—according to qualitative research by Mizock, Merg, Boyle, and
+          Kompaniez-Dunigan (2019) in <em>Psychiatric Rehabilitation Journal</em>.
+        </AnswerCallout>
 
-        <h2>Author connection</h2>
-        <p>
-          {siteIdentity.name} (Eugene Joseph Boyle) co-authored the study while contributing as a
-          qualitative data analyst in Lauren Mizock, Ph.D.&apos;s research program on women with
-          serious mental health problems at Fielding Graduate University—developing conceptual
-          categories, constant comparison, and analytic memoing in a grounded theory approach. This
-          hub gives his{' '}
-          <a href={siteIdentity.linkedin} rel="noopener noreferrer">
-            LinkedIn profile
-          </a>{' '}
-          durable, citable URLs for posts and Featured links.
-        </p>
+        <article className="prose dark:prose-invert max-w-none">
+          <h2>Key takeaways</h2>
+          <ul>
+            {keyTakeaways.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
 
-        <h2>Five themes at a glance</h2>
-        <ol>
-          <li>
-            <strong>Motherhood declined</strong> — opting out of motherhood
-          </li>
-          <li>
-            <strong>Motherhood derailed</strong> — parenting plans interrupted
-          </li>
-          <li>
-            <strong>Motherhood disabled</strong> — disability-related constraints on the role
-          </li>
-          <li>
-            <strong>Motherhood reimagined</strong> — alternate ways of embodying motherhood
-          </li>
-          <li>
-            <strong>Mattering through motherhood</strong> — motherhood as identity and significance
-          </li>
-        </ol>
+          <h2>Author connection</h2>
+          <p>
+            {siteIdentity.name} (Eugene Joseph Boyle) co-authored the study while contributing as a
+            qualitative data analyst in Lauren Mizock, Ph.D.&apos;s research program on women with
+            serious mental health problems at Fielding Graduate University. This hub gives his{' '}
+            <a href={siteIdentity.linkedin} rel="noopener noreferrer">
+              LinkedIn profile
+            </a>{' '}
+            durable, citable URLs for posts and Featured links.
+          </p>
 
-        <h2>Content cluster</h2>
-        <ul>
-          {clusterLinks.map((link) => (
-            <li key={link.href}>
-              <Link href={link.href}>{link.label}</Link>
+          <h2>Five themes at a glance</h2>
+          <ol>
+            <li>
+              <strong>Motherhood declined</strong> — opting out of motherhood
             </li>
-          ))}
-        </ul>
+            <li>
+              <strong>Motherhood derailed</strong> — parenting plans interrupted
+            </li>
+            <li>
+              <strong>Motherhood disabled</strong> — disability-related constraints on the role
+            </li>
+            <li>
+              <strong>Motherhood reimagined</strong> — alternate ways of embodying motherhood
+            </li>
+            <li>
+              <strong>Mattering through motherhood</strong> — motherhood as identity and
+              significance
+            </li>
+          </ol>
 
-        <h2>Primary source</h2>
-        <p>
-          Mizock, L., Merg, A. L., Boyle, E. J., & Kompaniez-Dunigan, E. (2019). Motherhood
-          reimagined: Experiences of women with SMI surrounding parenting.{' '}
-          <em>Psychiatric Rehabilitation Journal, 42</em>(2), 105–112.{' '}
-          <a href="https://doi.org/10.1037/prj0000339">https://doi.org/10.1037/prj0000339</a>
-        </p>
+          <h2>Content cluster</h2>
+          <ul>
+            {clusterLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href}>{link.label}</Link>
+              </li>
+            ))}
+          </ul>
 
-        <h2>Connect</h2>
-        <p>
-          Profile:{' '}
-          <a href={siteIdentity.linkedin} rel="noopener noreferrer">
-            linkedin.com/in/geneboyle
-          </a>
-          · ORCID:{' '}
-          <a href={siteIdentity.orcid} rel="noopener noreferrer">
-            0000-0002-0183-8740
-          </a>
-          · {siteIdentity.worksFor.name}:{' '}
-          <a href={siteIdentity.telephoneTel}>{siteIdentity.telephone}</a>. Research summaries here
-          are educational, not clinical advice.
-        </p>
-      </article>
-      <div className="mt-10">
+          <h2>Primary source</h2>
+          <p>
+            Mizock, L., Merg, A. L., Boyle, E. J., & Kompaniez-Dunigan, E. (2019). Motherhood
+            reimagined: Experiences of women with SMI surrounding parenting.{' '}
+            <em>Psychiatric Rehabilitation Journal, 42</em>(2), 105–112.{' '}
+            <a href="https://doi.org/10.1037/prj0000339">https://doi.org/10.1037/prj0000339</a>
+          </p>
+        </article>
         <NapBlock />
       </div>
     </>

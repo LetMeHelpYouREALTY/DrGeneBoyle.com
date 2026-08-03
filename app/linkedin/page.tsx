@@ -1,8 +1,11 @@
 import Link from '@/components/Link'
 import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
+import PageHero from '@/components/PageHero'
+import AnswerCallout from '@/components/AnswerCallout'
 import siteIdentity from '@/data/siteIdentity'
 import siteMetadata from '@/data/siteMetadata'
+import { pageMedia } from '@/data/pageMedia'
 import { genPageMetadata } from 'app/seo'
 import { breadcrumbSchema, organizationSchema, personSchema, webPageSchema } from '@/lib/schema'
 
@@ -14,6 +17,7 @@ const path = '/linkedin'
 export const metadata = genPageMetadata({
   title,
   description,
+  image: pageMedia.linkedin.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
@@ -75,35 +79,40 @@ export default function LinkedInHubPage() {
     webPageSchema({ title, description, path }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
-      { name: 'LinkedIn', path: path },
+      { name: 'LinkedIn', path },
     ]),
   ]
 
   return (
     <>
       <JsonLd data={schemas} />
-      <div className="pt-6">
-        <p className="text-primary-500 text-sm font-medium tracking-wide uppercase">
-          Entity · sameAs LinkedIn + ORCID
-        </p>
-        <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-100">
-          {title}
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
-          Direct answer: This page is the canonical web hub for{' '}
-          <a
-            href={siteIdentity.linkedin}
-            className="text-primary-500 hover:underline"
-            rel="noopener noreferrer"
-          >
+      <div className="space-y-8 pt-6">
+        <PageHero
+          eyebrow="Entity · sameAs LinkedIn + ORCID"
+          title={title}
+          summary="Connect website identity to linkedin.com/in/geneboyle for search and generative engines."
+          imageSrc={pageMedia.linkedin.src}
+          imageAlt={pageMedia.linkedin.alt}
+          priority
+          ctas={[
+            { href: siteIdentity.linkedin, label: 'Open LinkedIn profile', primary: true },
+            { href: '/topics/motherhood-and-smi', label: 'Motherhood & SMI hub' },
+          ]}
+        />
+
+        <AnswerCallout>
+          This page is the canonical web hub for{' '}
+          <a href={siteIdentity.linkedin} rel="noopener noreferrer">
             linkedin.com/in/geneboyle
           </a>
-          —so search and generative engines resolve one person (Eugene Joseph Boyle / Eugene Boyle,
-          Ph.D.), one ORCID, and one set of citable topic pages.
-        </p>
+          —so engines resolve one person (Eugene Joseph Boyle / Eugene Boyle, Ph.D.), one ORCID, and
+          one set of citable topic pages.
+        </AnswerCallout>
 
-        <section className="mt-10 rounded-lg border border-gray-200 p-6 dark:border-gray-700">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Profile identity</h2>
+        <section className="rounded-xl border border-gray-200 bg-white/80 p-6 dark:border-gray-700 dark:bg-gray-900/50">
+          <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
+            Profile identity
+          </h2>
           <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
             <li>
               <strong>Name:</strong> {siteIdentity.name} (Eugene Joseph Boyle)
@@ -127,12 +136,6 @@ export default function LinkedInHubPage() {
               </a>
             </li>
             <li>
-              <strong>GitHub:</strong>{' '}
-              <a href={siteIdentity.github} className="text-primary-500 hover:underline">
-                github.com/geneboyle
-              </a>
-            </li>
-            <li>
               <strong>Phone (KLB):</strong>{' '}
               <a href={siteIdentity.telephoneTel} className="text-primary-500 hover:underline">
                 {siteIdentity.telephone}
@@ -141,43 +144,35 @@ export default function LinkedInHubPage() {
           </ul>
         </section>
 
-        <section className="mt-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <section>
+          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
             Experience highlights (from LinkedIn)
           </h2>
-          <ul className="mt-6 space-y-5">
+          <ul className="mt-6 grid gap-4 md:grid-cols-2">
             {experienceHighlights.map((item) => (
-              <li key={item.title}>
+              <li
+                key={item.title}
+                className="rounded-xl border border-gray-200 bg-white/70 p-5 dark:border-gray-700 dark:bg-gray-900/50"
+              >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-gray-600 dark:text-gray-400">{item.detail}</p>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{item.detail}</p>
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="mt-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Education</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
-            {siteIdentity.education.map((edu) => (
-              <li key={`${edu.degree}-${edu.school}`}>
-                <strong>{edu.degree}</strong> — {edu.school} ({edu.locality})
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+        <section>
+          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
             Featured pages to link from LinkedIn
           </h2>
-          <ul className="mt-6 divide-y divide-gray-200 dark:divide-gray-700">
+          <ul className="mt-6 divide-y divide-gray-200 rounded-xl border border-gray-200 bg-white/70 dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-900/50">
             {featured.map((item) => (
-              <li key={item.href} className="py-5">
+              <li key={item.href} className="p-5">
                 <Link
                   href={item.href}
-                  className="text-xl font-semibold text-gray-900 dark:text-gray-100"
+                  className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100"
                 >
                   {item.title}
                 </Link>
@@ -187,23 +182,7 @@ export default function LinkedInHubPage() {
           </ul>
         </section>
 
-        <section className="prose dark:prose-invert mt-10 max-w-none">
-          <h2>How to use this hub</h2>
-          <ol>
-            <li>
-              Add this URL (or the motherhood topic hub) to LinkedIn <strong>Featured</strong>.
-            </li>
-            <li>In posts, deep-link the research brief, FAQ, or a glossary term anchor.</li>
-            <li>
-              Keep name strings consistent: Eugene Boyle, Ph.D. / Eugene Joseph Boyle / Gene Boyle.
-            </li>
-            <li>Reuse FAQ answers in comments for consistent AEO-friendly language.</li>
-          </ol>
-        </section>
-
-        <div className="mt-10">
-          <NapBlock />
-        </div>
+        <NapBlock />
       </div>
     </>
   )
