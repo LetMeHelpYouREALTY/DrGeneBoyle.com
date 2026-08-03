@@ -10,7 +10,7 @@ import { pageMedia, blogMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Topics'
-const description = `Topic hubs supporting ${siteIdentity.name}'s LinkedIn profile: CTMT–2 dissertation (attentional assessment), motherhood and SMI research, psychiatric rehabilitation explainers, and institutional insights for SEO, GEO, and AEO.`
+const description = `Topic hubs supporting ${siteIdentity.name}'s LinkedIn profile: CTMT–2 dissertation (attentional assessment), motherhood and SMI research, and psychiatric rehabilitation explainers.`
 
 export const metadata = genPageMetadata({
   title,
