@@ -37,26 +37,27 @@ _dmarc.drgeneboyle.com.  TXT  "v=DMARC1; p=none; rua=mailto:DrJanSells@Reverence
 - `https://www.drgeneboyle.com` → **200** (canonical; `siteUrl` in `data/siteMetadata.js`)
 - `https://drgeneboyle.com` → **307** → `https://www.drgeneboyle.com/`
 
-## Email (A) — Cloudflare Email Routing
+## Email — Cloudflare Email Routing
 
-**Status as of 2026-08-03:** no MX, no SPF, no DKIM. Site contact remains `eboyle@fielding.edu` until routing is live.
+**Public address:** `info@drgeneboyle.com` (site mailto / schema / About).
 
-### Enable in Cloudflare (preferred — auto-adds MX/SPF/DKIM)
+**Status:** Site publishes `info@drgeneboyle.com`. Confirm Email Routing in Cloudflare so MX/SPF/DKIM resolve and mail forwards to the working inbox (e.g. `eboyle@fielding.edu`).
+
+### Enable / verify in Cloudflare
 
 Per [Cloudflare Email Routing docs](https://developers.cloudflare.com/email-routing/get-started/enable-email-routing/):
 
-1. Dashboard → **Email** → **Email Routing** → select `drgeneboyle.com` → **Enable Email Routing** (or **Compute** → **Email Service** → **Email Routing** → **Onboard Domain**).
-2. Cloudflare adds root **MX**, **SPF**, and **DKIM** (`cf2024-1._domainkey`) and locks them.
-3. Add destination address: verify `eboyle@fielding.edu` (or another inbox Gene checks).
-4. Create routing rules (recommended):
+1. Dashboard → **Email** → **Email Routing** → select `drgeneboyle.com` → enable / onboard (adds root **MX**, **SPF**, and **DKIM**).
+2. Destination address: verify the inbox that should receive mail.
+3. Routing rule:
 
 | Custom address | Action | Destination |
 |----------------|--------|-------------|
-| `info@drgeneboyle.com` | Forward | `eboyle@fielding.edu` |
-| Catch-all (optional) | Forward | `eboyle@fielding.edu` |
+| `info@drgeneboyle.com` | Forward | verified destination inbox |
+| Catch-all (optional) | Forward | same |
 
-5. Test: send from a third-party account to `info@drgeneboyle.com` → confirm delivery.
-6. After SPF/DKIM resolve, optionally tighten DMARC from `p=none` → `p=quarantine` (confirm before changing).
+4. Test: send from a third-party account to `info@drgeneboyle.com` → confirm delivery.
+5. After SPF/DKIM resolve, optionally tighten DMARC from `p=none` → `p=quarantine` (confirm before changing).
 
 ### Records Cloudflare will manage
 

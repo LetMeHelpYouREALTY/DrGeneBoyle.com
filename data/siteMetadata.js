@@ -11,9 +11,8 @@ const siteMetadata = {
   siteRepo: 'https://github.com/LetMeHelpYouREALTY/DrGeneBoyle.com',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.webp`,
-  // Public contact until Cloudflare Email Routing is enabled for @drgeneboyle.com
-  // (see docs/dns.md). After routing is live, switch to info@drgeneboyle.com.
-  email: 'eboyle@fielding.edu',
+  // Domain address via Cloudflare Email Routing — see docs/dns.md
+  email: 'info@drgeneboyle.com',
   github: 'https://github.com/geneboyle',
   linkedin: 'https://www.linkedin.com/in/geneboyle/',
   // Unused networks intentionally omitted (no placeholder URLs).

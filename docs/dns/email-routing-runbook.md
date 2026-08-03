@@ -19,7 +19,7 @@
    - `info@drgeneboyle.com` → `eboyle@fielding.edu`
 
 5. Send a test from a non-destination account; check inbox + spam.
-6. Reply in chat / open a follow-up task to flip site mailto fields (listed in `docs/dns.md`).
+6. Reply in chat if a test to `info@` fails so DNS/routing can be rechecked.
 
 ## Do not
 
