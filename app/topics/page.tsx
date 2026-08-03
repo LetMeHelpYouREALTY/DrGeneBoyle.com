@@ -24,7 +24,7 @@ const topics = [
     href: '/blog/ctmt-attention-trail-making-dissertation',
     title: 'CTMT–2 dissertation (attentional assessment)',
     summary:
-      'Fielding Ph.D. dissertation (2024-12-02)—utility of the Comprehensive Trail Making Test-Second Edition for attentional deficits in children and adolescents.',
+      'Fielding Ph.D. dissertation (2024-12-02)—CTMT-2 utility for selective/everyday attention and processing speed in children and adolescents (N = 30).',
     image: blogMedia.ctmtDissertation,
   },
   {

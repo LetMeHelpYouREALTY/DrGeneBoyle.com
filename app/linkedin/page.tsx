@@ -26,7 +26,7 @@ const featured = [
     href: '/blog/ctmt-attention-trail-making-dissertation',
     title: 'Dissertation: CTMT–2 & attentional deficits',
     blurb:
-      'Fielding Ph.D. (2024-12-02)—utility of CTMT-2 for attentional assessment in children and adolescents.',
+      'Fielding Ph.D. (2024-12-02)—CTMT-2 vs WISC-V PSI and TEA-Ch2 attention indices in ages 8–15 (N = 30).',
   },
   {
     href: '/topics/motherhood-and-smi',

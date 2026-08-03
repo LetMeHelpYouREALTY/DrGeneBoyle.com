@@ -111,7 +111,7 @@ const siteIdentity = {
     'Financial due diligence',
   ],
   description:
-    'Eugene Boyle, Ph.D. (Eugene Joseph Boyle) is Managing Director at KLB Consultants and Investment Director at Boyle Family Office. His Fielding Graduate University dissertation (2024-12-02) investigated the utility of the Comprehensive Trail Making Test-Second Edition (CTMT-2) for assessing attentional deficits among children and adolescents. He is a co-author of Motherhood reimagined: Experiences of women with SMI surrounding parenting (Psychiatric Rehabilitation Journal, 2019), with training in clinical and forensic psychology (Fielding Graduate University; Heartland Behavioral Healthcare internship) and prior service as a public-company CFO.',
+    'Eugene Boyle, Ph.D. (Eugene Joseph Boyle) is Managing Director at KLB Consultants and Investment Director at Boyle Family Office. His Fielding Graduate University dissertation (2024-12-02) found CTMT-2 performance associated with WISC-V Processing Speed and TEA-Ch2 selective/everyday attention in school-aged children and adolescents (N = 30, ages 8–15), supporting CTMT-2 as a supplemental attentional assessment tool. He is a co-author of Motherhood reimagined: Experiences of women with SMI surrounding parenting (Psychiatric Rehabilitation Journal, 2019), with training in clinical and forensic psychology (Fielding Graduate University; Heartland Behavioral Healthcare internship) and prior service as a public-company CFO.',
   publications: [
     {
       type: 'dissertation',
