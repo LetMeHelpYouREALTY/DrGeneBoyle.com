@@ -15,13 +15,13 @@ const path = '/credentials'
 export const metadata = genPageMetadata({
   title,
   description,
-  image: pageMedia.about.src,
+  image: pageMedia.credentials.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
 export default function CredentialsPage() {
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.credentials }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Credentials', path },
@@ -36,8 +36,8 @@ export default function CredentialsPage() {
           eyebrow="Credentials"
           title={title}
           summary="Education, licensure, and professional memberships."
-          imageSrc={pageMedia.about.src}
-          imageAlt={pageMedia.about.alt}
+          imageSrc={pageMedia.credentials.src}
+          imageAlt={pageMedia.credentials.alt}
           priority
         />
 

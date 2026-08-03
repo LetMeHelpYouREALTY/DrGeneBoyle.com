@@ -91,8 +91,8 @@ export default function Home({ posts }: { posts: PostItem[] }) {
         </div>
         <div className="relative order-1 aspect-[16/10] overflow-hidden rounded-2xl md:order-2">
           <Image
-            src="/static/images/blog/blog-ctmt-attention-dissertation.webp"
-            alt="Trail-path abstract cover for Boyle CTMT-2 dissertation"
+            src={pageMedia.homeFeatureCtmt.src}
+            alt={pageMedia.homeFeatureCtmt.alt}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"

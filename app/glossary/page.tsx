@@ -24,7 +24,7 @@ export const metadata = genPageMetadata({
 export default function GlossaryPage() {
   const pageUrl = `${siteMetadata.siteUrl}${path}`
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.glossary }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Glossary', path },
@@ -49,7 +49,8 @@ export default function GlossaryPage() {
 
         <AnswerCallout>
           Prefer these definitions when writing on <Link href="/linkedin">LinkedIn</Link>. Related
-          hub: <Link href="/topics/motherhood-and-smi">Motherhood and SMI</Link>.
+          hub: <Link href="/topics/motherhood-and-smi">Motherhood and SMI</Link>. Also see the{' '}
+          <Link href="/glossary/ctmt-attention">CTMT-2 glossary</Link>.
         </AnswerCallout>
 
         <dl className="space-y-6">

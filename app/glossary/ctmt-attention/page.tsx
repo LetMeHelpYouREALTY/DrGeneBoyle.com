@@ -4,7 +4,7 @@ import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import AnswerCallout from '@/components/AnswerCallout'
 import { ctmtAttentionGlossary } from '@/data/glossary/ctmt-attention'
-import { blogMedia } from '@/data/pageMedia'
+import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { genPageMetadata } from 'app/seo'
 import { breadcrumbSchema, definedTermSchema, webPageSchema } from '@/lib/schema'
@@ -17,14 +17,14 @@ const path = '/glossary/ctmt-attention'
 export const metadata = genPageMetadata({
   title,
   description,
-  image: blogMedia.ctmtDissertation.src,
+  image: pageMedia.glossaryCtmt.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
 export default function CtmtAttentionGlossaryPage() {
   const pageUrl = `${siteMetadata.siteUrl}${path}`
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.glossaryCtmt }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Glossary: CTMT-2', path },
@@ -42,8 +42,8 @@ export default function CtmtAttentionGlossaryPage() {
           eyebrow="Glossary"
           title={title}
           summary="Canonical wording for CTMT-2 dissertation posts and citations."
-          imageSrc={blogMedia.ctmtDissertation.src}
-          imageAlt={blogMedia.ctmtDissertation.alt}
+          imageSrc={pageMedia.glossaryCtmt.src}
+          imageAlt={pageMedia.glossaryCtmt.alt}
           priority
         />
 

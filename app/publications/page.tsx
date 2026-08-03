@@ -15,7 +15,7 @@ const path = '/publications'
 export const metadata = genPageMetadata({
   title,
   description,
-  image: pageMedia.topics.src,
+  image: pageMedia.publications.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
@@ -39,7 +39,7 @@ const publications = [
 
 export default function PublicationsPage() {
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.publications }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Publications', path },
@@ -54,8 +54,8 @@ export default function PublicationsPage() {
           eyebrow="Research"
           title={title}
           summary="Dissertation and peer-reviewed work with on-site research briefs."
-          imageSrc={pageMedia.topics.src}
-          imageAlt={pageMedia.topics.alt}
+          imageSrc={pageMedia.publications.src}
+          imageAlt={pageMedia.publications.alt}
           priority
         />
 

@@ -40,12 +40,12 @@ const featured = [
   },
   {
     href: '/faq/motherhood-smi',
-    title: 'FAQ (AEO)',
-    blurb: 'Copy-paste answers for comments and AI extraction.',
+    title: 'FAQ',
+    blurb: 'Copy-paste answers for comments and research citations.',
   },
   {
     href: '/glossary',
-    title: 'Glossary (GEO)',
+    title: 'Glossary',
     blurb: 'Canonical definitions with DefinedTerm schema.',
   },
   {
@@ -82,7 +82,7 @@ export default function LinkedInHubPage() {
   const schemas = [
     personSchema(),
     organizationSchema(),
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.linkedin }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'LinkedIn', path },

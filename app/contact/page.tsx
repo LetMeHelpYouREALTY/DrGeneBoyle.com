@@ -15,14 +15,14 @@ const path = '/contact'
 export const metadata = genPageMetadata({
   title,
   description,
-  image: pageMedia.about.src,
+  image: pageMedia.contact.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
 export default function ContactPage() {
   const { addressLocality, addressRegion } = siteIdentity.address
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.contact }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Contact', path },
@@ -37,8 +37,8 @@ export default function ContactPage() {
           eyebrow="Contact"
           title={title}
           summary={`${siteIdentity.name} · ${addressLocality}, ${addressRegion}`}
-          imageSrc={pageMedia.about.src}
-          imageAlt={pageMedia.about.alt}
+          imageSrc={pageMedia.contact.src}
+          imageAlt={pageMedia.contact.alt}
           priority
         />
 

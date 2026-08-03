@@ -43,14 +43,14 @@ const clusterLinks = [
     href: '/blog/what-is-serious-mental-illness',
     label: 'Definition: What is serious mental illness (SMI)?',
   },
-  { href: '/faq/motherhood-smi', label: 'FAQ: Motherhood and SMI (AEO)' },
-  { href: '/glossary', label: 'Glossary of key terms (GEO)' },
+  { href: '/faq/motherhood-smi', label: 'FAQ: Motherhood and SMI' },
+  { href: '/glossary', label: 'Glossary of key terms' },
   { href: '/linkedin', label: 'LinkedIn profile hub — Eugene Boyle, Ph.D.' },
 ]
 
 export default function MotherhoodSmiTopicPage() {
   const schemas = [
-    webPageSchema({ title, description, path: '/topics/motherhood-and-smi' }),
+    webPageSchema({ title, description, path: '/topics/motherhood-and-smi', image: pageMedia.motherhoodSmi }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Topics', path: '/topics' },

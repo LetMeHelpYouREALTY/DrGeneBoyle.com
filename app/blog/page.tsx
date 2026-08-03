@@ -2,10 +2,24 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 import { genPageMetadata } from 'app/seo'
 import ListLayout from '@/layouts/ListLayoutWithTags'
+import PageHero from '@/components/PageHero'
+import JsonLd from '@/components/JsonLd'
+import { pageMedia } from '@/data/pageMedia'
+import siteMetadata from '@/data/siteMetadata'
+import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const POSTS_PER_PAGE = 5
+const title = 'Research Blog'
+const description =
+  'Research briefs by Eugene Boyle, Ph.D. on CTMT-2 attentional assessment and motherhood & serious mental illness (SMI).'
+const path = '/blog'
 
-export const metadata = genPageMetadata({ title: 'Blog' })
+export const metadata = genPageMetadata({
+  title,
+  description,
+  image: pageMedia.blog.src,
+  alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
+})
 
 export default async function BlogPage(props: { searchParams: Promise<{ page: string }> }) {
   const posts = allCoreContent(sortPosts(allBlogs))
@@ -17,12 +31,33 @@ export default async function BlogPage(props: { searchParams: Promise<{ page: st
     totalPages: totalPages,
   }
 
+  const schemas = [
+    webPageSchema({ title, description, path, image: pageMedia.blog }),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path },
+    ]),
+  ]
+
   return (
-    <ListLayout
-      posts={posts}
-      initialDisplayPosts={initialDisplayPosts}
-      pagination={pagination}
-      title="All Posts"
-    />
+    <>
+      <JsonLd data={schemas} />
+      <div className="space-y-8 pt-6">
+        <PageHero
+          eyebrow="Blog"
+          title={title}
+          summary={description}
+          imageSrc={pageMedia.blog.src}
+          imageAlt={pageMedia.blog.alt}
+          priority
+        />
+        <ListLayout
+          posts={posts}
+          initialDisplayPosts={initialDisplayPosts}
+          pagination={pagination}
+          title="All Posts"
+        />
+      </div>
+    </>
   )
 }

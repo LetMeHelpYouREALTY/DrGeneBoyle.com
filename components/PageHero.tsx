@@ -32,11 +32,13 @@ export default function PageHero({
         <Image
           src={imageSrc}
           alt={imageAlt}
+          title={imageAlt}
           fill
           className="object-cover"
           priority={priority}
           sizes="(max-width: 768px) 100vw, 1100px"
         />
+        <span className="sr-only">{imageAlt}</span>
         <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-ink)]/92 via-[color:var(--color-ink)]/78 to-[color:var(--color-ink)]/35" />
       </div>
       <div className="relative z-10 flex min-h-[22rem] flex-col justify-end px-6 py-10 sm:min-h-[26rem] sm:px-10 sm:py-14">

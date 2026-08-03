@@ -4,7 +4,7 @@ import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import AnswerCallout from '@/components/AnswerCallout'
 import { ctmtAttentionFaqs } from '@/data/faqs/ctmt-attention'
-import { blogMedia } from '@/data/pageMedia'
+import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { genPageMetadata } from 'app/seo'
 import { breadcrumbSchema, faqPageSchema, webPageSchema } from '@/lib/schema'
@@ -17,14 +17,14 @@ const path = '/faq/ctmt-attention'
 export const metadata = genPageMetadata({
   title,
   description,
-  image: blogMedia.ctmtDissertation.src,
+  image: pageMedia.faqCtmt.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
 export default function CtmtAttentionFaqPage() {
   const pageUrl = `${siteMetadata.siteUrl}${path}`
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.faqCtmt }),
     faqPageSchema(ctmtAttentionFaqs, pageUrl),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
@@ -40,8 +40,8 @@ export default function CtmtAttentionFaqPage() {
           eyebrow="FAQ"
           title={title}
           summary="Short answers drawn from the Boyle (2024) dissertation abstract."
-          imageSrc={blogMedia.ctmtDissertation.src}
-          imageAlt={blogMedia.ctmtDissertation.alt}
+          imageSrc={pageMedia.faqCtmt.src}
+          imageAlt={pageMedia.faqCtmt.alt}
           priority
         />
 

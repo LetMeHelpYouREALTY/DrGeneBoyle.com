@@ -5,7 +5,7 @@ import PageHero from '@/components/PageHero'
 import AnswerCallout from '@/components/AnswerCallout'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
-import { blogMedia } from '@/data/pageMedia'
+import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'CTMT-2 & Attentional Assessment'
@@ -16,7 +16,7 @@ const path = '/topics/ctmt-attention'
 export const metadata = genPageMetadata({
   title,
   description,
-  image: blogMedia.ctmtDissertation.src,
+  image: pageMedia.ctmtAttention.src,
   alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
 })
 
@@ -51,7 +51,7 @@ const clusterLinks = [
 
 export default function CtmtAttentionTopicPage() {
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.ctmtAttention }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Topics', path: '/topics' },
@@ -67,8 +67,8 @@ export default function CtmtAttentionTopicPage() {
           eyebrow="Topic hub"
           title={title}
           summary="Citable pillar for Boyle’s CTMT-2 dissertation on attentional assessment in children and adolescents."
-          imageSrc={blogMedia.ctmtDissertation.src}
-          imageAlt={blogMedia.ctmtDissertation.alt}
+          imageSrc={pageMedia.ctmtAttention.src}
+          imageAlt={pageMedia.ctmtAttention.alt}
           priority
           ctas={[
             {

@@ -6,7 +6,7 @@ import PageHero from '@/components/PageHero'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
-import { pageMedia, blogMedia } from '@/data/pageMedia'
+import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Topics'
@@ -25,7 +25,7 @@ const topics = [
     title: 'CTMT-2 & attentional assessment',
     summary:
       'Fielding Ph.D. dissertation (2024-12-02)—CTMT-2 utility for selective/everyday attention and processing speed in children and adolescents (N = 30).',
-    image: blogMedia.ctmtDissertation,
+    image: pageMedia.ctmtAttention,
   },
   {
     href: '/topics/motherhood-and-smi',
@@ -38,7 +38,7 @@ const topics = [
     href: '/faq/ctmt-attention',
     title: 'FAQ: CTMT-2 & attention',
     summary: 'Answer-first Q&A on Boyle (2024) sample, measures, and findings.',
-    image: blogMedia.ctmtDissertation,
+    image: pageMedia.faqCtmt,
   },
   {
     href: '/faq/motherhood-smi',
@@ -50,7 +50,7 @@ const topics = [
     href: '/glossary/ctmt-attention',
     title: 'Glossary: CTMT-2 terms',
     summary: 'Definitions for CTMT-2, PSI, TEA-Ch2 indices, and ADHD assessment framing.',
-    image: blogMedia.ctmtDissertation,
+    image: pageMedia.glossaryCtmt,
   },
   {
     href: '/glossary',
@@ -62,7 +62,7 @@ const topics = [
     href: '/publications',
     title: 'Publications',
     summary: 'Dissertation and peer-reviewed publications with on-site research briefs.',
-    image: pageMedia.topics,
+    image: pageMedia.publications,
   },
   {
     href: '/linkedin',
@@ -74,7 +74,7 @@ const topics = [
 
 export default function TopicsPage() {
   const schemas = [
-    webPageSchema({ title, description, path: '/topics' }),
+    webPageSchema({ title, description, path: '/topics', image: pageMedia.topics }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Topics', path: '/topics' },

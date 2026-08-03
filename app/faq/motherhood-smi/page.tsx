@@ -24,7 +24,7 @@ export const metadata = genPageMetadata({
 export default function MotherhoodSmiFaqPage() {
   const pageUrl = `${siteMetadata.siteUrl}${path}`
   const schemas = [
-    webPageSchema({ title, description, path }),
+    webPageSchema({ title, description, path, image: pageMedia.faq }),
     faqPageSchema(motherhoodSmiFaqs, pageUrl),
     breadcrumbSchema([
       { name: 'Home', path: '/' },

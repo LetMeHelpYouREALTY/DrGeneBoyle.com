@@ -122,17 +122,20 @@ export function webPageSchema({
   title,
   description,
   path,
+  image,
 }: {
   title: string
   description: string
   path: string
+  image?: { src: string; alt: string }
 }) {
+  const pageUrl = `${siteMetadata.siteUrl}${path}`
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: title,
     description,
-    url: `${siteMetadata.siteUrl}${path}`,
+    url: pageUrl,
     isPartOf: {
       '@type': 'WebSite',
       name: siteMetadata.title,
@@ -140,5 +143,17 @@ export function webPageSchema({
     },
     author: { '@id': `${siteMetadata.siteUrl}/about#person` },
     about: { '@id': `${siteMetadata.siteUrl}/about#person` },
+    ...(image
+      ? {
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            url: `${siteMetadata.siteUrl}${image.src}`,
+            contentUrl: `${siteMetadata.siteUrl}${image.src}`,
+            description: image.alt,
+            name: image.alt,
+            caption: image.alt,
+          },
+        }
+      : {}),
   }
 }

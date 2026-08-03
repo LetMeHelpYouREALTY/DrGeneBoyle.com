@@ -39,7 +39,8 @@ export default function Page() {
               label: 'LinkedIn profile',
               primary: true,
             },
-            { href: '/topics/motherhood-and-smi', label: 'Research hub' },
+            { href: '/topics/ctmt-attention', label: 'CTMT-2 research' },
+            { href: '/topics/motherhood-and-smi', label: 'Motherhood & SMI' },
           ]}
         />
         <AuthorLayout content={mainContent}>
