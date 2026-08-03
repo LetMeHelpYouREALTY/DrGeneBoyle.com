@@ -10,7 +10,7 @@ import { pageMedia, blogMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Topics'
-const description = `Topic hubs supporting ${siteIdentity.name}'s LinkedIn profile: CTMT–2 dissertation (attentional assessment), motherhood and SMI research, and psychiatric rehabilitation explainers.`
+const description = `Topic hubs for ${siteIdentity.name}: CTMT-2 attentional assessment dissertation and motherhood & SMI research.`
 
 export const metadata = genPageMetadata({
   title,
@@ -21,8 +21,8 @@ export const metadata = genPageMetadata({
 
 const topics = [
   {
-    href: '/blog/ctmt-attention-trail-making-dissertation',
-    title: 'CTMT–2 dissertation (attentional assessment)',
+    href: '/topics/ctmt-attention',
+    title: 'CTMT-2 & attentional assessment',
     summary:
       'Fielding Ph.D. dissertation (2024-12-02)—CTMT-2 utility for selective/everyday attention and processing speed in children and adolescents (N = 30).',
     image: blogMedia.ctmtDissertation,
@@ -35,23 +35,39 @@ const topics = [
     image: pageMedia.motherhoodSmi,
   },
   {
+    href: '/faq/ctmt-attention',
+    title: 'FAQ: CTMT-2 & attention',
+    summary: 'Answer-first Q&A on Boyle (2024) sample, measures, and findings.',
+    image: blogMedia.ctmtDissertation,
+  },
+  {
     href: '/faq/motherhood-smi',
     title: 'FAQ: Motherhood and SMI',
-    summary:
-      'Answer-first Q&A for snippets, AI overviews, and LinkedIn replies—with matching FAQPage schema.',
+    summary: 'Answer-first Q&A on the 2019 study themes and Boyle’s research role.',
     image: pageMedia.faq,
+  },
+  {
+    href: '/glossary/ctmt-attention',
+    title: 'Glossary: CTMT-2 terms',
+    summary: 'Definitions for CTMT-2, PSI, TEA-Ch2 indices, and ADHD assessment framing.',
+    image: blogMedia.ctmtDissertation,
   },
   {
     href: '/glossary',
     title: 'Glossary: SMI & parenting terms',
-    summary: 'Canonical definitions (DefinedTerm) readers and generative engines can cite cleanly.',
+    summary: 'Canonical definitions for motherhood themes and psychiatric rehabilitation.',
     image: pageMedia.glossary,
+  },
+  {
+    href: '/publications',
+    title: 'Publications',
+    summary: 'Dissertation and peer-reviewed publications with on-site research briefs.',
+    image: pageMedia.topics,
   },
   {
     href: '/linkedin',
     title: 'LinkedIn profile hub',
-    summary:
-      'Canonical website ↔ linkedin.com/in/geneboyle entity page with sameAs, ORCID, and share-ready URLs.',
+    summary: 'Canonical website hub aligned with linkedin.com/in/geneboyle.',
     image: pageMedia.linkedin,
   },
 ]

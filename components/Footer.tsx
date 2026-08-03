@@ -29,17 +29,17 @@ export default function Footer() {
             </a>
           </p>
           <p className="mt-2 flex flex-wrap justify-center gap-x-3 gap-y-1">
-            <Link href="/linkedin" className="text-primary-500 hover:underline">
-              LinkedIn hub
+            <Link href="/publications" className="text-primary-500 hover:underline">
+              Publications
+            </Link>
+            <Link href="/topics/ctmt-attention" className="text-primary-500 hover:underline">
+              CTMT-2
             </Link>
             <Link href="/topics/motherhood-and-smi" className="text-primary-500 hover:underline">
               Motherhood & SMI
             </Link>
-            <Link href="/glossary" className="text-primary-500 hover:underline">
-              Glossary
-            </Link>
-            <Link href="/faq/motherhood-smi" className="text-primary-500 hover:underline">
-              FAQ
+            <Link href="/contact" className="text-primary-500 hover:underline">
+              Contact
             </Link>
           </p>
         </div>

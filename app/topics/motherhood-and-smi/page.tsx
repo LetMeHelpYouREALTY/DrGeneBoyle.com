@@ -65,7 +65,7 @@ export default function MotherhoodSmiTopicPage() {
         <PageHero
           eyebrow="Topic hub"
           title={title}
-          summary="A citable pillar for LinkedIn posts, clinician education, and generative-engine answers."
+          summary="A citable pillar for clinician education and research citations."
           imageSrc={pageMedia.motherhoodSmi.src}
           imageAlt={pageMedia.motherhoodSmi.alt}
           priority

@@ -11,7 +11,7 @@ import { breadcrumbSchema, organizationSchema, personSchema, webPageSchema } fro
 
 const title = 'LinkedIn Profile Hub — Eugene Boyle, Ph.D.'
 const description =
-  'Canonical website hub for Eugene Boyle, Ph.D. (linkedin.com/in/geneboyle): Person/Organization schema with sameAs, ORCID, featured research pages, and share-ready URLs for SEO, GEO, and AEO.'
+  'Canonical website hub for Eugene Boyle, Ph.D. (linkedin.com/in/geneboyle): Person/Organization schema with sameAs, ORCID, featured research pages, and share-ready URLs.'
 const path = '/linkedin'
 
 export const metadata = genPageMetadata({

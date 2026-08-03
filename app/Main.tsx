@@ -7,7 +7,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { pageMedia } from '@/data/pageMedia'
 import { formatDate } from 'pliny/utils/formatDate'
 
-const MAX_DISPLAY = 4
+const MAX_DISPLAY = 6
 
 type PostItem = {
   slug: string
@@ -43,7 +43,7 @@ export default function Home({ posts }: { posts: PostItem[] }) {
           </h2>
           <p className="mt-4 max-w-lg text-lg text-gray-600 dark:text-gray-400">
             Five grounded-theory themes from Mizock, Merg, Boyle & Kompaniez-Dunigan (2019)—built as
-            citable pages for LinkedIn, search, and answer engines.
+            citable pages for clinicians and researchers.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -59,6 +59,44 @@ export default function Home({ posts }: { posts: PostItem[] }) {
               Read research brief
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="mt-14 grid items-center gap-8 md:grid-cols-2">
+        <div className="order-2 md:order-1">
+          <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">
+            Dissertation
+          </p>
+          <h2 className="font-display mt-3 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-100">
+            CTMT-2 & attention
+          </h2>
+          <p className="mt-4 max-w-lg text-lg text-gray-600 dark:text-gray-400">
+            Boyle (2024): CTMT-2 performance linked to WISC-V processing speed and TEA-Ch2
+            selective/everyday attention in ages 8–15 (*N* = 30).
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/topics/ctmt-attention"
+              className="bg-accent hover:bg-accent-dark rounded-md px-5 py-2.5 text-sm font-semibold text-[color:var(--color-ink)]"
+            >
+              Open topic hub
+            </Link>
+            <Link
+              href="/blog/ctmt-attention-trail-making-dissertation"
+              className="rounded-md border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-800 dark:border-gray-600 dark:text-gray-100"
+            >
+              Read dissertation brief
+            </Link>
+          </div>
+        </div>
+        <div className="relative order-1 aspect-[16/10] overflow-hidden rounded-2xl md:order-2">
+          <Image
+            src="/static/images/blog/blog-ctmt-attention-dissertation.webp"
+            alt="Trail-path abstract cover for Boyle CTMT-2 dissertation"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
       </section>
 

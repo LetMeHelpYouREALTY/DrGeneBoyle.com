@@ -11,7 +11,7 @@ import { breadcrumbSchema, definedTermSchema, webPageSchema } from '@/lib/schema
 
 const title = 'Glossary: Motherhood, SMI & Psychiatric Rehabilitation'
 const description =
-  'Canonical definitions for serious mental illness (SMI), motherhood themes from Mizock, Merg, Boyle & Kompaniez-Dunigan (2019), and psychiatric rehabilitation—built for GEO citations and LinkedIn clarity.'
+  'Canonical definitions for serious mental illness (SMI), motherhood themes from Mizock, Merg, Boyle & Kompaniez-Dunigan (2019), and psychiatric rehabilitation.'
 const path = '/glossary'
 
 export const metadata = genPageMetadata({
@@ -39,9 +39,9 @@ export default function GlossaryPage() {
       <JsonLd data={schemas} />
       <div className="space-y-8 pt-6">
         <PageHero
-          eyebrow="GEO · DefinedTerm schema"
+          eyebrow="Glossary"
           title={title}
-          summary="Canonical wording for posts, comments, and generative citations."
+          summary="Canonical wording for posts, comments, and research citations."
           imageSrc={pageMedia.glossary.src}
           imageAlt={pageMedia.glossary.alt}
           priority

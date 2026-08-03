@@ -11,7 +11,7 @@ import { breadcrumbSchema, faqPageSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'FAQ: Motherhood and Serious Mental Illness (SMI)'
 const description =
-  'Answer-first FAQ on motherhood and SMI, including Mizock, Merg, Boyle & Kompaniez-Dunigan (2019) themes and Eugene Boyle, Ph.D.’s research role—structured for AEO, GEO, and LinkedIn.'
+  'Answer-first FAQ on motherhood and SMI, including Mizock, Merg, Boyle & Kompaniez-Dunigan (2019) themes and Eugene Boyle, Ph.D.’s research role.'
 const path = '/faq/motherhood-smi'
 
 export const metadata = genPageMetadata({
@@ -37,9 +37,9 @@ export default function MotherhoodSmiFaqPage() {
       <JsonLd data={schemas} />
       <div className="space-y-8 pt-6">
         <PageHero
-          eyebrow="AEO · FAQPage schema"
+          eyebrow="FAQ"
           title={title}
-          summary="Short, self-contained answers for search snippets, AI overviews, and LinkedIn comment replies."
+          summary="Short, self-contained answers for research citations and clinician education."
           imageSrc={pageMedia.faq.src}
           imageAlt={pageMedia.faq.alt}
           priority

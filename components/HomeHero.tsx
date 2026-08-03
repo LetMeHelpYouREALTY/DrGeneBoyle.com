@@ -23,21 +23,21 @@ export default function HomeHero({ imageSrc, imageAlt }: HomeHeroProps) {
           Eugene Boyle, Ph.D.
         </h1>
         <p className="mt-5 max-w-xl text-lg text-white/88 sm:text-xl">
-          Peer-reviewed research on motherhood and serious mental illness—plus institutional
-          acquisition insight across California and Nevada.
+          CTMT-2 attentional assessment dissertation and motherhood & SMI research—plus acquisition
+          insight across California and Nevada.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Link
-            href="/topics/motherhood-and-smi"
+            href="/topics/ctmt-attention"
             className="bg-accent hover:bg-accent-dark rounded-md px-6 py-3 text-sm font-semibold text-[color:var(--color-ink)] transition"
           >
-            Explore Motherhood & SMI
+            Explore CTMT-2 research
           </Link>
           <Link
-            href="/linkedin"
+            href="/topics/motherhood-and-smi"
             className="rounded-md border border-white/45 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
           >
-            LinkedIn profile hub
+            Motherhood & SMI
           </Link>
         </div>
       </div>
