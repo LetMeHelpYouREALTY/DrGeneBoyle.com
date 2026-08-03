@@ -51,7 +51,7 @@ const siteIdentity = {
       degree: 'Ph.D. Clinical Psychology',
       school: 'Fielding Graduate University',
       locality: 'Santa Barbara, CA',
-      note: 'Dissertation: CTMT–2 utility for attentional deficits in children and adolescents (2024; ProQuest 31761032)',
+      note: 'Dissertation: CTMT-2 utility for attentional deficits in children and adolescents (2024-12-02; ProQuest 31761032)',
     },
     {
       degree: 'M.A. Clinical Psychology',
@@ -111,13 +111,15 @@ const siteIdentity = {
     'Financial due diligence',
   ],
   description:
-    'Eugene Boyle, Ph.D. (Eugene Joseph Boyle) is Managing Director at KLB Consultants and Investment Director at Boyle Family Office. His Fielding Graduate University dissertation (2024) investigated the utility of the Comprehensive Trail Making Test–Second Edition (CTMT–2) for assessing attentional deficits among children and adolescents. He is a co-author of Motherhood reimagined: Experiences of women with SMI surrounding parenting (Psychiatric Rehabilitation Journal, 2019), with training in clinical and forensic psychology (Fielding Graduate University; Heartland Behavioral Healthcare internship) and prior service as a public-company CFO.',
+    'Eugene Boyle, Ph.D. (Eugene Joseph Boyle) is Managing Director at KLB Consultants and Investment Director at Boyle Family Office. His Fielding Graduate University dissertation (2024-12-02) investigated the utility of the Comprehensive Trail Making Test-Second Edition (CTMT-2) for assessing attentional deficits among children and adolescents. He is a co-author of Motherhood reimagined: Experiences of women with SMI surrounding parenting (Psychiatric Rehabilitation Journal, 2019), with training in clinical and forensic psychology (Fielding Graduate University; Heartland Behavioral Healthcare internship) and prior service as a public-company CFO.',
   publications: [
     {
       type: 'dissertation',
       title:
-        'Investigating the Utility of the Comprehensive Trail Making Test – Second Edition (CTMT–2) in Assessing Attentional Deficits Among Children and Adolescents',
+        'Investigating the Utility of the Comprehensive Trail Making Test -Second Edition (CTMT-2) in Assessing Attentional Deficits Among Children and Adolescents',
+      author: 'Boyle, Eugene',
       year: 2024,
+      date: '2024-12-02',
       institution: 'Fielding Graduate University',
       proquestId: '31761032',
       url: 'https://www.researchgate.net/publication/387076027_Investigating_the_Utility_of_the_Comprehensive_Trail_Making_Test_-Second_Edition_CTMT-2_in_Assessing_Attentional_Deficits_Among_Children_and_Adolescents',
