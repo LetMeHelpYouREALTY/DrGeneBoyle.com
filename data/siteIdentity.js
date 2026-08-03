@@ -26,7 +26,10 @@ const siteIdentity = {
         'Private placement sourcing, due diligence, and pre-IPO portfolio structuring across technology, real estate, and alternatives.',
     },
   ],
+  // Live mailto until Email Routing is enabled — see docs/dns.md
   email: 'eboyle@fielding.edu',
+  // Planned domain address once Cloudflare Email Routing forwards to the inbox above
+  domainEmail: 'info@drgeneboyle.com',
   telephone: '949-324-8880',
   telephoneTel: 'tel:+19493248880',
   address: {

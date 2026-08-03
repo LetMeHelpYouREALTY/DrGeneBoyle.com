@@ -11,16 +11,12 @@ const siteMetadata = {
   siteRepo: 'https://github.com/LetMeHelpYouREALTY/DrGeneBoyle.com',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.webp`,
+  // Public contact until Cloudflare Email Routing is enabled for @drgeneboyle.com
+  // (see docs/dns.md). After routing is live, switch to info@drgeneboyle.com.
   email: 'eboyle@fielding.edu',
   github: 'https://github.com/geneboyle',
-  x: 'https://twitter.com/x',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/geneboyle/',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
-  medium: 'https://medium.com',
-  bluesky: 'https://bsky.app/',
+  // Unused networks intentionally omitted (no placeholder URLs).
   locale: 'en-US',
   stickyNav: false,
   analytics: {
