@@ -1,0 +1,41 @@
+;;
+;; Domain:     drgeneboyle.com.
+;; Exported:   2026-08-03 18:48:05
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+drgeneboyle.com	3600	IN	SOA	amit.ns.cloudflare.com. dns.cloudflare.com. 2053744948 10000 2400 604800 3600
+
+;; NS Records
+drgeneboyle.com.	86400	IN	NS	amit.ns.cloudflare.com.
+drgeneboyle.com.	86400	IN	NS	roxy.ns.cloudflare.com.
+
+;; CNAME Records
+drgeneboyle.com.	1	IN	CNAME	553347965863feb5.vercel-dns-017.com. ; cf_tags=cf-proxied:false
+www.drgeneboyle.com.	1	IN	CNAME	553347965863feb5.vercel-dns-017.com. ; cf_tags=cf-proxied:false
+
+;; TXT Records
+_dmarc.drgeneboyle.com.	1	IN	TXT	"v=DMARC1; p=none; rua=mailto:DrJanSells@ReverenceSummerlinHomes.com; ruf=mailto:DrJanSells@ReverenceSummerlinHomes.com; fo=1"
+drgeneboyle.com.	3600	IN	TXT	"google-site-verification=U6dTkupnkNebU0nsneR1nxBD6wZH3aGhpTc6CkE0gyE"
+_vercel.drgeneboyle.com.	600	IN	TXT	"vc-domain-verify=www.drgeneboyle.com,25e75361cf2697921316,dc"
+_vercel.drgeneboyle.com.	600	IN	TXT	"vc-domain-verify=drgeneboyle.com,19ced00015f2b3996a8f,dc"

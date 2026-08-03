@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
+import siteIdentity from '@/data/siteIdentity'
 
 interface Props {
   children: ReactNode
@@ -34,6 +35,7 @@ export default function AuthorLayout({ children, content }: Props) {
               <SocialIcon kind="mail" href={`mailto:${email}`} />
               <SocialIcon kind="github" href={github} />
               <SocialIcon kind="linkedin" href={linkedin} />
+              <SocialIcon kind="orcid" href={siteIdentity.orcid} />
               <SocialIcon kind="x" href={twitter} />
               <SocialIcon kind="bluesky" href={bluesky} />
             </div>

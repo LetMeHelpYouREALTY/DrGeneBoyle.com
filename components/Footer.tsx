@@ -13,6 +13,7 @@ export default function Footer() {
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
           <SocialIcon kind="github" href={siteMetadata.github} size={6} />
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
+          <SocialIcon kind="orcid" href={siteIdentity.orcid} size={6} />
         </div>
         <div className="mb-3 max-w-xl px-4 text-center text-sm text-gray-600 dark:text-gray-400">
           <p className="font-display text-base font-semibold text-gray-900 dark:text-gray-100">
