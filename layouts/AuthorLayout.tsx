@@ -20,7 +20,7 @@ export default function AuthorLayout({ children, content }: Props) {
             {avatar && (
               <Image
                 src={avatar}
-                alt={`${name} portrait`}
+                alt={`Professional headshot of ${name}, CTMT-2 dissertation author and Managing Director at KLB Consultants`}
                 width={192}
                 height={192}
                 className="h-48 w-48 rounded-full object-cover ring-2 ring-[color:var(--color-accent)]/40"

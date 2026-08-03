@@ -31,7 +31,7 @@ export function personSchema() {
     url: `${siteMetadata.siteUrl}/about`,
     email: siteIdentity.email,
     telephone: siteIdentity.telephone,
-    image: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+    image: `${siteMetadata.siteUrl}/static/images/eugene-boyle-headshot.jpg`,
     homeLocation: place,
     worksFor: {
       '@type': 'Organization',
