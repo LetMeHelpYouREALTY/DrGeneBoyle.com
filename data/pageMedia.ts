@@ -1,8 +1,12 @@
 /** Canonical page/blog imagery for SEO alt text + OG consistency. */
 export const pageMedia = {
   home: {
-    src: '/static/images/pages/hero-home-eugene-boyle.webp',
-    alt: 'Abstract institutional research atmosphere in ink navy and teal for Eugene Boyle, Ph.D.',
+    src: '/static/images/pages/improve-here-homepage.webp',
+    alt: 'Improved full-bleed homepage hero in ink navy and teal for Eugene Boyle, Ph.D. research site',
+  },
+  homeFeature: {
+    src: '/static/images/pages/home-feature-motherhood-smi.webp',
+    alt: 'Feature image for Motherhood and serious mental illness research topic on the homepage',
   },
   topics: {
     src: '/static/images/pages/page-topics-hub.webp',
