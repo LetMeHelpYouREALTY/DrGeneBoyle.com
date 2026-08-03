@@ -76,15 +76,15 @@ TXT  cf2024-1._domainkey  "v=DKIM1; h=sha256; k=rsa; p=…"
 
 Do **not** add third-party MX (Google Workspace, Microsoft 365) while Email Routing is enabled — they conflict.
 
-### After routing is live (site code follow-up)
+### Site code (already live)
 
-Update public mailto to the domain address:
+Public mailto fields use `info@drgeneboyle.com`:
 
-- `data/siteMetadata.js` → `email: 'info@drgeneboyle.com'`
-- `data/siteIdentity.js` → `email: 'info@drgeneboyle.com'`
-- `data/authors/default.mdx` → `email: info@drgeneboyle.com`
+- `data/siteMetadata.js`
+- `data/siteIdentity.js`
+- `data/authors/default.mdx`
 
-Keep Fielding as destination only; do not publish it if domain forwarding works.
+Destination inbox stays private (forward target only).
 
 ## Verify checklist
 
