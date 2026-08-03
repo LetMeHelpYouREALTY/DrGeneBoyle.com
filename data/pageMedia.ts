@@ -55,4 +55,8 @@ export const blogMedia = {
     src: '/static/images/blog/blog-what-is-smi.webp',
     alt: 'Abstract crystalline form defining serious mental illness (SMI)',
   },
+  ctmtDissertation: {
+    src: '/static/images/blog/blog-ctmt-attention-dissertation.webp',
+    alt: 'Trail-path abstract cover for Boyle CTMT-2 attentional assessment dissertation brief',
+  },
 } as const

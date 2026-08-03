@@ -23,6 +23,12 @@ export const metadata = genPageMetadata({
 
 const featured = [
   {
+    href: '/blog/ctmt-attention-trail-making-dissertation',
+    title: 'Dissertation: CTMT–2 & attentional deficits',
+    blurb:
+      'Fielding Ph.D. (2024)—utility of CTMT–2 for attentional assessment in children and adolescents.',
+  },
+  {
     href: '/topics/motherhood-and-smi',
     title: 'Topic hub: Motherhood and SMI',
     blurb: 'Pillar page for LinkedIn carousels and posts on the 2019 study.',
@@ -63,7 +69,7 @@ const experienceHighlights = [
   {
     title: 'Clinical / research path',
     detail:
-      'Ph.D. Clinical Psychology (Fielding); forensic psychology internship at Heartland Behavioral Healthcare; qualitative analyst on women with SMI research under Lauren Mizock, Ph.D.',
+      'Ph.D. Clinical Psychology (Fielding)—dissertation on CTMT–2 attentional assessment in children and adolescents (2024); forensic psychology internship at Heartland Behavioral Healthcare; qualitative analyst on women with SMI research under Lauren Mizock, Ph.D.',
   },
   {
     title: 'Public-company CFO — Samaritan Pharmaceuticals',

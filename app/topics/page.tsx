@@ -6,11 +6,11 @@ import PageHero from '@/components/PageHero'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
-import { pageMedia } from '@/data/pageMedia'
+import { pageMedia, blogMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Topics'
-const description = `Topic hubs supporting ${siteIdentity.name}'s LinkedIn profile: motherhood and SMI research, psychiatric rehabilitation explainers, and institutional insights for SEO, GEO, and AEO.`
+const description = `Topic hubs supporting ${siteIdentity.name}'s LinkedIn profile: CTMT–2 dissertation (attentional assessment), motherhood and SMI research, psychiatric rehabilitation explainers, and institutional insights for SEO, GEO, and AEO.`
 
 export const metadata = genPageMetadata({
   title,
@@ -20,6 +20,13 @@ export const metadata = genPageMetadata({
 })
 
 const topics = [
+  {
+    href: '/blog/ctmt-attention-trail-making-dissertation',
+    title: 'CTMT–2 dissertation (attentional assessment)',
+    summary:
+      'Fielding Ph.D. dissertation (2024)—utility of the Comprehensive Trail Making Test–Second Edition for attentional deficits in children and adolescents.',
+    image: blogMedia.ctmtDissertation,
+  },
   {
     href: '/topics/motherhood-and-smi',
     title: 'Motherhood and serious mental illness (SMI)',
