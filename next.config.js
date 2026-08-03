@@ -79,6 +79,11 @@ module.exports = () => {
           protocol: 'https',
           hostname: 'picsum.photos',
         },
+        // Cloudflare Images delivery (hosted Images — works with gray-cloud DNS → Vercel)
+        {
+          protocol: 'https',
+          hostname: 'imagedelivery.net',
+        },
       ],
       unoptimized,
     },

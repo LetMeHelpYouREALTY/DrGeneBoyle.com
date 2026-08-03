@@ -10,6 +10,8 @@ import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import JsonLd from '@/components/JsonLd'
 import siteMetadata from '@/data/siteMetadata'
+import { siteMedia } from '@/data/siteMedia'
+import { cloudflareImageUrl, isCloudflareImagesConfigured } from '@/lib/cloudflare-images'
 import { organizationSchema, personSchema } from '@/lib/schema'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
@@ -68,6 +70,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const basePath = process.env.BASE_PATH || ''
+  const headshot = siteMedia.eugeneBoyleHeadshot
+  const useCf = isCloudflareImagesConfigured()
+  const icon16 =
+    (useCf &&
+      cloudflareImageUrl(headshot.cfImageId, {
+        width: 16,
+        height: 16,
+        fit: 'cover',
+        gravity: 'face',
+        format: 'auto',
+      })) ||
+    `${basePath}/static/favicons/favicon-16x16.png`
+  const icon32 =
+    (useCf &&
+      cloudflareImageUrl(headshot.cfImageId, {
+        width: 32,
+        height: 32,
+        fit: 'cover',
+        gravity: 'face',
+        format: 'auto',
+      })) ||
+    `${basePath}/static/favicons/favicon-32x32.png`
+  const appleTouch =
+    (useCf && cloudflareImageUrl(headshot.cfImageId, headshot.favicon)) ||
+    `${basePath}/static/favicons/apple-touch-icon.png`
 
   return (
     <html
@@ -76,23 +103,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <link rel="icon" href={`${basePath}/favicon.ico`} sizes="any" />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href={`${basePath}/static/favicons/favicon-32x32.png`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={`${basePath}/static/favicons/favicon-16x16.png`}
-      />
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href={`${basePath}/static/favicons/apple-touch-icon.png`}
-      />
+      <link rel="icon" type="image/png" sizes="32x32" href={icon32} />
+      <link rel="icon" type="image/png" sizes="16x16" href={icon16} />
+      <link rel="apple-touch-icon" sizes="180x180" href={appleTouch} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <link
         rel="mask-icon"

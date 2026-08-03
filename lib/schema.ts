@@ -1,5 +1,7 @@
 import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
+import { siteMedia } from '@/data/siteMedia'
+import { resolveMediaUrl } from '@/lib/cloudflare-images'
 
 type FaqItem = {
   question: string
@@ -31,7 +33,11 @@ export function personSchema() {
     url: `${siteMetadata.siteUrl}/about`,
     email: siteIdentity.email,
     telephone: siteIdentity.telephone,
-    image: `${siteMetadata.siteUrl}/static/images/eugene-boyle-headshot.jpg`,
+    image: (() => {
+      const headshot = siteMedia.eugeneBoyleHeadshot
+      const resolved = resolveMediaUrl(headshot.cfImageId, headshot.local, headshot.social)
+      return resolved.startsWith('http') ? resolved : `${siteMetadata.siteUrl}${resolved}`
+    })(),
     homeLocation: place,
     worksFor: {
       '@type': 'Organization',

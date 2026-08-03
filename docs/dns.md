@@ -76,6 +76,10 @@ TXT  cf2024-1._domainkey  "v=DKIM1; h=sha256; k=rsa; p=…"
 
 Do **not** add third-party MX (Google Workspace, Microsoft 365) while Email Routing is enabled — they conflict.
 
+## Cloudflare Images (hosted portraits)
+
+Headshot / favicon delivery uses **Cloudflare Images** on `imagedelivery.net` (face-aware crops). Keep this zone **gray-cloud** — see [`cloudflare-images.md`](./cloudflare-images.md).
+
 ### Site code (already live)
 
 Public mailto fields use `info@drgeneboyle.com`:

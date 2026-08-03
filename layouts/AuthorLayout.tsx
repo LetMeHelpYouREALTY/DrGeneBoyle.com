@@ -3,6 +3,8 @@ import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
 import siteIdentity from '@/data/siteIdentity'
+import { siteMedia } from '@/data/siteMedia'
+import { resolveMediaUrl } from '@/lib/cloudflare-images'
 
 interface Props {
   children: ReactNode
@@ -11,15 +13,17 @@ interface Props {
 
 export default function AuthorLayout({ children, content }: Props) {
   const { name, avatar, occupation, company, email, twitter, bluesky, linkedin, github } = content
+  const headshot = siteMedia.eugeneBoyleHeadshot
+  const portraitSrc = resolveMediaUrl(headshot.cfImageId, avatar || headshot.local, headshot.avatar)
 
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="items-start space-y-0 space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8">
           <div className="flex flex-col items-center space-x-2 pt-2">
-            {avatar && (
+            {portraitSrc && (
               <Image
-                src={avatar}
+                src={portraitSrc}
                 alt={`Professional headshot of ${name}, CTMT-2 dissertation author and Managing Director at KLB Consultants`}
                 width={192}
                 height={192}

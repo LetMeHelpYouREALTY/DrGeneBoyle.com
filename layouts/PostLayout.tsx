@@ -9,6 +9,8 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { siteMedia } from '@/data/siteMedia'
+import { resolveMediaUrl } from '@/lib/cloudflare-images'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -73,15 +75,22 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <dt className="sr-only">Authors</dt>
               <dd>
                 <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
-                  {authorDetails.map((author) => (
+                  {authorDetails.map((author) => {
+                    const headshot = siteMedia.eugeneBoyleHeadshot
+                    const avatarSrc = resolveMediaUrl(
+                      author.avatar?.includes('avatar') ? headshot.cfImageId : undefined,
+                      author.avatar || headshot.local,
+                      { width: 80, height: 80, fit: 'cover', gravity: 'face', format: 'auto' }
+                    )
+                    return (
                     <li className="flex items-center space-x-2" key={author.name}>
-                      {author.avatar && (
+                      {avatarSrc && (
                         <Image
-                          src={author.avatar}
+                          src={avatarSrc}
                           width={38}
                           height={38}
-                          alt="avatar"
-                          className="h-10 w-10 rounded-full"
+                          alt={`Avatar of ${author.name}`}
+                          className="h-10 w-10 rounded-full object-cover"
                         />
                       )}
                       <dl className="text-sm leading-5 font-medium whitespace-nowrap">
@@ -102,7 +111,8 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         </dd>
                       </dl>
                     </li>
-                  ))}
+                    )
+                  })}
                 </ul>
               </dd>
             </dl>
