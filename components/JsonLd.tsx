@@ -1,9 +1,14 @@
 type JsonLdProps = {
   data: Record<string, unknown> | Record<string, unknown>[]
+  id?: string
 }
 
-export default function JsonLd({ data }: JsonLdProps) {
+export default function JsonLd({ data, id }: JsonLdProps) {
   return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+    <script
+      id={id}
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
   )
 }

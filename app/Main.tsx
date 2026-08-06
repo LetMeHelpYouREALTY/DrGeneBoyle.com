@@ -1,6 +1,7 @@
 import Link from '@/components/Link'
 import Image from '@/components/Image'
 import Tag from '@/components/Tag'
+import AnswerCallout from '@/components/AnswerCallout'
 import HomeHero from '@/components/HomeHero'
 import NapBlock from '@/components/NapBlock'
 import siteMetadata from '@/data/siteMetadata'
@@ -23,6 +24,79 @@ export default function Home({ posts }: { posts: PostItem[] }) {
   return (
     <>
       <HomeHero imageSrc={pageMedia.home.src} imageAlt={pageMedia.home.alt} />
+
+      <AnswerCallout label="Direct answer">
+        Eugene Boyle, Ph.D. publishes citable research briefs on CTMT-2 attentional assessment in
+        children and adolescents (Boyle, 2024) and motherhood &amp; serious mental illness (Mizock,
+        Merg, Boyle &amp; Kompaniez-Dunigan, 2019)—plus acquisition insight across California and
+        Nevada.
+      </AnswerCallout>
+
+      <nav aria-label="Research hubs" className="mt-8">
+        <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-gray-800 dark:text-gray-200">
+          <li>
+            <Link href="/about" className="text-primary-600 dark:text-primary-400 hover:underline">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/publications"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Publications
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/topics/ctmt-attention"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              CTMT-2 topic hub
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/topics/motherhood-and-smi"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Motherhood &amp; SMI hub
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/faq/ctmt-attention"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              CTMT FAQ
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/faq/motherhood-smi"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Motherhood FAQ
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/glossary"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Glossary
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
       <section className="mt-14 grid items-center gap-8 md:grid-cols-2">
         <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">

@@ -114,16 +114,39 @@ export const Blog = defineDocumentType(() => ({
     ...computedFields,
     structuredData: {
       type: 'json',
-      resolve: (doc) => ({
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: doc.title,
-        datePublished: doc.date,
-        dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
-      }),
+      resolve: (doc) => {
+        const pageUrl = `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`
+        const rawImage = doc.images ? doc.images[0] : siteMetadata.socialBanner
+        const image =
+          typeof rawImage === 'string' && rawImage.startsWith('http')
+            ? rawImage
+            : `${siteMetadata.siteUrl}${rawImage}`
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          '@id': `${pageUrl}#article`,
+          headline: doc.title,
+          datePublished: doc.date,
+          dateModified: doc.lastmod || doc.date,
+          description: doc.summary,
+          image,
+          url: pageUrl,
+          author: {
+            '@id': `${siteMetadata.siteUrl}/about#person`,
+            name: siteMetadata.author,
+          },
+          publisher: { '@id': `${siteMetadata.siteUrl}/#organization` },
+          isPartOf: { '@id': `${siteMetadata.siteUrl}/#website` },
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': pageUrl,
+          },
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['.answer-callout', 'h1', 'article h2'],
+          },
+        }
+      },
     },
   },
 }))

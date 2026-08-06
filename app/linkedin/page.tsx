@@ -7,7 +7,7 @@ import siteIdentity from '@/data/siteIdentity'
 import siteMetadata from '@/data/siteMetadata'
 import { pageMedia } from '@/data/pageMedia'
 import { genPageMetadata } from 'app/seo'
-import { breadcrumbSchema, organizationSchema, personSchema, webPageSchema } from '@/lib/schema'
+import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Eugene Boyle, Ph.D. on LinkedIn'
 const description =
@@ -80,8 +80,6 @@ const experienceHighlights = [
 
 export default function LinkedInHubPage() {
   const schemas = [
-    personSchema(),
-    organizationSchema(),
     webPageSchema({ title, description, path, image: pageMedia.linkedin }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },

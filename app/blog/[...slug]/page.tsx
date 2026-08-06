@@ -49,9 +49,19 @@ export async function generateMetadata(props: {
     }
   })
 
+  const canonical =
+    post.canonicalUrl || `${siteMetadata.siteUrl}/${post.path || `blog/${post.slug}`}`
+
   return {
     title: post.title,
     description: post.summary,
+    alternates: {
+      canonical,
+      languages: {
+        'en-US': canonical,
+        en: canonical,
+      },
+    },
     openGraph: {
       title: post.title,
       description: post.summary,
@@ -60,7 +70,7 @@ export async function generateMetadata(props: {
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
-      url: './',
+      url: canonical,
       images: ogImages,
       authors: authors.length > 0 ? authors : [siteMetadata.author],
     },
@@ -68,7 +78,7 @@ export async function generateMetadata(props: {
       card: 'summary_large_image',
       title: post.title,
       description: post.summary,
-      images: imageList,
+      images: ogImages.map((img) => img.url),
     },
   }
 }
@@ -96,13 +106,37 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
     return coreContent(authorResults as Authors)
   })
   const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
-    return {
-      '@type': 'Person',
-      name: author.name,
-    }
-  })
+  const jsonLd = {
+    ...post.structuredData,
+    author: {
+      '@id': `${siteMetadata.siteUrl}/about#person`,
+      name: siteMetadata.author,
+    },
+  }
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteMetadata.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${siteMetadata.siteUrl}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `${siteMetadata.siteUrl}/${post.path}`,
+      },
+    ],
+  }
 
   const Layout = layouts[post.layout || defaultLayout]
 
@@ -111,6 +145,10 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
