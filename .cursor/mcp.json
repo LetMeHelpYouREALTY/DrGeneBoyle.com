@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "followupace": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://followupace.com/mcp"]
-    }
-  }
-}
