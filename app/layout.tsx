@@ -8,6 +8,7 @@ import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
+import AgentGraphScript from '@/components/AgentGraphScript'
 import JsonLd from '@/components/JsonLd'
 import siteMetadata from '@/data/siteMetadata'
 import { siteMedia } from '@/data/siteMedia'
@@ -116,8 +117,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f2744" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
+      <link
+        rel="alternate"
+        type="application/agent-graph+json"
+        href={`${basePath}/agent-graph.json`}
+        title="Agent Graph"
+      />
+      <link rel="describedby" href={`${basePath}/llms.txt`} title="llms.txt" />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
-        <JsonLd data={siteKnowledgeGraph()} />
+        <JsonLd id="knowledge-graph" data={siteKnowledgeGraph()} />
+        <AgentGraphScript />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>

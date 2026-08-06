@@ -2,7 +2,9 @@
 
 Last updated: **2026-08-06**.
 
-Every page emits one JSON-LD document from the root layout via `siteKnowledgeGraph()` in `lib/schema.ts`.
+Every page emits one JSON-LD document from the root layout via `siteKnowledgeGraph()` in `lib/schema.ts` (`<script id="knowledge-graph">`).
+
+For AI-agent citation/navigation (separate from Schema.org), see [`agent-graph.md`](./agent-graph.md).
 
 ## Shape
 
