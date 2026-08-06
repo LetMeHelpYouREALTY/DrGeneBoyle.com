@@ -89,6 +89,14 @@ export default function Home({ posts }: { posts: PostItem[] }) {
           </li>
           <li>
             <Link
+              href="/ontologies"
+              className="text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              Ontologies
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/contact"
               className="text-primary-600 dark:text-primary-400 hover:underline"
             >
