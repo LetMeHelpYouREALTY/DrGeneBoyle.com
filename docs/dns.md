@@ -35,7 +35,23 @@ _dmarc.drgeneboyle.com.  TXT  "v=DMARC1; p=none; rua=mailto:DrJanSells@Reverence
 ### Expected HTTP behavior
 
 - `https://www.drgeneboyle.com` → **200** (canonical; `siteUrl` in `data/siteMetadata.js`)
-- `https://drgeneboyle.com` → **307** → `https://www.drgeneboyle.com/`
+- `https://drgeneboyle.com` → **308** → `https://www.drgeneboyle.com/` (permanent; not 307)
+- `http://*` → **308** → matching `https://*` (Vercel platform)
+- `/projects` → **308** → `/publications` (template stub retired)
+
+### Vercel domain redirect (apex → www)
+
+Project Domains must send apex traffic to `www` with status **308** (or **301**), not **307**.
+
+1. Vercel → project `drgeneboyle.com` → **Settings → Domains**
+2. Edit `drgeneboyle.com` → Redirect to `www.drgeneboyle.com` → status **308**
+3. Confirm with: `curl -sI https://drgeneboyle.com | head -8` → `308` + `location: https://www.drgeneboyle.com/`
+
+Code backup: `vercel.json` host redirect + `middleware.ts` (308). If the dashboard still uses **307**, the platform redirect wins—change the dashboard status.
+
+### Google Search Console — “Page with redirect”
+
+See [`gsc-page-with-redirect.md`](./gsc-page-with-redirect.md). Alternate hosts/protocols listed there are expected and should **not** be indexed.
 
 ## Email — Cloudflare Email Routing
 
@@ -99,7 +115,8 @@ dig +short MX drgeneboyle.com
 dig +short TXT drgeneboyle.com | grep -i spf
 dig +short TXT cf2024-1._domainkey.drgeneboyle.com
 curl -sI https://www.drgeneboyle.com | head -5
-curl -sI https://drgeneboyle.com | head -8
+curl -sI https://drgeneboyle.com | head -8   # expect 308 → www
+curl -sI https://www.drgeneboyle.com/projects | head -8  # expect 308 → /publications
 ```
 
 ## Rules of thumb
