@@ -45,6 +45,7 @@
 - Research ontologies (Schema.org DefinedTermSet): https://www.drgeneboyle.com/ontology.json
 - Research ontologies (SKOS ConceptScheme): https://www.drgeneboyle.com/ontology/skos.json
 - Ontologies hub (HTML): https://www.drgeneboyle.com/ontologies
+- Portable kit for all LMHY sites: packages/ontology-kit (@lmhy/ontology-kit) + Cursor plugin site-ontologies
 - Sitemap: https://www.drgeneboyle.com/sitemap.xml
 - RSS: https://www.drgeneboyle.com/feed.xml
 

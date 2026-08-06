@@ -1,8 +1,8 @@
 import { siteOntologyGraph } from '@/lib/ontology'
 
 /**
- * Embeds Schema.org ontology (DefinedTermSet graph) on every page.
- * Also discoverable at /ontology.json and /ontology/skos.json.
+ * Global ontology embed — Schema.org DefinedTermSet graph on every page.
+ * Built via @lmhy/ontology-kit; also at /ontology.json and /ontology/skos.json.
  */
 export default function OntologyScript() {
   return (

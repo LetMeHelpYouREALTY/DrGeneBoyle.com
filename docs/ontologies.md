@@ -4,7 +4,19 @@ Last updated: **2026-08-06**.
 
 Controlled vocabularies for answer engines and linked-data consumers.
 
-## Endpoints
+## Global kit (all projects)
+
+Builders and types live in **`packages/ontology-kit`** (`@lmhy/ontology-kit`).
+
+- **Shared:** ID rules, Schema.org graph, SKOS graph, catalog JSON
+- **Per project:** `OntologySiteConfig` + scheme data under `data/ontologies/`
+- **Cursor plugin:** `site-ontologies` (local plugin) — skill `/add-ontologies` for any repo
+
+Copy `packages/ontology-kit` into another LMHY site, add the tsconfig path alias, bind config in `lib/ontology.ts`, and wire layout + routes. See `packages/ontology-kit/README.md`.
+
+Optional `ontologyBaseUrl` lets multiple domains publish the **same concept IRIs** (canonical vocabulary authority).
+
+## Endpoints (this site)
 
 | Format                 | URL                                                 |
 | ---------------------- | --------------------------------------------------- |
@@ -20,9 +32,10 @@ Controlled vocabularies for answer engines and linked-data consumers.
 
 ## Source files
 
-- `data/ontologies/*.ts` — concepts + broader/narrower/related
+- `packages/ontology-kit/*` — **global** builders/types
+- `data/ontologies/*.ts` — site schemes (concepts + broader/narrower/related)
+- `lib/ontology.ts` — site config binding
 - Definitions reused from `data/glossary/*`
-- Builders: `lib/ontology.ts`
 
 ## How agents should use them
 
