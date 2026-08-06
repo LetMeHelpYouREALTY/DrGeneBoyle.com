@@ -10,7 +10,7 @@ const siteMetadata = {
   siteUrl: 'https://www.drgeneboyle.com',
   siteRepo: 'https://github.com/LetMeHelpYouREALTY/DrGeneBoyle.com',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.webp`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/pages/og-social-banner.webp`,
   // Domain address via Cloudflare Email Routing — see docs/dns.md
   email: 'info@drgeneboyle.com',
   github: 'https://github.com/geneboyle',
