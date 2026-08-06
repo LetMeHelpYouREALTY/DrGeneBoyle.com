@@ -1,0 +1,10 @@
+{
+  "name": "site-ontologies",
+  "version": "1.0.0",
+  "description": "Global Schema.org + SKOS ontology kit for every LMHY Next.js project",
+  "author": {
+    "name": "LetMeHelpYouREALTY"
+  },
+  "license": "MIT",
+  "keywords": ["ontology", "skos", "schema.org", "json-ld", "aeo", "seo", "nextjs"]
+}

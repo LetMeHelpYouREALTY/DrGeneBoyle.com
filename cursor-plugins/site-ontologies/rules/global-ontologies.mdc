@@ -1,0 +1,17 @@
+---
+description: Keep Schema.org + SKOS ontologies portable and available on every LMHY site
+alwaysApply: true
+---
+
+# Global ontologies (all projects)
+
+When adding or editing site ontologies, knowledge graphs, glossaries, or agent-discovery endpoints:
+
+1. **Use the portable kit** — Prefer `@lmhy/ontology-kit` (`packages/ontology-kit`) for types and builders. Do not hardcode Schema.org/SKOS graph assembly inside a single page.
+2. **Site binding only in `lib/ontology.ts`** — Pass `OntologySiteConfig` (`siteUrl`, optional `ontologyBaseUrl`, creator/publisher `@id`s, schemes, topicIds).
+3. **Embed globally** — Root layout must include `<script id="ontology" type="application/ld+json">` (or equivalent) on every page.
+4. **Expose machine endpoints** — `/ontology.json` (Schema.org), `/ontology/skos.json` (SKOS), HTML hub `/ontologies`, CORS `Access-Control-Allow-Origin: *` on JSON routes.
+5. **Stable concept IRIs** — `{ontologyBaseUrl|/siteUrl}/ontology/{schemeId}#{slug}`. When the same vocabulary is shared across domains, set `ontologyBaseUrl` to the canonical authority.
+6. **Schemes stay per-site** — Concept data lives in `data/ontologies/*`; the kit stays generic.
+7. **Discoverability** — Link endpoints from `llms.txt`, agent-graph entry points, and sitemap when those exist.
+8. **Skill** — For greenfield installs, follow the `add-site-ontologies` skill / `/add-ontologies`.

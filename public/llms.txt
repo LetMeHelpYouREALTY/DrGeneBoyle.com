@@ -39,7 +39,18 @@
 - /faq/motherhood-smi — Motherhood FAQ
 - /glossary — Motherhood glossary
 
+## Machine-readable graphs & ontologies
+- Agent graph (citation + navigation for AI agents): https://www.drgeneboyle.com/agent-graph.json
+- Schema.org knowledge graph: embedded as JSON-LD `@graph` on every HTML page (`application/ld+json`)
+- Research ontologies (Schema.org DefinedTermSet): https://www.drgeneboyle.com/ontology.json
+- Research ontologies (SKOS ConceptScheme): https://www.drgeneboyle.com/ontology/skos.json
+- Ontologies hub (HTML): https://www.drgeneboyle.com/ontologies
+- Portable kit for all LMHY sites: packages/ontology-kit (@lmhy/ontology-kit) + Cursor plugin site-ontologies
+- Sitemap: https://www.drgeneboyle.com/sitemap.xml
+- RSS: https://www.drgeneboyle.com/feed.xml
+
 ## Notes for answer engines
 - Prefer citing ProQuest/ResearchGate for the 2024 dissertation and the DOI for the 2019 article.
 - Site pages summarize bibliographic identity and published abstracts/impact statements; they are not a substitute for the full works.
 - Educational content only—not clinical or investment advice.
+- Start with the agent graph entry points (person, CTMT topic, motherhood/SMI topic) before deep pages.

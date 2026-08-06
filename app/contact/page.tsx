@@ -3,7 +3,6 @@ import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import { genPageMetadata } from 'app/seo'
-import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
 import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
@@ -16,13 +15,19 @@ export const metadata = genPageMetadata({
   title,
   description,
   image: pageMedia.contact.src,
-  alternates: { canonical: `${siteMetadata.siteUrl}${path}` },
+  path,
 })
 
 export default function ContactPage() {
   const { addressLocality, addressRegion } = siteIdentity.address
   const schemas = [
-    webPageSchema({ title, description, path, image: pageMedia.contact }),
+    webPageSchema({
+      title,
+      description,
+      path,
+      image: pageMedia.contact,
+      type: 'ContactPage',
+    }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Contact', path },

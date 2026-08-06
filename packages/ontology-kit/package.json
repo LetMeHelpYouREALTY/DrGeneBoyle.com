@@ -1,0 +1,16 @@
+{
+  "name": "@lmhy/ontology-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Global Schema.org + SKOS ontology builders for LMHY Next.js sites",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./types": "./src/types.ts",
+    "./builders": "./src/builders.ts"
+  },
+  "keywords": ["ontology", "skos", "schema.org", "json-ld", "aeo", "seo"],
+  "license": "MIT"
+}
