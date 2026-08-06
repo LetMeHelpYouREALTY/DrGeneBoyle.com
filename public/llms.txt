@@ -39,9 +39,12 @@
 - /faq/motherhood-smi — Motherhood FAQ
 - /glossary — Motherhood glossary
 
-## Machine-readable graphs
+## Machine-readable graphs & ontologies
 - Agent graph (citation + navigation for AI agents): https://www.drgeneboyle.com/agent-graph.json
 - Schema.org knowledge graph: embedded as JSON-LD `@graph` on every HTML page (`application/ld+json`)
+- Research ontologies (Schema.org DefinedTermSet): https://www.drgeneboyle.com/ontology.json
+- Research ontologies (SKOS ConceptScheme): https://www.drgeneboyle.com/ontology/skos.json
+- Ontologies hub (HTML): https://www.drgeneboyle.com/ontologies
 - Sitemap: https://www.drgeneboyle.com/sitemap.xml
 - RSS: https://www.drgeneboyle.com/feed.xml
 

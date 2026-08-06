@@ -225,6 +225,31 @@ export function siteAgentGraph() {
       summary: 'JSON-LD @graph embedded on every HTML page (application/ld+json).',
       citePriority: 1,
     },
+    {
+      id: 'resource:ontology',
+      type: 'Resource',
+      name: 'Research ontologies (Schema.org)',
+      url: `${SITE}/ontology.json`,
+      summary:
+        'DefinedTermSet/DefinedTerm controlled vocabularies for CTMT-2 and motherhood & SMI.',
+      citePriority: 1,
+    },
+    {
+      id: 'resource:ontology-skos',
+      type: 'Resource',
+      name: 'Research ontologies (SKOS)',
+      url: `${SITE}/ontology/skos.json`,
+      summary: 'SKOS ConceptScheme JSON-LD with broader/narrower/related links.',
+      citePriority: 1,
+    },
+    {
+      id: 'page:ontologies',
+      type: 'Page',
+      name: 'Research ontologies hub',
+      url: `${SITE}/ontologies`,
+      citePriority: 2,
+      answerSelectors: ['.answer-callout'],
+    },
   ]
 
   const edges: AgentGraphEdge[] = [
@@ -248,6 +273,12 @@ export function siteAgentGraph() {
     { from: 'work:motherhood-reimagined', to: 'topic:motherhood-smi', rel: 'about' },
     { from: 'resource:llms-txt', to: 'person:eugene-boyle', rel: 'about' },
     { from: 'resource:knowledge-graph', to: 'person:eugene-boyle', rel: 'about' },
+    { from: 'resource:ontology', to: 'topic:ctmt-attention', rel: 'about' },
+    { from: 'resource:ontology', to: 'topic:motherhood-smi', rel: 'about' },
+    { from: 'resource:ontology-skos', to: 'resource:ontology', rel: 'sameAs' },
+    { from: 'page:ontologies', to: 'resource:ontology', rel: 'partOf' },
+    { from: 'page:glossary', to: 'resource:ontology', rel: 'glossaryFor' },
+    { from: 'page:glossary-ctmt', to: 'resource:ontology', rel: 'glossaryFor' },
   ]
 
   // Explainer pages agents should prefer after the pillar + primary work
@@ -323,6 +354,9 @@ export function siteAgentGraph() {
       rss: `${SITE}/feed.xml`,
       knowledgeGraphEmbedded: true,
       knowledgeGraphMediaType: 'application/ld+json',
+      ontology: `${SITE}/ontology.json`,
+      ontologySkos: `${SITE}/ontology/skos.json`,
+      ontologiesHtml: `${SITE}/ontologies`,
     },
     policies: {
       contentPurpose: 'Educational research summaries and answer-ready explainers',
@@ -344,6 +378,7 @@ export function siteAgentGraph() {
       { id: 'topic:ctmt-attention', reason: 'CTMT-2 research pillar' },
       { id: 'topic:motherhood-smi', reason: 'Motherhood & SMI research pillar' },
       { id: 'resource:llms-txt', reason: 'Plain-text agent briefing' },
+      { id: 'resource:ontology', reason: 'Controlled vocabulary / ontology' },
       { id: 'page:publications', reason: 'Publication index' },
     ],
     nodes,

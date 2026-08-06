@@ -24,6 +24,9 @@ export const schemaIds = {
   glossary: `${SITE}/glossary#terms`,
   dissertation: `${SITE}/blog/ctmt-attention-trail-making-dissertation#work`,
   motherhoodArticle: `${SITE}/blog/motherhood-reimagined-smi-parenting#work`,
+  ontologyCatalog: `${SITE}/ontology#catalog`,
+  ontologyCtmt: `${SITE}/ontology/ctmt-attention#scheme`,
+  ontologyMotherhood: `${SITE}/ontology/motherhood-smi#scheme`,
 } as const
 
 function personImageUrl(): string {
@@ -168,7 +171,8 @@ function topicNodes(): SchemaNode[] {
       description:
         'Research cluster on the Comprehensive Trail Making Test–Second Edition (CTMT-2) for attentional assessment in children and adolescents (Boyle, 2024).',
       url: `${SITE}/topics/ctmt-attention`,
-      inDefinedTermSet: { '@id': schemaIds.glossary },
+      inDefinedTermSet: { '@id': schemaIds.ontologyCtmt },
+      sameAs: schemaIds.ontologyCtmt,
     },
     {
       '@type': 'DefinedTerm',
@@ -177,7 +181,8 @@ function topicNodes(): SchemaNode[] {
       description:
         'Research cluster on experiences of women with SMI surrounding parenting (Mizock, Merg, Boyle & Kompaniez-Dunigan, 2019).',
       url: `${SITE}/topics/motherhood-and-smi`,
-      inDefinedTermSet: { '@id': schemaIds.glossary },
+      inDefinedTermSet: { '@id': schemaIds.ontologyMotherhood },
+      sameAs: schemaIds.ontologyMotherhood,
     },
     {
       '@type': 'DefinedTermSet',
@@ -187,6 +192,7 @@ function topicNodes(): SchemaNode[] {
         'Plain-language clinical and research terms used across CTMT-2 and motherhood/SMI topic hubs.',
       url: `${SITE}/glossary`,
       hasDefinedTerm: [{ '@id': schemaIds.ctmtTopic }, { '@id': schemaIds.motherhoodTopic }],
+      isPartOf: { '@id': schemaIds.ontologyCatalog },
     },
   ]
 }

@@ -9,6 +9,7 @@ import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import AgentGraphScript from '@/components/AgentGraphScript'
+import OntologyScript from '@/components/OntologyScript'
 import JsonLd from '@/components/JsonLd'
 import siteMetadata from '@/data/siteMetadata'
 import { siteMedia } from '@/data/siteMedia'
@@ -129,9 +130,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         href={`${basePath}/agent-graph.json`}
         title="Agent Graph"
       />
+      <link
+        rel="alternate"
+        type="application/ld+json"
+        href={`${basePath}/ontology.json`}
+        title="Research Ontologies"
+      />
+      <link
+        rel="alternate"
+        type="application/ld+json"
+        href={`${basePath}/ontology/skos.json`}
+        title="SKOS Ontologies"
+      />
       <link rel="describedby" href={`${basePath}/llms.txt`} title="llms.txt" />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         <JsonLd id="knowledge-graph" data={siteKnowledgeGraph()} />
+        <OntologyScript />
         <AgentGraphScript />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />

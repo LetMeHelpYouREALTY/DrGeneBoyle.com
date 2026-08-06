@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { route: 'faq/motherhood-smi', priority: 0.85, changeFrequency: 'monthly' as const },
     { route: 'glossary', priority: 0.8, changeFrequency: 'monthly' as const },
     { route: 'glossary/ctmt-attention', priority: 0.8, changeFrequency: 'monthly' as const },
+    { route: 'ontologies', priority: 0.85, changeFrequency: 'monthly' as const },
     { route: 'topics', priority: 0.8, changeFrequency: 'monthly' as const },
     { route: 'credentials', priority: 0.75, changeFrequency: 'yearly' as const },
     { route: 'contact', priority: 0.75, changeFrequency: 'yearly' as const },
