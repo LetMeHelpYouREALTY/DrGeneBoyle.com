@@ -3,12 +3,10 @@ import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import AuthorLayout from '@/layouts/AuthorLayout'
 import { coreContent } from 'pliny/utils/contentlayer'
 import { genPageMetadata } from 'app/seo'
-import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import siteMetadata from '@/data/siteMetadata'
 import { pageMedia } from '@/data/pageMedia'
-import { organizationSchema, personSchema } from '@/lib/schema'
 
 export const metadata = genPageMetadata({
   title: 'About Eugene Boyle, Ph.D.',
@@ -24,7 +22,6 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd data={[personSchema(), organizationSchema()]} />
       <div className="space-y-8 pt-6">
         <PageHero
           eyebrow="About"
