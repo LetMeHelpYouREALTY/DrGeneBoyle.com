@@ -47,8 +47,13 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: './',
+    languages: {
+      'en-US': './',
+      en: './',
+    },
     types: {
       'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
+      'application/agent-graph+json': `${siteMetadata.siteUrl}/agent-graph.json`,
     },
   },
   robots: {
@@ -64,6 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: siteMetadata.title,
+    description: siteMetadata.description,
     card: 'summary_large_image',
     images: [siteMetadata.socialBanner],
   },

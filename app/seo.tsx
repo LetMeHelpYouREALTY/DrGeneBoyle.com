@@ -5,28 +5,53 @@ interface PageSEOProps {
   title: string
   description?: string
   image?: string
+  path?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 
-export function genPageMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
+export function genPageMetadata({
+  title,
+  description,
+  image,
+  path,
+  ...rest
+}: PageSEOProps): Metadata {
+  const desc = description || siteMetadata.description
+  const pageUrl = path
+    ? `${siteMetadata.siteUrl}${path.startsWith('/') ? path : `/${path}`}`
+    : undefined
+  const ogImage = image || siteMetadata.socialBanner
+
   return {
     title,
-    description: description || siteMetadata.description,
+    description: desc,
     openGraph: {
       title: `${title} | ${siteMetadata.title}`,
-      description: description || siteMetadata.description,
-      url: './',
+      description: desc,
+      url: pageUrl || './',
       siteName: siteMetadata.title,
-      images: image ? [image] : [siteMetadata.socialBanner],
+      images: [ogImage],
       locale: 'en_US',
       type: 'website',
     },
     twitter: {
       title: `${title} | ${siteMetadata.title}`,
+      description: desc,
       card: 'summary_large_image',
-      images: image ? [image] : [siteMetadata.socialBanner],
+      images: [ogImage],
     },
+    ...(pageUrl
+      ? {
+          alternates: {
+            canonical: pageUrl,
+            languages: {
+              'en-US': pageUrl,
+              en: pageUrl,
+            },
+          },
+        }
+      : {}),
     ...rest,
   }
 }

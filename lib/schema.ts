@@ -97,7 +97,7 @@ function personNode(): SchemaNode {
 
 function organizationNode(): SchemaNode {
   return {
-    '@type': 'Organization',
+    '@type': ['Organization', 'ProfessionalService'],
     '@id': schemaIds.organization,
     name: siteIdentity.worksFor.name,
     description: siteIdentity.worksFor.description,
@@ -114,6 +114,16 @@ function organizationNode(): SchemaNode {
       '@type': 'AdministrativeArea',
       name,
     })),
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        email: siteIdentity.email,
+        telephone: siteIdentity.telephone,
+        areaServed: siteIdentity.address.areaServed,
+        availableLanguage: ['English'],
+      },
+    ],
     employee: { '@id': schemaIds.person },
     founder: { '@id': schemaIds.person },
     sameAs: [siteIdentity.worksFor.url, siteIdentity.linkedin],
@@ -138,7 +148,7 @@ function websiteNode(): SchemaNode {
     name: siteMetadata.title,
     description: siteMetadata.description,
     url: SITE,
-    inLanguage: siteMetadata.language,
+    inLanguage: 'en-US',
     publisher: { '@id': schemaIds.organization },
     author: { '@id': schemaIds.person },
     about: [
@@ -146,14 +156,6 @@ function websiteNode(): SchemaNode {
       { '@id': schemaIds.ctmtTopic },
       { '@id': schemaIds.motherhoodTopic },
     ],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE}/blog?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   }
 }
 
@@ -313,24 +315,31 @@ export function webPageSchema({
   description,
   path,
   image,
+  type = 'WebPage',
 }: {
   title: string
   description: string
   path: string
   image?: { src: string; alt: string }
+  type?: 'WebPage' | 'ContactPage' | 'AboutPage' | 'CollectionPage'
 }) {
-  const pageUrl = `${SITE}${path}`
+  const pageUrl = `${SITE}${path === '/' ? '' : path}`
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    '@id': `${pageUrl}#webpage`,
+    '@type': type,
+    '@id': `${pageUrl || SITE}#webpage`,
     name: title,
     description,
-    url: pageUrl,
+    url: pageUrl || SITE,
+    inLanguage: 'en-US',
     isPartOf: { '@id': schemaIds.website },
     author: { '@id': schemaIds.person },
     about: { '@id': schemaIds.person },
     publisher: { '@id': schemaIds.organization },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.answer-callout', 'h1'],
+    },
     ...(image
       ? {
           primaryImageOfPage: {
