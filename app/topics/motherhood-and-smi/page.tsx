@@ -50,7 +50,12 @@ const clusterLinks = [
 
 export default function MotherhoodSmiTopicPage() {
   const schemas = [
-    webPageSchema({ title, description, path: '/topics/motherhood-and-smi', image: pageMedia.motherhoodSmi }),
+    webPageSchema({
+      title,
+      description,
+      path: '/topics/motherhood-and-smi',
+      image: pageMedia.motherhoodSmi,
+    }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Topics', path: '/topics' },
