@@ -103,8 +103,8 @@ export default function Home({ posts }: { posts: PostItem[] }) {
       <section className="mt-14 grid items-center gap-8 md:grid-cols-2">
         <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
           <Image
-            src={pageMedia.acquisition.src}
-            alt={pageMedia.acquisition.alt}
+            src={pageMedia.homeFeatureAcquisition.src}
+            alt={pageMedia.homeFeatureAcquisition.alt}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"

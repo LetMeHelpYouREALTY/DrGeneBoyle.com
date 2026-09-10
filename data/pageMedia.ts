@@ -1,84 +1,92 @@
 /**
- * Canonical page/blog imagery.
- * Alts describe the visual subject + entity context for accessibility and citations—
- * no keyword stuffing (Sept 2026 SEO/GEO/AEO guidance).
+ * Canonical page/blog imagery — H1/H2/H3 visual system (Sept 2026).
+ * Alts describe the visual subject + entity context (no keyword stuffing).
  */
 export const pageMedia = {
+  /** H1 — homepage hero */
   home: {
-    src: '/static/images/pages/improve-here-homepage.webp',
-    alt: 'Eugene Boyle, Ph.D. — research homepage for CTMT-2 attentional assessment and motherhood & SMI insights',
+    src: '/static/images/pages/home-h1-hero.webp',
+    alt: 'Study overlooking a California city skyline — Eugene Boyle, Ph.D. research and advisory homepage',
   },
+  /** H2 — motherhood & SMI feature */
   homeFeature: {
     src: '/static/images/pages/home-feature-motherhood-smi.webp',
-    alt: 'Motherhood and serious mental illness research themes by co-author Eugene Boyle, Ph.D.',
+    alt: 'Quiet living-room study suggesting motherhood and serious mental illness research themes',
   },
+  /** H2 — CTMT-2 feature */
   homeFeatureCtmt: {
-    src: '/static/images/pages/hero-ctmt-topic.webp',
-    alt: 'CTMT-2 trail-making attentional assessment topic for children and adolescents',
+    src: '/static/images/pages/home-feature-ctmt.webp',
+    alt: 'Trail-making assessment materials for CTMT-2 attentional research',
   },
+  /** H2 — acquisition feature */
+  homeFeatureAcquisition: {
+    src: '/static/images/pages/home-feature-acquisition.webp',
+    alt: 'Twilight multifamily mixed-use building — California and Nevada acquisition advisory',
+  },
+  /** H3 — topics hub */
   topics: {
     src: '/static/images/pages/page-topics-hub.webp',
-    alt: 'Topic hubs for CTMT-2 attention research and motherhood & SMI',
+    alt: 'Three illuminated topic pillars for research and advisory hubs',
   },
   motherhoodSmi: {
     src: '/static/images/pages/topic-motherhood-smi.webp',
-    alt: 'Motherhood reimagined and serious mental illness topic pillar — Mizock, Merg, Boyle & Kompaniez-Dunigan 2019',
+    alt: 'Motherhood reimagined and serious mental illness topic pillar',
   },
   ctmtAttention: {
     src: '/static/images/pages/hero-ctmt-topic.webp',
-    alt: 'CTMT-2 attentional assessment topic hub — Boyle 2024 Fielding dissertation, ages 8–15',
+    alt: 'CTMT-2 attentional assessment topic hub',
   },
   acquisition: {
-    src: '/static/images/pages/about-eugene-boyle.webp',
-    alt: 'KLB Consultants acquisition advisory — multifamily and mixed-use across California and Nevada',
+    src: '/static/images/pages/hero-acquisition.webp',
+    alt: 'Multifamily and mixed-use acquisition advisory across California and Nevada',
   },
   faq: {
     src: '/static/images/pages/page-faq-motherhood-smi.webp',
-    alt: 'FAQ on motherhood and serious mental illness — answer-ready Q&A',
+    alt: 'FAQ on motherhood and serious mental illness',
   },
   faqCtmt: {
     src: '/static/images/pages/hero-ctmt-faq.webp',
-    alt: 'FAQ on CTMT-2, ADHD attentional assessment, WISC-V PSI and TEA-Ch2',
+    alt: 'FAQ on CTMT-2 and attentional assessment',
   },
   faqAcquisition: {
-    src: '/static/images/pages/hero-contact.webp',
-    alt: 'FAQ on multifamily and mixed-use acquisition advisory across California and Nevada',
+    src: '/static/images/pages/hero-acquisition.webp',
+    alt: 'FAQ on multifamily and mixed-use acquisition advisory',
   },
   glossary: {
     src: '/static/images/pages/page-glossary.webp',
-    alt: 'Glossary of SMI and motherhood terms for psychiatric rehabilitation citations',
+    alt: 'Glossary of SMI and motherhood research terms',
   },
   glossaryCtmt: {
     src: '/static/images/pages/hero-ctmt-glossary.webp',
-    alt: 'Glossary of CTMT-2, processing speed, selective attention and everyday attention terms',
+    alt: 'Glossary of CTMT-2 and attention assessment terms',
   },
   linkedin: {
     src: '/static/images/pages/hub-linkedin.webp',
-    alt: 'Eugene Boyle, Ph.D. professional profile — LinkedIn and research overview',
+    alt: 'Professional connection desk for Eugene Boyle, Ph.D. LinkedIn hub',
   },
   about: {
     src: '/static/images/pages/about-eugene-boyle.webp',
-    alt: 'About Eugene Boyle, Ph.D. — Managing Director, KLB Consultants, Los Angeles CA',
+    alt: 'About Eugene Boyle, Ph.D. — Managing Director, KLB Consultants',
   },
   publications: {
     src: '/static/images/pages/hero-publications.webp',
-    alt: 'Publications by Eugene Boyle, Ph.D. — CTMT-2 dissertation and Motherhood Reimagined',
+    alt: 'Publications library for Eugene Boyle, Ph.D. research briefs',
   },
   contact: {
     src: '/static/images/pages/hero-contact.webp',
-    alt: 'Contact Eugene Boyle, Ph.D. — Los Angeles, California and Nevada, info@drgeneboyle.com',
+    alt: 'Contact Eugene Boyle, Ph.D. — Los Angeles, California and Nevada',
   },
   credentials: {
     src: '/static/images/pages/hero-credentials.webp',
-    alt: 'Credentials and education for Eugene Boyle, Ph.D. — Fielding Graduate University',
+    alt: 'Credentials and education for Eugene Boyle, Ph.D.',
   },
   blog: {
     src: '/static/images/pages/hero-blog-index.webp',
-    alt: 'Research blog index — CTMT-2 attentional assessment and motherhood & SMI briefs',
+    alt: 'Latest research insights and briefs by Eugene Boyle, Ph.D.',
   },
   tags: {
     src: '/static/images/pages/hero-tags.webp',
-    alt: 'Research tags — attention, ADHD, SMI, neuropsychology, motherhood, acquisition',
+    alt: 'Research tags for attention, SMI, motherhood, and acquisition topics',
   },
   og: {
     src: '/static/images/twitter-card.webp',
