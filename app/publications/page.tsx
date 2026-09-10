@@ -6,7 +6,7 @@ import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
 import { pageMedia } from '@/data/pageMedia'
-import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
+import { breadcrumbSchema, scholarlyArticleSchema, thesisSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Publications'
 const description = `Peer-reviewed and dissertation publications by ${siteIdentity.name}, with links to research briefs on this site.`
@@ -44,6 +44,24 @@ export default function PublicationsPage() {
       { name: 'Home', path: '/' },
       { name: 'Publications', path },
     ]),
+    thesisSchema({
+      title:
+        'Investigating the Utility of the Comprehensive Trail Making Test -Second Edition (CTMT-2) in Assessing Attentional Deficits Among Children and Adolescents',
+      description:
+        'Fielding Graduate University doctoral dissertation (ProQuest 31761032) on CTMT-2 utility for attentional assessment in children and adolescents.',
+      datePublished: '2024-12-02',
+      url: `${siteMetadata.siteUrl}/blog/ctmt-attention-trail-making-dissertation`,
+      institution: 'Fielding Graduate University',
+    }),
+    scholarlyArticleSchema({
+      title: 'Motherhood reimagined: Experiences of women with SMI surrounding parenting',
+      description:
+        'Peer-reviewed grounded-theory study on motherhood experiences among women with serious mental illness (Psychiatric Rehabilitation Journal, 2019).',
+      datePublished: '2019',
+      url: `${siteMetadata.siteUrl}/blog/motherhood-reimagined-smi-parenting`,
+      doi: '10.1037/prj0000339',
+      about: ['Serious mental illness', 'Motherhood', 'Psychiatric rehabilitation'],
+    }),
   ]
 
   return (

@@ -10,7 +10,7 @@ import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Topics'
-const description = `Topic hubs for ${siteIdentity.name}: CTMT-2 attentional assessment dissertation and motherhood & SMI research.`
+const description = `Topic hubs for ${siteIdentity.name}: CTMT-2 attentional assessment, motherhood & SMI research, and California–Nevada acquisition advisory.`
 
 export const metadata = genPageMetadata({
   title,
@@ -20,6 +20,13 @@ export const metadata = genPageMetadata({
 })
 
 const topics = [
+  {
+    href: '/topics/acquisition-advisory',
+    title: 'Acquisition advisory (CA · NV)',
+    summary:
+      'KLB Consultants multifamily and mixed-use acquisition brokerage, equity structuring, and entitlements across California and Nevada.',
+    image: pageMedia.acquisition,
+  },
   {
     href: '/topics/ctmt-attention',
     title: 'CTMT-2 & attentional assessment',
@@ -33,6 +40,12 @@ const topics = [
     summary:
       'Pillar for Mizock et al. (2019)—co-authored by Eugene Joseph Boyle—with five themes, clinician takeaways, FAQ, and glossary.',
     image: pageMedia.motherhoodSmi,
+  },
+  {
+    href: '/faq/acquisition',
+    title: 'FAQ: Acquisition advisory',
+    summary: 'Answer-first Q&A on KLB markets, services, and citation guidance.',
+    image: pageMedia.faqAcquisition,
   },
   {
     href: '/faq/ctmt-attention',

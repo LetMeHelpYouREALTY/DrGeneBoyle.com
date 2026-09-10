@@ -32,11 +32,17 @@ export default function Footer() {
             <Link href="/publications" className="text-primary-500 hover:underline">
               Publications
             </Link>
+            <Link href="/topics/acquisition-advisory" className="text-primary-500 hover:underline">
+              Acquisition (CA · NV)
+            </Link>
             <Link href="/topics/ctmt-attention" className="text-primary-500 hover:underline">
               CTMT-2
             </Link>
             <Link href="/topics/motherhood-and-smi" className="text-primary-500 hover:underline">
               Motherhood & SMI
+            </Link>
+            <Link href="/connect" className="text-primary-500 hover:underline">
+              Connect
             </Link>
             <Link href="/contact" className="text-primary-500 hover:underline">
               Contact

@@ -29,8 +29,13 @@ export default async function TagPage(props: { params: Promise<{ tag: string; pa
   )
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
 
-  // Return 404 for invalid page numbers or empty pages
-  if (pageNumber <= 0 || pageNumber > totalPages || isNaN(pageNumber)) {
+  // Return 404 for empty tags or invalid page numbers
+  if (
+    filteredPosts.length === 0 ||
+    pageNumber <= 0 ||
+    pageNumber > totalPages ||
+    isNaN(pageNumber)
+  ) {
     return notFound()
   }
   const initialDisplayPosts = filteredPosts.slice(

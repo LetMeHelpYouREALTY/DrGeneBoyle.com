@@ -7,20 +7,18 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'CA · NV acquisition advisory',
+    description:
+      'KLB Consultants multifamily and mixed-use acquisition positioning — brokerage framing, equity structuring, and entitlements across California and Nevada.',
+    imgSrc: '/static/images/portfolio-acquisition.webp',
+    href: '/topics/acquisition-advisory',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'CTMT-2 attentional research',
+    description:
+      'Fielding dissertation hub on the Comprehensive Trail Making Test–Second Edition for attentional assessment in children and adolescents.',
+    imgSrc: '/static/images/portfolio-research.webp',
+    href: '/topics/ctmt-attention',
   },
 ]
 

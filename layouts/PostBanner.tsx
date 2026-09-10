@@ -20,7 +20,7 @@ interface LayoutProps {
 export default function PostMinimal({ content, next, prev, children }: LayoutProps) {
   const { slug, title, images } = content
   const displayImage =
-    images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
+    images && images.length > 0 ? images[0] : siteMetadata.socialBanner
 
   return (
     <SectionContainer>

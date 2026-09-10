@@ -27,7 +27,6 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 import prettier from 'prettier'
 
 const root = process.cwd()
-const isProduction = process.env.NODE_ENV === 'production'
 
 // heroicon mini link
 const icon = fromHtmlIsomorphic(
@@ -64,8 +63,9 @@ const computedFields: ComputedFields = {
  */
 async function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
+  // Always exclude drafts so local builds don't publish empty starter tags (e.g. /tags/math).
   allBlogs.forEach((file) => {
-    if (file.tags && (!isProduction || file.draft !== true)) {
+    if (file.tags && file.draft !== true) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
@@ -114,16 +114,41 @@ export const Blog = defineDocumentType(() => ({
     ...computedFields,
     structuredData: {
       type: 'json',
-      resolve: (doc) => ({
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: doc.title,
-        datePublished: doc.date,
-        dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
-      }),
+      resolve: (doc) => {
+        const pageUrl = `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`
+        const imagePath = doc.images ? doc.images[0] : siteMetadata.socialBanner
+        const imageUrl = imagePath?.startsWith('http')
+          ? imagePath
+          : `${siteMetadata.siteUrl}${imagePath}`
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          '@id': `${pageUrl}#article`,
+          headline: doc.title,
+          datePublished: doc.date,
+          dateModified: doc.lastmod || doc.date,
+          description: doc.summary,
+          image: imageUrl,
+          url: pageUrl,
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': pageUrl,
+          },
+          isPartOf: {
+            '@type': 'Blog',
+            '@id': `${siteMetadata.siteUrl}/blog#blog`,
+            name: siteMetadata.title,
+            url: `${siteMetadata.siteUrl}/blog`,
+          },
+          author: {
+            '@id': `${siteMetadata.siteUrl}/about#person`,
+          },
+          publisher: {
+            '@id': `${siteMetadata.siteUrl}/#organization`,
+          },
+          inLanguage: 'en-US',
+        }
+      },
     },
   },
 }))
