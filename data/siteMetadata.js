@@ -11,6 +11,11 @@ const siteMetadata = {
   siteRepo: 'https://github.com/LetMeHelpYouREALTY/DrGeneBoyle.com',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.webp`,
+  // Google Search Console — same token as Cloudflare DNS TXT (domain property).
+  // HTML meta is a backup for URL-prefix properties; see docs/google-search-console.md
+  googleSiteVerification:
+    process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+    'U6dTkupnkNebU0nsneR1nxBD6wZH3aGhpTc6CkE0gyE',
   // Domain address via Cloudflare Email Routing — see docs/dns.md
   email: 'info@drgeneboyle.com',
   github: 'https://github.com/geneboyle',

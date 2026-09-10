@@ -33,7 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'about',
     'tags',
   ].map((route) => ({
-    url: `${siteUrl}/${route}`,
+    // Homepage must match canonical (no trailing slash; next.config trailingSlash: false)
+    url: route ? `${siteUrl}/${route}` : siteUrl,
     lastModified: new Date().toISOString().split('T')[0],
   }))
 
