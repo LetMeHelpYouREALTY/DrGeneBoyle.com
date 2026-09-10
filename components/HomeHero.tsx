@@ -10,7 +10,15 @@ export default function HomeHero({ imageSrc, imageAlt }: HomeHeroProps) {
   return (
     <section className="page-hero relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden">
       <div className="absolute inset-0">
-        <Image src={imageSrc} alt={imageAlt} title={imageAlt} fill className="object-cover" priority sizes="100vw" />
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          title={imageAlt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
         <span className="sr-only">{imageAlt}</span>
         <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-ink)] via-[color:var(--color-ink)]/88 to-[color:var(--color-ink)]/45" />
         <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/70 via-transparent to-[color:var(--color-ink)]/20" />
@@ -35,10 +43,10 @@ export default function HomeHero({ imageSrc, imageAlt }: HomeHeroProps) {
             Explore CTMT-2 research
           </Link>
           <Link
-            href="/topics/motherhood-and-smi"
+            href="/topics/acquisition-advisory"
             className="rounded-md border border-white/45 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10"
           >
-            Motherhood & SMI
+            CA · NV acquisition advisory
           </Link>
         </div>
       </div>

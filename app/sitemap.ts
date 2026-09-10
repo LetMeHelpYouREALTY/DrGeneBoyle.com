@@ -18,11 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     'blog',
     'topics',
-    'projects',
     'topics/motherhood-and-smi',
     'topics/ctmt-attention',
+    'topics/acquisition-advisory',
     'faq/motherhood-smi',
     'faq/ctmt-attention',
+    'faq/acquisition',
     'glossary',
     'glossary/ctmt-attention',
     'publications',
@@ -32,7 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'about',
     'tags',
   ].map((route) => ({
-    url: `${siteUrl}/${route}`,
+    // Homepage must match canonical (no trailing slash; next.config trailingSlash: false)
+    url: route ? `${siteUrl}/${route}` : siteUrl,
     lastModified: new Date().toISOString().split('T')[0],
   }))
 

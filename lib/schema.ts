@@ -8,6 +8,11 @@ type FaqItem = {
   answer: string
 }
 
+const personId = `${siteMetadata.siteUrl}/about#person`
+const organizationId = `${siteMetadata.siteUrl}/#organization`
+const familyOfficeId = `${siteMetadata.siteUrl}/#boyle-family-office`
+const websiteId = `${siteMetadata.siteUrl}/#website`
+
 const place = {
   '@type': 'Place',
   address: {
@@ -18,36 +23,60 @@ const place = {
   },
 }
 
+const areaServed = siteIdentity.address.areaServed.map((name) => ({
+  '@type': 'AdministrativeArea',
+  name,
+}))
+
+function absoluteUrl(pathOrUrl: string) {
+  if (pathOrUrl.startsWith('http')) return pathOrUrl
+  return `${siteMetadata.siteUrl}${pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`}`
+}
+
+function personImageUrl() {
+  const headshot = siteMedia.eugeneBoyleHeadshot
+  const resolved = resolveMediaUrl(headshot.cfImageId, headshot.local, headshot.social)
+  return resolved.startsWith('http') ? resolved : `${siteMetadata.siteUrl}${resolved}`
+}
+
 export function personSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${siteMetadata.siteUrl}/about#person`,
+    '@id': personId,
     name: siteIdentity.name,
     alternateName: siteIdentity.alternateName,
     givenName: siteIdentity.givenName,
     familyName: siteIdentity.familyName,
     honorificSuffix: siteIdentity.honorificSuffix,
-    jobTitle: siteIdentity.jobTitle,
+    jobTitle: [siteIdentity.jobTitle, ...siteIdentity.additionalRoles.map((role) => role.name)],
     description: siteIdentity.description,
     url: `${siteMetadata.siteUrl}/about`,
     email: siteIdentity.email,
     telephone: siteIdentity.telephone,
-    image: (() => {
-      const headshot = siteMedia.eugeneBoyleHeadshot
-      const resolved = resolveMediaUrl(headshot.cfImageId, headshot.local, headshot.social)
-      return resolved.startsWith('http') ? resolved : `${siteMetadata.siteUrl}${resolved}`
-    })(),
+    image: personImageUrl(),
     homeLocation: place,
-    worksFor: {
-      '@type': 'Organization',
-      name: siteIdentity.worksFor.name,
-      url: siteIdentity.worksFor.url,
-      description: siteIdentity.worksFor.description,
-    },
+    worksFor: [
+      { '@id': organizationId },
+      {
+        '@type': 'Organization',
+        '@id': familyOfficeId,
+        name: 'Boyle Family Office',
+        description: siteIdentity.additionalRoles[0]?.description,
+      },
+    ],
     alumniOf: siteIdentity.education.map((edu) => ({
       '@type': 'EducationalOrganization',
       name: edu.school,
+    })),
+    hasCredential: siteIdentity.credentials.map((credential) => ({
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'Professional credential',
+      name: credential,
+    })),
+    memberOf: siteIdentity.memberships.map((name) => ({
+      '@type': 'Organization',
+      name,
     })),
     knowsAbout: siteIdentity.knowsAbout,
     sameAs: siteIdentity.sameAs,
@@ -61,21 +90,71 @@ export function personSchema() {
   }
 }
 
+/** KLB Consultants as acquisition brokerage / RealEstateAgent entity (CA/NV). */
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': `${siteMetadata.siteUrl}/#organization`,
+    '@type': ['Organization', 'RealEstateAgent', 'ProfessionalService'],
+    '@id': organizationId,
     name: siteIdentity.worksFor.name,
+    legalName: siteIdentity.worksFor.name,
     description: siteIdentity.worksFor.description,
     url: siteMetadata.siteUrl,
     telephone: siteIdentity.telephone,
-    areaServed: siteIdentity.address.areaServed.map((name) => ({
-      '@type': 'AdministrativeArea',
-      name,
-    })),
-    employee: { '@id': `${siteMetadata.siteUrl}/about#person` },
+    email: siteIdentity.email,
+    image: personImageUrl(),
+    address: place.address,
+    areaServed,
+    priceRange: '$$$$',
+    knowsAbout: [
+      'Multifamily acquisition',
+      'Mixed-use development',
+      'Acquisition brokerage',
+      'Waterfall equity structuring',
+      'Public-agency entitlements',
+      'California real estate',
+      'Nevada real estate',
+    ],
+    employee: { '@id': personId },
+    founder: { '@id': personId },
     sameAs: [siteIdentity.worksFor.url, siteIdentity.linkedin],
+    parentOrganization: { '@id': familyOfficeId },
+  }
+}
+
+export function boyleFamilyOfficeSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': familyOfficeId,
+    name: 'Boyle Family Office',
+    description: siteIdentity.additionalRoles[0]?.description,
+    url: siteMetadata.siteUrl,
+    employee: { '@id': personId },
+    areaServed,
+    sameAs: [siteIdentity.linkedin],
+  }
+}
+
+export function webSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': websiteId,
+    name: siteMetadata.title,
+    url: siteMetadata.siteUrl,
+    description: siteMetadata.description,
+    inLanguage: 'en-US',
+    publisher: { '@id': organizationId },
+    about: { '@id': personId },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteMetadata.siteUrl}/blog?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   }
 }
 
@@ -129,37 +208,104 @@ export function webPageSchema({
   description,
   path,
   image,
+  speakable = true,
 }: {
   title: string
   description: string
   path: string
   image?: { src: string; alt: string }
+  speakable?: boolean
 }) {
   const pageUrl = `${siteMetadata.siteUrl}${path}`
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     name: title,
     description,
     url: pageUrl,
-    isPartOf: {
-      '@type': 'WebSite',
-      name: siteMetadata.title,
-      url: siteMetadata.siteUrl,
-    },
-    author: { '@id': `${siteMetadata.siteUrl}/about#person` },
-    about: { '@id': `${siteMetadata.siteUrl}/about#person` },
+    isPartOf: { '@id': websiteId },
+    author: { '@id': personId },
+    about: { '@id': personId },
+    publisher: { '@id': organizationId },
+    inLanguage: 'en-US',
+    ...(speakable
+      ? {
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['h1', '[data-speakable]', '.answer-callout', 'article h2', 'section h2'],
+          },
+        }
+      : {}),
     ...(image
       ? {
           primaryImageOfPage: {
             '@type': 'ImageObject',
-            url: `${siteMetadata.siteUrl}${image.src}`,
-            contentUrl: `${siteMetadata.siteUrl}${image.src}`,
+            url: absoluteUrl(image.src),
+            contentUrl: absoluteUrl(image.src),
             description: image.alt,
             name: image.alt,
             caption: image.alt,
           },
         }
       : {}),
+  }
+}
+
+export function scholarlyArticleSchema({
+  title,
+  description,
+  datePublished,
+  url,
+  doi,
+  about,
+}: {
+  title: string
+  description: string
+  datePublished: string
+  url: string
+  doi?: string
+  about?: string[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ScholarlyArticle',
+    headline: title,
+    name: title,
+    description,
+    datePublished,
+    url,
+    ...(doi ? { sameAs: `https://doi.org/${doi}`, identifier: doi } : {}),
+    author: { '@id': personId },
+    publisher: { '@id': organizationId },
+    ...(about ? { about: about.map((name) => ({ '@type': 'Thing', name })) } : {}),
+  }
+}
+
+export function thesisSchema({
+  title,
+  description,
+  datePublished,
+  url,
+  institution,
+}: {
+  title: string
+  description: string
+  datePublished: string
+  url: string
+  institution: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Thesis',
+    name: title,
+    description,
+    datePublished,
+    url,
+    author: { '@id': personId },
+    sourceOrganization: {
+      '@type': 'CollegeOrUniversity',
+      name: institution,
+    },
   }
 }

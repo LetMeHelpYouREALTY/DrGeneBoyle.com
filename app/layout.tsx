@@ -12,7 +12,12 @@ import JsonLd from '@/components/JsonLd'
 import siteMetadata from '@/data/siteMetadata'
 import { siteMedia } from '@/data/siteMedia'
 import { cloudflareImageUrl, isCloudflareImagesConfigured } from '@/lib/cloudflare-images'
-import { organizationSchema, personSchema } from '@/lib/schema'
+import {
+  boyleFamilyOfficeSchema,
+  organizationSchema,
+  personSchema,
+  webSiteSchema,
+} from '@/lib/schema'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
@@ -66,6 +71,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: [siteMetadata.socialBanner],
   },
+  verification: {
+    google: siteMetadata.googleSiteVerification,
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -117,7 +125,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f2744" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
-        <JsonLd data={[personSchema(), organizationSchema()]} />
+        <JsonLd
+          data={[personSchema(), organizationSchema(), boyleFamilyOfficeSchema(), webSiteSchema()]}
+        />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>

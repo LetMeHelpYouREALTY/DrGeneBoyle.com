@@ -4,13 +4,18 @@ const siteMetadata = {
   author: 'Eugene Boyle, Ph.D.',
   headerTitle: 'Eugene Boyle',
   description:
-    'Research briefs and answer-ready explainers from Eugene Boyle, Ph.D.—co-author of Motherhood reimagined (SMI & parenting), Managing Director at KLB Consultants, and Investment Director at Boyle Family Office.',
+    'Research briefs and answer-ready explainers from Eugene Boyle, Ph.D.—CTMT-2 & motherhood/SMI research, plus KLB Consultants multifamily and mixed-use acquisition advisory across California and Nevada.',
   language: 'en-us',
   theme: 'system',
   siteUrl: 'https://www.drgeneboyle.com',
   siteRepo: 'https://github.com/LetMeHelpYouREALTY/DrGeneBoyle.com',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.webp`,
+  // Google Search Console — same token as Cloudflare DNS TXT (domain property).
+  // HTML meta is a backup for URL-prefix properties; see docs/google-search-console.md
+  googleSiteVerification:
+    process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+    'U6dTkupnkNebU0nsneR1nxBD6wZH3aGhpTc6CkE0gyE',
   // Domain address via Cloudflare Email Routing — see docs/dns.md
   email: 'info@drgeneboyle.com',
   github: 'https://github.com/geneboyle',

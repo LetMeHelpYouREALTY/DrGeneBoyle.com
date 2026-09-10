@@ -25,12 +25,14 @@ www.drgeneboyle.com.  CNAME  553347965863feb5.vercel-dns-017.com.
 _vercel.drgeneboyle.com.  TXT  "vc-domain-verify=drgeneboyle.com,…"
 _vercel.drgeneboyle.com.  TXT  "vc-domain-verify=www.drgeneboyle.com,…"
 
-;; Search Console
+;; Search Console (domain property — mirrored as HTML meta; see docs/google-search-console.md)
 drgeneboyle.com.  TXT  "google-site-verification=U6dTkupnkNebU0nsneR1nxBD6wZH3aGhpTc6CkE0gyE"
 
 ;; DMARC (monitor-only; reports → Reverence inbox)
 _dmarc.drgeneboyle.com.  TXT  "v=DMARC1; p=none; rua=mailto:DrJanSells@ReverenceSummerlinHomes.com; ruf=mailto:DrJanSells@ReverenceSummerlinHomes.com; fo=1"
 ```
+
+GSC setup checklist: [`google-search-console.md`](./google-search-console.md).
 
 ### Expected HTTP behavior
 
