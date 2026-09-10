@@ -29,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'publications',
     'credentials',
     'contact',
+    'connect',
+    'email-signature',
     'linkedin',
     'about',
     'tags',

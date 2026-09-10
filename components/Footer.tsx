@@ -41,6 +41,9 @@ export default function Footer() {
             <Link href="/topics/motherhood-and-smi" className="text-primary-500 hover:underline">
               Motherhood & SMI
             </Link>
+            <Link href="/connect" className="text-primary-500 hover:underline">
+              Connect
+            </Link>
             <Link href="/contact" className="text-primary-500 hover:underline">
               Contact
             </Link>

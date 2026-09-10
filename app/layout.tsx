@@ -8,6 +8,7 @@ import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import JsonLd from '@/components/JsonLd'
 import siteMetadata from '@/data/siteMetadata'
 import { siteMedia } from '@/data/siteMedia'
@@ -130,6 +131,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+          <GoogleAnalytics />
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />

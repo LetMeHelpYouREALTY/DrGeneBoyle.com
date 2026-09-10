@@ -60,6 +60,10 @@ export default function ContactPage() {
             {addressLocality}, {addressRegion} · Serving California & Nevada
           </p>
           <p>
+            <Link href="/connect" className="text-primary-500 hover:underline">
+              Connect / Virtual Twin
+            </Link>
+            {' · '}
             <Link href="/linkedin" className="text-primary-500 hover:underline">
               LinkedIn hub
             </Link>
