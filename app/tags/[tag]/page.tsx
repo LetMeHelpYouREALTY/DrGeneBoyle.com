@@ -6,6 +6,7 @@ import { allBlogs } from 'contentlayer/generated'
 import tagData from 'app/tag-data.json'
 import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 const POSTS_PER_PAGE = 5
 
@@ -16,9 +17,9 @@ export async function generateMetadata(props: {
   const tag = decodeURI(params.tag)
   return genPageMetadata({
     title: tag,
-    description: `${siteMetadata.title} ${tag} tagged content`,
+    description: `${siteMetadata.title} — posts tagged “${tag}”.`,
     alternates: {
-      canonical: './',
+      canonical: `${siteMetadata.siteUrl}/tags/${tag}`,
       types: {
         'application/rss+xml': `${siteMetadata.siteUrl}/tags/${tag}/feed.xml`,
       },
@@ -41,6 +42,12 @@ export default async function TagPage(props: { params: Promise<{ tag: string }> 
   const filteredPosts = allCoreContent(
     sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
   )
+
+  // Drop empty starter/orphan tags from the index (GSC previously saw /tags/math as noise).
+  if (filteredPosts.length === 0) {
+    notFound()
+  }
+
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
   const initialDisplayPosts = filteredPosts.slice(0, POSTS_PER_PAGE)
   const pagination = {

@@ -65,6 +65,19 @@ curl -sI https://drgeneboyle.com   # expect 307 → www
 - Expect Instant Indexing API for ordinary content — use sitemap + URL Inspection.
 - Treat FAQ rich results as guaranteed (Google narrowed FAQ rich results in 2026); FAQ pages still help answer extraction.
 
+## Coverage drilldown — 2026-09-10
+
+Export: `Page with redirect` · **4 affected URLs** (stable since mid-June; briefly 5 in July).
+
+| URL | Last crawled | Verdict |
+|-----|--------------|---------|
+| `http://drgeneboyle.com/` | 2026-08-28 | Expected → HTTPS apex → www |
+| `https://drgeneboyle.com/` | 2026-08-28 | Expected → `https://www.drgeneboyle.com/` |
+| `http://www.drgeneboyle.com/` | 2026-08-28 | Expected → HTTPS www |
+| `https://www.drgeneboyle.com/tags/math` | 2026-07-31 | Junk starter tag (empty). Fixed: drafts excluded from `tag-data.json`; empty tag routes `404` |
+
+**Action in GSC:** These “Page with redirect” rows are **exclusions**, not indexing failures. Do not request indexing for HTTP/apex variants. After deploy, use URL Inspection on `/tags/math` to confirm **404** / removed, and monitor Valid pages for `https://www.drgeneboyle.com/`.
+
 ## Related docs
 
 - [`dns.md`](./dns.md) — live DNS + Search Console TXT
