@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'Eugene Boyle, Ph.D.',
   headerTitle: 'Eugene Boyle',
   description:
-    'Research briefs and answer-ready explainers from Eugene Boyle, Ph.D.—co-author of Motherhood reimagined (SMI & parenting), Managing Director at KLB Consultants, and Investment Director at Boyle Family Office.',
+    'Research briefs and answer-ready explainers from Eugene Boyle, Ph.D.—CTMT-2 & motherhood/SMI research, plus KLB Consultants multifamily and mixed-use acquisition advisory across California and Nevada.',
   language: 'en-us',
   theme: 'system',
   siteUrl: 'https://www.drgeneboyle.com',

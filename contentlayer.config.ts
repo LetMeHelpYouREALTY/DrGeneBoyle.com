@@ -114,16 +114,41 @@ export const Blog = defineDocumentType(() => ({
     ...computedFields,
     structuredData: {
       type: 'json',
-      resolve: (doc) => ({
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: doc.title,
-        datePublished: doc.date,
-        dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
-      }),
+      resolve: (doc) => {
+        const pageUrl = `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`
+        const imagePath = doc.images ? doc.images[0] : siteMetadata.socialBanner
+        const imageUrl = imagePath?.startsWith('http')
+          ? imagePath
+          : `${siteMetadata.siteUrl}${imagePath}`
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          '@id': `${pageUrl}#article`,
+          headline: doc.title,
+          datePublished: doc.date,
+          dateModified: doc.lastmod || doc.date,
+          description: doc.summary,
+          image: imageUrl,
+          url: pageUrl,
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': pageUrl,
+          },
+          isPartOf: {
+            '@type': 'Blog',
+            '@id': `${siteMetadata.siteUrl}/blog#blog`,
+            name: siteMetadata.title,
+            url: `${siteMetadata.siteUrl}/blog`,
+          },
+          author: {
+            '@id': `${siteMetadata.siteUrl}/about#person`,
+          },
+          publisher: {
+            '@id': `${siteMetadata.siteUrl}/#organization`,
+          },
+          inLanguage: 'en-US',
+        }
+      },
     },
   },
 }))

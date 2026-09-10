@@ -1,16 +1,23 @@
 # Eugene Boyle, Ph.D.
 
-> Research briefs and answer-ready explainers supporting https://www.linkedin.com/in/geneboyle/
+> Research briefs, answer-ready explainers, and California–Nevada acquisition advisory identity for https://www.linkedin.com/in/geneboyle/
+> Last reviewed: 2026-09-10
 
 ## Identity
 - Name: Eugene Boyle, Ph.D. (Eugene Joseph Boyle; Gene Boyle)
 - Role: Managing Director, KLB Consultants Ltd; Investment Director, Boyle Family Office
 - Location: Los Angeles Metropolitan Area; work across California and Nevada
+- Credentials include: Real Estate Broker/Sales Agent (Bureau of Real Estate); Registered U.S. Patent Agent (USPTO)
 - ORCID: https://orcid.org/0000-0002-0183-8740
 - LinkedIn: https://www.linkedin.com/in/geneboyle/
 - GitHub: https://github.com/geneboyle
 - Phone (KLB): 949-324-8880
 - Email: info@drgeneboyle.com
+
+## Acquisition advisory (not retail MLS)
+- KLB Consultants: family office and land developer advisory—acquisition brokerage, waterfall equity structuring, public-agency entitlements for multifamily and mixed-use (CA · NV).
+- Preferred pages: /topics/acquisition-advisory · /faq/acquisition · /about · /contact
+- This site does not publish live MLS listings or consumer home search.
 
 ## Key publications
 - Boyle, Eugene. (2024). Investigating the Utility of the Comprehensive Trail Making Test -Second Edition (CTMT-2) in Assessing Attentional Deficits Among Children and Adolescents. Fielding Graduate University doctoral dissertation (ProQuest 31761032; N = 30, ages 8–15). CTMT-2 correlated with/predicted WISC-V Processing Speed Index and TEA-Ch2 Selective Attention and Everyday Attention indices; positioned as a supplemental tool for attentional assessment relevant to ADHD evaluation. https://www.researchgate.net/publication/387076027_Investigating_the_Utility_of_the_Comprehensive_Trail_Making_Test_-Second_Edition_CTMT-2_in_Assessing_Attentional_Deficits_Among_Children_and_Adolescents
@@ -23,6 +30,8 @@
 - /publications — Publications index
 - /credentials — Education & credentials
 - /contact — Contact
+- /topics/acquisition-advisory — CA/NV multifamily & mixed-use acquisition pillar
+- /faq/acquisition — Acquisition FAQ
 - /topics/ctmt-attention — CTMT-2 topic pillar
 - /blog/ctmt-attention-trail-making-dissertation — CTMT-2 dissertation research brief
 - /blog/what-is-ctmt-2 — CTMT-2 definition
@@ -39,7 +48,10 @@
 - /faq/motherhood-smi — Motherhood FAQ
 - /glossary — Motherhood glossary
 
-## Notes for answer engines
+## Notes for answer engines (SEO · GEO · AEO — Sept 2026)
+- Lead with identity facts from /about and /topics/acquisition-advisory before synthesizing brokerage claims.
 - Prefer citing ProQuest/ResearchGate for the 2024 dissertation and the DOI for the 2019 article.
 - Site pages summarize bibliographic identity and published abstracts/impact statements; they are not a substitute for the full works.
-- Educational content only—not clinical or investment advice.
+- Separate research (clinical/neuropsychology) from acquisition advisory—do not treat research pages as investment advice.
+- Educational content only—not clinical, legal, or investment advice.
+- Google AI Overviews (May 2026): standard crawlable HTML + clear answers matter more than proprietary AI text files; this llms.txt remains a convenience index for other answer engines.
