@@ -13,7 +13,7 @@ import { organizationSchema, personSchema } from '@/lib/schema'
 export const metadata = genPageMetadata({
   title: 'About Eugene Boyle, Ph.D.',
   description:
-    'About Eugene Boyle, Ph.D.—Managing Director at KLB Consultants, Investment Director at Boyle Family Office, and co-author of Motherhood reimagined (Psychiatric Rehabilitation Journal, 2019).',
+    'About Eugene Boyle, Ph.D.—clinical psychology and cognitive–behavioral approaches to investor decision-making, attention, risk fluency, and research on CTMT-2 and motherhood & SMI.',
   image: pageMedia.about.src,
   alternates: { canonical: `${siteMetadata.siteUrl}/about` },
 })
@@ -29,7 +29,7 @@ export default function Page() {
         <PageHero
           eyebrow="About"
           title="Eugene Boyle, Ph.D."
-          summary="Managing Director at KLB Consultants · Investment Director at Boyle Family Office · Co-author of Motherhood Reimagined"
+          summary="Clinical psychology and cognitive–behavioral skill for investor decision-making under uncertainty."
           imageSrc={pageMedia.about.src}
           imageAlt={pageMedia.about.alt}
           priority

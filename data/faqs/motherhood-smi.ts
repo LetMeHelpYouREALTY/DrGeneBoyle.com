@@ -31,8 +31,8 @@ export const motherhoodSmiFaqs: FaqItem[] = [
       'He holds a Ph.D. and M.A. in Clinical Psychology from Fielding Graduate University, completed a forensic psychology internship at Heartland Behavioral Healthcare (competency and NGRI-related assessment), served as a multivariate statistics teaching assistant at Fielding, and lists research interests spanning maternal mental health, family caregiving in mental illness, and child abuse and trauma. He is a member of APA, APS, and ABCT.',
   },
   {
-    question: 'What does Eugene Boyle do at KLB Consultants?',
+    question: 'How does Eugene Boyle connect psychology to investing?',
     answer:
-      'As Managing Director of KLB Consultants (California and Nevada), he leads financial modeling, due diligence, and waterfall deal structuring for family office and land developer clients on multifamily and mixed-use acquisitions, including acquisition brokerage and public-agency entitlement support. He also serves as Investment Director of Boyle Family Office, focusing on pre-IPO and multi-asset private placements.',
+      'He applies a cognitive–behavioral lens to investor decision-making—how loss aversion, disposition effects, and hindsight bias show up when real capital is at stake, and how practiced overrides under uncertainty build risk fluency. His clinical training (Fielding Ph.D./M.A.; ABCT) and CTMT-2 / motherhood & SMI research inform that lens; he is not publishing stock tips or acquisition deal sheets on this site.',
   },
 ]

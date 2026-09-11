@@ -24,7 +24,7 @@ export default function AuthorLayout({ children, content }: Props) {
             {portraitSrc && (
               <Image
                 src={portraitSrc}
-                alt={`Professional headshot of ${name}, CTMT-2 dissertation author and Managing Director at KLB Consultants`}
+                alt={`Professional headshot of ${name}, clinical psychologist writing on cognitive–behavioral investor decision-making`}
                 width={192}
                 height={192}
                 className="h-48 w-48 rounded-full object-cover ring-2 ring-[color:var(--color-accent)]/40"
