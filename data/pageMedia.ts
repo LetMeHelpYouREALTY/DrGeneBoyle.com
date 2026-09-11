@@ -5,8 +5,8 @@
  */
 export const pageMedia = {
   home: {
-    src: '/static/images/pages/improve-here-homepage.webp',
-    alt: 'SEO GEO AEO hero: Eugene Boyle, Ph.D. research homepage — CTMT-2 attentional assessment and motherhood & SMI insights, California and Nevada',
+    src: '/static/images/pages/hero-home-eugene-boyle.webp',
+    alt: 'Eugene Boyle, Ph.D. at his desk with a California city skyline — CTMT-2 research and CA–NV acquisition advisory homepage hero',
   },
   homeFeature: {
     src: '/static/images/pages/home-feature-motherhood-smi.webp',
