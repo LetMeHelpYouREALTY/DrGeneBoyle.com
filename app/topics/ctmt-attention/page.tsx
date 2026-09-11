@@ -81,9 +81,9 @@ export default function CtmtAttentionTopicPage() {
         />
 
         <AnswerCallout>
-          Doctoral dissertation by Boyle, Eugene (Fielding Graduate University, 2024-12-02;
-          ProQuest 31761032). Full text on ResearchGate / ProQuest—this hub summarizes the abstract
-          for citation and navigation.
+          Doctoral dissertation by Boyle, Eugene (Fielding Graduate University, 2024-12-02; ProQuest
+          31761032). Full text on ResearchGate / ProQuest—this hub summarizes the abstract for
+          citation and navigation.
         </AnswerCallout>
 
         <section>

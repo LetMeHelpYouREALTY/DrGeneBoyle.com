@@ -22,8 +22,7 @@ export const metadata = genPageMetadata({
  */
 export default function EmailSignaturePage() {
   const connectUrl = `${siteMetadata.siteUrl}/connect`
-  const spotlightLabel =
-    process.env.NEXT_PUBLIC_SPOTLIGHT_LABEL || spotlightConfig.defaultLabel
+  const spotlightLabel = process.env.NEXT_PUBLIC_SPOTLIGHT_LABEL || spotlightConfig.defaultLabel
   const spotlightHref =
     process.env.NEXT_PUBLIC_SPOTLIGHT_HREF ||
     process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_BOOKING_URL ||

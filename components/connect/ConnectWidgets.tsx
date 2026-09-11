@@ -246,11 +246,15 @@ export function VirtualTwinChat({ onTranscript }: { onTranscript?: (text: string
   return (
     <div className="flex h-full min-h-[28rem] flex-col rounded-2xl border border-gray-200 bg-white/80 dark:border-gray-700 dark:bg-gray-900/50">
       <div className="border-b border-gray-200 px-5 py-4 dark:border-gray-700">
-        <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">Virtual Twin AI</p>
+        <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">
+          Virtual Twin AI
+        </p>
         <h2 className="font-display mt-1 text-xl font-semibold text-gray-900 dark:text-gray-100">
           Chat with Gene’s twin
         </h2>
-        <p className="mt-1 text-xs text-gray-500">Hosted on DrGeneBoyle.com · no about.me branding</p>
+        <p className="mt-1 text-xs text-gray-500">
+          Hosted on DrGeneBoyle.com · no about.me branding
+        </p>
       </div>
       <div className="flex-1 space-y-3 overflow-y-auto px-5 py-4">
         {messages.map((message, index) => (

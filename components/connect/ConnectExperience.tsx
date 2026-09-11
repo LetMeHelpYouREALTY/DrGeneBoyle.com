@@ -1,15 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import SpotlightButton, { LeadCaptureForm, VirtualTwinChat } from '@/components/connect/ConnectWidgets'
+import SpotlightButton, {
+  LeadCaptureForm,
+  VirtualTwinChat,
+} from '@/components/connect/ConnectWidgets'
 import { spotlightConfig } from '@/data/connectHub'
 
 export default function ConnectExperience() {
   const [transcript, setTranscript] = useState('')
   const bookingUrl = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_BOOKING_URL || ''
   const spotlightHref = process.env.NEXT_PUBLIC_SPOTLIGHT_HREF || bookingUrl
-  const spotlightLabel =
-    process.env.NEXT_PUBLIC_SPOTLIGHT_LABEL || spotlightConfig.defaultLabel
+  const spotlightLabel = process.env.NEXT_PUBLIC_SPOTLIGHT_LABEL || spotlightConfig.defaultLabel
 
   return (
     <div className="space-y-8">
