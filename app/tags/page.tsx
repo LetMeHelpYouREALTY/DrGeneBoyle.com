@@ -9,6 +9,7 @@ import NapBlock from '@/components/NapBlock'
 import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 const title = 'Tags'
 const description =
@@ -47,21 +48,27 @@ export default async function Page() {
           imageAlt={pageMedia.tags.alt}
           priority
         />
-        <div className="flex max-w-3xl flex-wrap gap-3 px-1">
-          {tagKeys.length === 0 && 'No tags found.'}
-          {sortedTags.map((t) => (
-            <div key={t} className="mr-2 mb-2">
-              <Tag text={t} />
-              <Link
-                href={`/tags/${slug(t)}`}
-                className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
-                aria-label={`View posts tagged ${t}`}
-              >
-                {` (${tagCounts[t]})`}
-              </Link>
-            </div>
-          ))}
-        </div>
+        <SectionBlock
+          id="tag-index"
+          title="Browse by research tag"
+          answer="Tags group Eugene Boyle’s research posts by topic—attention, ADHD, CTMT-2, SMI, motherhood, and related clinical themes."
+        >
+          <div className="mt-4 flex max-w-3xl flex-wrap gap-3 px-1">
+            {tagKeys.length === 0 && 'No tags found.'}
+            {sortedTags.map((t) => (
+              <div key={t} className="mr-2 mb-2">
+                <Tag text={t} />
+                <Link
+                  href={`/tags/${slug(t)}`}
+                  className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
+                  aria-label={`View posts tagged ${t}`}
+                >
+                  {` (${tagCounts[t]})`}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </SectionBlock>
         <NapBlock />
       </div>
     </>

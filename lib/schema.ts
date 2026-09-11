@@ -3,7 +3,7 @@ import siteIdentity from '@/data/siteIdentity'
 import { siteMedia } from '@/data/siteMedia'
 import { resolveMediaUrl } from '@/lib/cloudflare-images'
 
-type FaqItem = {
+export type FaqItem = {
   question: string
   answer: string
 }
@@ -18,11 +18,21 @@ const place = {
   },
 }
 
+const personId = `${siteMetadata.siteUrl}/about#person`
+const organizationId = `${siteMetadata.siteUrl}/#organization`
+const websiteId = `${siteMetadata.siteUrl}/#website`
+
+/** Default AEO/voice selectors — pair with `.answer-callout` and section H2s in the UI. */
+export const defaultSpeakable = {
+  '@type': 'SpeakableSpecification',
+  cssSelector: ['h1', '.answer-callout', '[data-speakable]', 'section h2'],
+}
+
 export function personSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `${siteMetadata.siteUrl}/about#person`,
+    '@id': personId,
     name: siteIdentity.name,
     alternateName: siteIdentity.alternateName,
     givenName: siteIdentity.givenName,
@@ -65,7 +75,7 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': `${siteMetadata.siteUrl}/#organization`,
+    '@id': organizationId,
     name: siteIdentity.worksFor.name,
     description: siteIdentity.worksFor.description,
     url: siteMetadata.siteUrl,
@@ -74,8 +84,22 @@ export function organizationSchema() {
       '@type': 'AdministrativeArea',
       name,
     })),
-    employee: { '@id': `${siteMetadata.siteUrl}/about#person` },
+    employee: { '@id': personId },
     sameAs: [siteIdentity.worksFor.url, siteIdentity.linkedin],
+  }
+}
+
+export function webSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': websiteId,
+    name: siteMetadata.title,
+    description: siteMetadata.description,
+    url: siteMetadata.siteUrl,
+    publisher: { '@id': organizationId },
+    author: { '@id': personId },
+    inLanguage: 'en-US',
   }
 }
 
@@ -96,7 +120,15 @@ export function faqPageSchema(faqs: FaqItem[], pageUrl: string) {
   }
 }
 
-export function definedTermSchema(term: string, description: string, pageUrl: string) {
+export function definedTermSchema(
+  term: string,
+  description: string,
+  pageUrl: string,
+  termSet: { name: string; url: string } = {
+    name: 'Eugene Boyle research glossary',
+    url: `${siteMetadata.siteUrl}/glossary`,
+  }
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'DefinedTerm',
@@ -105,8 +137,8 @@ export function definedTermSchema(term: string, description: string, pageUrl: st
     url: pageUrl,
     inDefinedTermSet: {
       '@type': 'DefinedTermSet',
-      name: 'Motherhood and SMI Glossary',
-      url: `${siteMetadata.siteUrl}/glossary`,
+      name: termSet.name,
+      url: termSet.url,
     },
   }
 }
@@ -129,32 +161,36 @@ export function webPageSchema({
   description,
   path,
   image,
+  speakable = true,
 }: {
   title: string
   description: string
   path: string
   image?: { src: string; alt: string }
+  speakable?: boolean
 }) {
   const pageUrl = `${siteMetadata.siteUrl}${path}`
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     name: title,
     description,
     url: pageUrl,
-    isPartOf: {
-      '@type': 'WebSite',
-      name: siteMetadata.title,
-      url: siteMetadata.siteUrl,
-    },
-    author: { '@id': `${siteMetadata.siteUrl}/about#person` },
-    about: { '@id': `${siteMetadata.siteUrl}/about#person` },
+    isPartOf: { '@id': websiteId },
+    author: { '@id': personId },
+    about: { '@id': personId },
+    publisher: { '@id': organizationId },
+    inLanguage: 'en-US',
+    ...(speakable ? { speakable: defaultSpeakable } : {}),
     ...(image
       ? {
           primaryImageOfPage: {
             '@type': 'ImageObject',
-            url: `${siteMetadata.siteUrl}${image.src}`,
-            contentUrl: `${siteMetadata.siteUrl}${image.src}`,
+            url: image.src.startsWith('http') ? image.src : `${siteMetadata.siteUrl}${image.src}`,
+            contentUrl: image.src.startsWith('http')
+              ? image.src
+              : `${siteMetadata.siteUrl}${image.src}`,
             description: image.alt,
             name: image.alt,
             caption: image.alt,
@@ -162,4 +198,84 @@ export function webPageSchema({
         }
       : {}),
   }
+}
+
+export function contactPageSchema({
+  title,
+  description,
+  path,
+}: {
+  title: string
+  description: string
+  path: string
+}) {
+  const pageUrl = `${siteMetadata.siteUrl}${path}`
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': `${pageUrl}#contactpage`,
+    name: title,
+    description,
+    url: pageUrl,
+    about: { '@id': personId },
+    mainEntity: { '@id': personId },
+    speakable: defaultSpeakable,
+  }
+}
+
+export function blogPostingSchema({
+  title,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  image,
+}: {
+  title: string
+  description: string
+  path: string
+  datePublished: string
+  dateModified?: string
+  image?: string
+}) {
+  const pageUrl = `${siteMetadata.siteUrl}${path.startsWith('/') ? path : `/${path}`}`
+  const imageUrl = image
+    ? image.startsWith('http')
+      ? image
+      : `${siteMetadata.siteUrl}${image}`
+    : undefined
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${pageUrl}#blogposting`,
+    headline: title,
+    description,
+    url: pageUrl,
+    datePublished,
+    dateModified: dateModified || datePublished,
+    inLanguage: 'en-US',
+    isPartOf: { '@id': websiteId },
+    author: { '@id': personId },
+    publisher: { '@id': organizationId },
+    mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+    speakable: defaultSpeakable,
+    ...(imageUrl
+      ? {
+          image: {
+            '@type': 'ImageObject',
+            url: imageUrl,
+          },
+        }
+      : {}),
+  }
+}
+
+export const motherhoodGlossaryTermSet = {
+  name: 'Motherhood, SMI & psychiatric rehabilitation glossary',
+  url: `${siteMetadata.siteUrl}/glossary`,
+}
+
+export const ctmtGlossaryTermSet = {
+  name: 'CTMT-2 & attentional assessment glossary',
+  url: `${siteMetadata.siteUrl}/glossary/ctmt-attention`,
 }

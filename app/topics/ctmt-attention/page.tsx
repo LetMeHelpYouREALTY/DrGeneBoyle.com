@@ -3,6 +3,7 @@ import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import AnswerCallout from '@/components/AnswerCallout'
+import SectionBlock from '@/components/SectionBlock'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import { pageMedia } from '@/data/pageMedia'
@@ -81,26 +82,27 @@ export default function CtmtAttentionTopicPage() {
         />
 
         <AnswerCallout>
-          Doctoral dissertation by Boyle, Eugene (Fielding Graduate University, 2024-12-02;
-          ProQuest 31761032). Full text on ResearchGate / ProQuest—this hub summarizes the abstract
-          for citation and navigation.
+          Doctoral dissertation by Boyle, Eugene (Fielding Graduate University, 2024-12-02; ProQuest
+          31761032). Full text on ResearchGate / ProQuest—this hub summarizes the abstract for
+          citation and navigation.
         </AnswerCallout>
-
-        <section>
-          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Key takeaways
-          </h2>
+        <SectionBlock
+          id="key-takeaways"
+          title="Key takeaways"
+          answer="Boyle (2024) studied CTMT-2 with WISC-V, CAt-C, and TEA-Ch2 in ages 8–15 (N = 30), finding links to processing speed and selective/everyday attention."
+        >
           <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
             {keyTakeaways.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </section>
+        </SectionBlock>
 
-        <section>
-          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Cluster pages
-          </h2>
+        <SectionBlock
+          id="cluster-pages"
+          title="Cluster pages"
+          answer="Use the research brief, definition pages, FAQ, and glossary in this cluster for citable CTMT-2 answers."
+        >
           <ul className="mt-4 space-y-3">
             {clusterLinks.map((link) => (
               <li key={link.href}>
@@ -110,7 +112,7 @@ export default function CtmtAttentionTopicPage() {
               </li>
             ))}
           </ul>
-        </section>
+        </SectionBlock>
 
         <NapBlock />
       </div>

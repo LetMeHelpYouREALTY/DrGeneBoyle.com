@@ -3,6 +3,7 @@ import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import AnswerCallout from '@/components/AnswerCallout'
+import SectionBlock from '@/components/SectionBlock'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
@@ -50,7 +51,12 @@ const clusterLinks = [
 
 export default function MotherhoodSmiTopicPage() {
   const schemas = [
-    webPageSchema({ title, description, path: '/topics/motherhood-and-smi', image: pageMedia.motherhoodSmi }),
+    webPageSchema({
+      title,
+      description,
+      path: '/topics/motherhood-and-smi',
+      image: pageMedia.motherhoodSmi,
+    }),
     breadcrumbSchema([
       { name: 'Home', path: '/' },
       { name: 'Topics', path: '/topics' },
@@ -85,28 +91,38 @@ export default function MotherhoodSmiTopicPage() {
           through motherhood—according to qualitative research by Mizock, Merg, Boyle, and
           Kompaniez-Dunigan (2019) in <em>Psychiatric Rehabilitation Journal</em>.
         </AnswerCallout>
-
-        <article className="prose dark:prose-invert max-w-none">
-          <h2>Key takeaways</h2>
-          <ul>
+        <SectionBlock
+          id="key-takeaways"
+          title="Key takeaways"
+          answer="Mizock, Merg, Boyle, and Kompaniez-Dunigan (2019) identified five themes from interviews with 20 women with SMI—beyond risk-only narratives."
+        >
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
             {keyTakeaways.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
+        </SectionBlock>
 
-          <h2>Author connection</h2>
-          <p>
-            {siteIdentity.name} (Eugene Joseph Boyle) co-authored the study while contributing as a
-            qualitative data analyst in Lauren Mizock, Ph.D.&apos;s research program on women with
-            serious mental health problems at Fielding Graduate University. This hub gives his{' '}
+        <SectionBlock
+          id="author-connection"
+          title="Author connection"
+          answer={`${siteIdentity.name} (Eugene Joseph Boyle) co-authored the study as a qualitative data analyst in Lauren Mizock, Ph.D.'s research program on women with serious mental health problems at Fielding Graduate University.`}
+        >
+          <p className="mt-4 max-w-3xl text-gray-700 dark:text-gray-300">
+            This hub gives his{' '}
             <a href={siteIdentity.linkedin} rel="noopener noreferrer">
               LinkedIn profile
             </a>{' '}
             durable, citable URLs for posts and Featured links.
           </p>
+        </SectionBlock>
 
-          <h2>Five themes at a glance</h2>
-          <ol>
+        <SectionBlock
+          id="five-themes"
+          title="Five themes at a glance"
+          answer="The five themes are motherhood declined, derailed, disabled, reimagined, and mattering through motherhood."
+        >
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-gray-700 dark:text-gray-300">
             <li>
               <strong>Motherhood declined</strong> — opting out of motherhood
             </li>
@@ -124,24 +140,37 @@ export default function MotherhoodSmiTopicPage() {
               significance
             </li>
           </ol>
+        </SectionBlock>
 
-          <h2>Content cluster</h2>
-          <ul>
+        <SectionBlock
+          id="content-cluster"
+          title="Content cluster"
+          answer="This hub links the research brief, theme explainer, practice notes, SMI definition, FAQ, glossary, and LinkedIn hub."
+        >
+          <ul className="mt-4 space-y-3">
             {clusterLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link href={link.href} className="text-primary-500 font-medium hover:underline">
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
+        </SectionBlock>
 
-          <h2>Primary source</h2>
-          <p>
+        <SectionBlock
+          id="primary-source"
+          title="Primary source"
+          answer="Cite Mizock, Merg, Boyle & Kompaniez-Dunigan (2019), Psychiatric Rehabilitation Journal, DOI 10.1037/prj0000339."
+        >
+          <p className="mt-4 max-w-3xl text-gray-700 dark:text-gray-300">
             Mizock, L., Merg, A. L., Boyle, E. J., & Kompaniez-Dunigan, E. (2019). Motherhood
             reimagined: Experiences of women with SMI surrounding parenting.{' '}
             <em>Psychiatric Rehabilitation Journal, 42</em>(2), 105–112.{' '}
             <a href="https://doi.org/10.1037/prj0000339">https://doi.org/10.1037/prj0000339</a>
           </p>
-        </article>
+        </SectionBlock>
+
         <NapBlock />
       </div>
     </>

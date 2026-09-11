@@ -7,7 +7,13 @@ import { ctmtAttentionGlossary } from '@/data/glossary/ctmt-attention'
 import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { genPageMetadata } from 'app/seo'
-import { breadcrumbSchema, definedTermSchema, webPageSchema } from '@/lib/schema'
+import {
+  breadcrumbSchema,
+  definedTermSchema,
+  webPageSchema,
+  ctmtGlossaryTermSet,
+} from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 const title = 'Glossary: CTMT-2, Attention & ADHD Assessment'
 const description =
@@ -30,7 +36,7 @@ export default function CtmtAttentionGlossaryPage() {
       { name: 'Glossary: CTMT-2', path },
     ]),
     ...ctmtAttentionGlossary.map((item) =>
-      definedTermSchema(item.term, item.definition, `${pageUrl}#${item.slug}`)
+      definedTermSchema(item.term, item.definition, `${pageUrl}#${item.slug}`, ctmtGlossaryTermSet)
     ),
   ]
 
@@ -52,20 +58,32 @@ export default function CtmtAttentionGlossaryPage() {
           Motherhood glossary: <Link href="/glossary">SMI & parenting terms</Link>.
         </AnswerCallout>
 
-        <dl className="space-y-6">
-          {ctmtAttentionGlossary.map((item) => (
-            <div
-              key={item.slug}
-              id={item.slug}
-              className="scroll-mt-24 rounded-xl border border-gray-200 bg-white/70 p-6 dark:border-gray-700 dark:bg-gray-900/50"
-            >
-              <dt className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
-                {item.term}
-              </dt>
-              <dd className="mt-3 max-w-3xl text-gray-700 dark:text-gray-300">{item.definition}</dd>
-            </div>
-          ))}
-        </dl>
+        <SectionBlock
+          id="terms"
+          title="Canonical definitions"
+          answer="Use these definitions as the preferred wording for posts, FAQs, and research citations on this site."
+        >
+          <dl className="mt-4 space-y-6">
+            {ctmtAttentionGlossary.map((item) => (
+              <div
+                key={item.slug}
+                id={item.slug}
+                className="scroll-mt-24 rounded-xl border border-gray-200 bg-white/70 p-6 dark:border-gray-700 dark:bg-gray-900/50"
+              >
+                <dt className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
+                  <span className="sr-only">Term: </span>
+                  {item.term}
+                </dt>
+                <dd
+                  className="answer-callout mt-3 max-w-3xl text-gray-700 dark:text-gray-300"
+                  data-speakable
+                >
+                  {item.definition}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </SectionBlock>
 
         <NapBlock />
       </div>

@@ -7,6 +7,7 @@ import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
 import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 const title = 'Publications'
 const description = `Peer-reviewed and dissertation publications by ${siteIdentity.name}, with links to research briefs on this site.`
@@ -59,32 +60,38 @@ export default function PublicationsPage() {
           priority
         />
 
-        <ul className="space-y-6">
-          {publications.map((pub) => (
-            <li
-              key={pub.year + pub.href}
-              className="rounded-xl border border-gray-200 bg-white/70 p-6 dark:border-gray-700 dark:bg-gray-900/50"
-            >
-              <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">
-                {pub.year}
-              </p>
-              <p className="mt-3 text-gray-800 dark:text-gray-200">{pub.citation}</p>
-              <p className="mt-4 flex flex-wrap gap-4 text-sm">
-                <Link href={pub.href} className="text-primary-500 font-medium hover:underline">
-                  Site brief →
-                </Link>
-                <a
-                  href={pub.external}
-                  className="text-primary-500 font-medium hover:underline"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  External record →
-                </a>
-              </p>
-            </li>
-          ))}
-        </ul>
+        <SectionBlock
+          id="publication-list"
+          title="Peer-reviewed and dissertation publications"
+          answer="Eugene Boyle, Ph.D. is author of a 2024 Fielding CTMT-2 dissertation and co-author of Mizock et al. (2019) Motherhood reimagined in Psychiatric Rehabilitation Journal."
+        >
+          <ul className="mt-4 space-y-6">
+            {publications.map((pub) => (
+              <li
+                key={pub.year + pub.href}
+                className="rounded-xl border border-gray-200 bg-white/70 p-6 dark:border-gray-700 dark:bg-gray-900/50"
+              >
+                <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">
+                  {pub.year}
+                </p>
+                <p className="mt-3 text-gray-800 dark:text-gray-200">{pub.citation}</p>
+                <p className="mt-4 flex flex-wrap gap-4 text-sm">
+                  <Link href={pub.href} className="text-primary-500 font-medium hover:underline">
+                    Site brief →
+                  </Link>
+                  <a
+                    href={pub.external}
+                    className="text-primary-500 font-medium hover:underline"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    External record →
+                  </a>
+                </p>
+              </li>
+            ))}
+          </ul>
+        </SectionBlock>
 
         <NapBlock />
       </div>

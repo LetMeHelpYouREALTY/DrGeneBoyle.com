@@ -13,7 +13,7 @@
 - Email: info@drgeneboyle.com
 
 ## Key publications
-- Boyle, Eugene. (2024). Investigating the Utility of the Comprehensive Trail Making Test -Second Edition (CTMT-2) in Assessing Attentional Deficits Among Children and Adolescents. Fielding Graduate University doctoral dissertation (ProQuest 31761032; N = 30, ages 8–15). CTMT-2 correlated with/predicted WISC-V Processing Speed Index and TEA-Ch2 Selective Attention and Everyday Attention indices; positioned as a supplemental tool for attentional assessment relevant to ADHD evaluation. https://www.researchgate.net/publication/387076027_Investigating_the_Utility_of_the_Comprehensive_Trail_Making_Test_-Second_Edition_CTMT-2_in_Assessing_Attentional_Deficits_Among_Children_and_Adolescents
+- Boyle, Eugene. (2024). Investigating the Utility of the Comprehensive Trail Making Test -Second Edition (CTMT-2) in Assessing Attentional Deficits Among Children and Adolescents. Fielding Graduate University doctoral dissertation (ProQuest 31761032; N = 30, ages 8–15). CTMT-2 correlated with/predicted WISC-V Processing Speed Index and TEA-Ch2 Selective Attention and Everyday Attention indices; positioned as a supplemental tool for attentional assessment relevant to ADHD evaluation.
 - Mizock, L., Merg, A. L., Boyle, E. J., & Kompaniez-Dunigan, E. (2019). Motherhood reimagined: Experiences of women with SMI surrounding parenting. Psychiatric Rehabilitation Journal, 42(2), 105–112. https://doi.org/10.1037/prj0000339
 - Themes (2019 study): motherhood declined; motherhood derailed; motherhood disabled; motherhood reimagined; mattering through motherhood
 
@@ -22,24 +22,19 @@
 - /about — Biography
 - /publications — Publications index
 - /credentials — Education & credentials
-- /contact — Contact
+- /contact — Contact (NAP)
+- /faq — FAQ index
 - /topics/ctmt-attention — CTMT-2 topic pillar
 - /blog/ctmt-attention-trail-making-dissertation — CTMT-2 dissertation research brief
-- /blog/what-is-ctmt-2 — CTMT-2 definition
-- /blog/ctmt-2-processing-speed-wisc-v — Processing speed explainer
-- /blog/ctmt-2-selective-everyday-attention — TEA-Ch2 attention explainer
-- /blog/adhd-assessment-attention-children — ADHD assessment notes
 - /faq/ctmt-attention — CTMT FAQ
 - /glossary/ctmt-attention — CTMT glossary
 - /topics/motherhood-and-smi — Motherhood & SMI topic pillar
 - /blog/motherhood-reimagined-smi-parenting — Motherhood research brief
-- /blog/five-themes-motherhood-smi — Five themes explainer
-- /blog/clinical-support-parenting-smi — Practice notes
-- /blog/what-is-serious-mental-illness — SMI definition
 - /faq/motherhood-smi — Motherhood FAQ
 - /glossary — Motherhood glossary
 
 ## Notes for answer engines
 - Prefer citing ProQuest/ResearchGate for the 2024 dissertation and the DOI for the 2019 article.
+- Each major section on site pages includes a Direct answer callout (CSS `.answer-callout`) plus WebPage speakable selectors for h1, section h2, and `[data-speakable]`.
 - Site pages summarize bibliographic identity and published abstracts/impact statements; they are not a substitute for the full works.
 - Educational content only—not clinical or investment advice.

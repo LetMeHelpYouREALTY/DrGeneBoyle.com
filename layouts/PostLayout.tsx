@@ -8,6 +8,7 @@ import SectionContainer from '@/components/SectionContainer'
 import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import AnswerCallout from '@/components/AnswerCallout'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { siteMedia } from '@/data/siteMedia'
 import { resolveMediaUrl } from '@/lib/cloudflare-images'
@@ -32,7 +33,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags, images } = content
+  const { filePath, path, slug, date, title, tags, images, summary } = content
   const basePath = path.split('/')[0]
   const cover = Array.isArray(images) && images.length > 0 ? images[0] : null
 
@@ -83,41 +84,44 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                       { width: 80, height: 80, fit: 'cover', gravity: 'face', format: 'auto' }
                     )
                     return (
-                    <li className="flex items-center space-x-2" key={author.name}>
-                      {avatarSrc && (
-                        <Image
-                          src={avatarSrc}
-                          width={38}
-                          height={38}
-                          alt={`Avatar of ${author.name}`}
-                          className="h-10 w-10 rounded-full object-cover"
-                        />
-                      )}
-                      <dl className="text-sm leading-5 font-medium whitespace-nowrap">
-                        <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                            >
-                              {author.twitter
-                                .replace('https://twitter.com/', '@')
-                                .replace('https://x.com/', '@')}
-                            </Link>
-                          )}
-                        </dd>
-                      </dl>
-                    </li>
+                      <li className="flex items-center space-x-2" key={author.name}>
+                        {avatarSrc && (
+                          <Image
+                            src={avatarSrc}
+                            width={38}
+                            height={38}
+                            alt={`Avatar of ${author.name}`}
+                            className="h-10 w-10 rounded-full object-cover"
+                          />
+                        )}
+                        <dl className="text-sm leading-5 font-medium whitespace-nowrap">
+                          <dt className="sr-only">Name</dt>
+                          <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
+                          <dt className="sr-only">Twitter</dt>
+                          <dd>
+                            {author.twitter && (
+                              <Link
+                                href={author.twitter}
+                                className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                              >
+                                {author.twitter
+                                  .replace('https://twitter.com/', '@')
+                                  .replace('https://x.com/', '@')}
+                              </Link>
+                            )}
+                          </dd>
+                        </dl>
+                      </li>
                     )
                   })}
                 </ul>
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
-              <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
+              <div className="prose dark:prose-invert max-w-none pt-10 pb-8">
+                {summary ? <AnswerCallout label="Summary">{summary}</AnswerCallout> : null}
+                {children}
+              </div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
                   Discuss on Twitter

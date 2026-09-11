@@ -8,6 +8,7 @@ import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { genPageMetadata } from 'app/seo'
 import { breadcrumbSchema, faqPageSchema, webPageSchema } from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 const title = 'FAQ: CTMT-2 & Attentional Assessment'
 const description =
@@ -51,17 +52,14 @@ export default function CtmtAttentionFaqPage() {
           Topic hub: <Link href="/topics/ctmt-attention">CTMT-2 & attentional assessment</Link>.
         </AnswerCallout>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {ctmtAttentionFaqs.map((faq) => (
-            <section
+            <SectionBlock
               key={faq.question}
-              className="rounded-xl border border-gray-200 bg-white/70 p-6 dark:border-gray-700 dark:bg-gray-900/50"
-            >
-              <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
-                {faq.question}
-              </h2>
-              <p className="mt-3 max-w-3xl text-gray-700 dark:text-gray-300">{faq.answer}</p>
-            </section>
+              title={faq.question}
+              answer={faq.answer}
+              answerLabel="Answer"
+            />
           ))}
         </div>
 
