@@ -7,12 +7,7 @@ import ConnectExperience from '@/components/connect/ConnectExperience'
 import { genPageMetadata } from 'app/seo'
 import siteMetadata from '@/data/siteMetadata'
 import { pageMedia } from '@/data/pageMedia'
-import {
-  destinationLinks,
-  portfolioItems,
-  testimonials,
-  videoItems,
-} from '@/data/connectHub'
+import { destinationLinks, portfolioItems, testimonials, videoItems } from '@/data/connectHub'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
 
 const title = 'Connect — Virtual Twin'
@@ -99,7 +94,9 @@ export default function ConnectPage() {
               >
                 <p className="text-gray-800 dark:text-gray-200">“{item.quote}”</p>
                 <footer className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">{item.name}</span>
+                  <span className="font-semibold text-gray-900 dark:text-gray-100">
+                    {item.name}
+                  </span>
                   <br />
                   {item.role}
                 </footer>
@@ -160,7 +157,9 @@ export default function ConnectPage() {
                   />
                   <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 to-transparent p-6">
                     <div>
-                      <h3 className="font-display text-xl font-semibold text-white">{video.title}</h3>
+                      <h3 className="font-display text-xl font-semibold text-white">
+                        {video.title}
+                      </h3>
                       <p className="mt-2 max-w-2xl text-sm text-white/85">{video.description}</p>
                       <p className="mt-3 text-xs text-white/70">{video.posterNote}</p>
                     </div>

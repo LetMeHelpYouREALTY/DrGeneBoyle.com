@@ -3,6 +3,7 @@ import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
 import { DM_Sans, Fraunces } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -140,6 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </SectionContainer>
         </ThemeProviders>
+        <SpeedInsights />
       </body>
     </html>
   )
