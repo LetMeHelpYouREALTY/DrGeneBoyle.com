@@ -38,8 +38,8 @@ export default function HomeHero({ imageSrc, imageAlt }: HomeHeroProps) {
           Eugene Boyle, Ph.D.
         </h1>
         <p className="mt-5 max-w-xl text-lg text-white/92 drop-shadow-sm sm:text-xl">
-          CTMT-2 attentional assessment dissertation and motherhood & SMI research—plus acquisition
-          insight across California and Nevada.
+          CTMT-2 attentional assessment dissertation and motherhood &amp; SMI research—clear,
+          citation-ready explainers for clinicians, collaborators, and curious readers.
         </p>
         <div className="mt-9 flex flex-wrap gap-3">
           <Link

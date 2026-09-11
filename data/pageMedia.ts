@@ -6,7 +6,7 @@
 export const pageMedia = {
   home: {
     src: '/static/images/pages/hero-home-eugene-boyle.webp',
-    alt: 'Eugene Boyle, Ph.D. at his desk with a California city skyline — CTMT-2 research and CA–NV acquisition advisory homepage hero',
+    alt: 'Eugene Boyle, Ph.D. at his desk with a California city skyline — CTMT-2 and motherhood & SMI research homepage hero',
   },
   homeFeature: {
     src: '/static/images/pages/home-feature-motherhood-smi.webp',
