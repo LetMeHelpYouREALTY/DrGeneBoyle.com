@@ -9,21 +9,21 @@ const siteIdentity = {
   givenName: 'Eugene',
   familyName: 'Boyle',
   honorificSuffix: 'Ph.D.',
-  jobTitle: 'Managing Director',
+  jobTitle: 'Clinical Psychologist · Investor Decision-Making',
   headline:
-    'Managing Director · KLB Consultants | Private Equity · Acquisition Risk · Pre-IPO SPV | JD/MBA · Ph.D. | Former Public-Co CFO | Multifamily & Mixed-Use | CA · NV',
+    'Clinical Psychology Ph.D. · Cognitive–behavioral approaches to investor decision-making · CTMT-2 & motherhood/SMI research · ABCT',
   worksFor: {
-    name: 'KLB Consultants Ltd',
-    url: 'https://www.linkedin.com/company/klb-consultants-ltd',
+    name: 'DrGeneBoyle.com',
+    url: 'https://www.drgeneboyle.com',
     description:
-      'Family office and land developer advisory: acquisition brokerage, waterfall equity structuring, and public-agency entitlements for multifamily and mixed-use projects across California and Nevada.',
+      'Research and writing on cognitive–behavioral skill in investor decision-making—attention, bias, risk fluency—plus CTMT-2 and motherhood & SMI research explainers.',
   },
   additionalRoles: [
     {
-      name: 'Investment Director',
-      organization: 'Boyle Family Office',
+      name: 'Independent investor',
+      organization: 'Self-directed markets',
       description:
-        'Private placement sourcing, due diligence, and pre-IPO portfolio structuring across technology, real estate, and alternatives.',
+        'Practicing capital allocation and decision-making under uncertainty—using live feedback to train cognitive–behavioral habits around risk.',
     },
   ],
   // Public contact — Cloudflare Email Routing should forward to working inbox
@@ -105,13 +105,13 @@ const siteIdentity = {
     'Psychiatric rehabilitation',
     'Grounded theory qualitative research',
     'Forensic psychology',
-    'Private equity acquisition risk',
-    'Pre-IPO SPV structuring',
-    'Multifamily and mixed-use real estate',
-    'Financial due diligence',
+    'Cognitive–behavioral approaches to investor decision-making',
+    'Behavioral finance and cognitive bias',
+    'Risk fluency and decision-making under uncertainty',
+    'Financial literacy and self-control',
   ],
   description:
-    'Eugene Boyle, Ph.D. (Eugene Joseph Boyle) is Managing Director at KLB Consultants and Investment Director at Boyle Family Office. His Fielding Graduate University dissertation (2024-12-02) found CTMT-2 performance associated with WISC-V Processing Speed and TEA-Ch2 selective/everyday attention in school-aged children and adolescents (N = 30, ages 8–15), supporting CTMT-2 as a supplemental attentional assessment tool. He is a co-author of Motherhood reimagined: Experiences of women with SMI surrounding parenting (Psychiatric Rehabilitation Journal, 2019), with training in clinical and forensic psychology (Fielding Graduate University; Heartland Behavioral Healthcare internship) and prior service as a public-company CFO.',
+    'Eugene Boyle, Ph.D. (Eugene Joseph Boyle) writes on clinical psychology and cognitive–behavioral approaches to investor decision-making—how attention, emotion, and habit shape choices under uncertainty. His Fielding Graduate University dissertation (2024-12-02) found CTMT-2 performance associated with WISC-V Processing Speed and TEA-Ch2 selective/everyday attention in school-aged children and adolescents (N = 30, ages 8–15), supporting CTMT-2 as a supplemental attentional assessment tool. He is a co-author of Motherhood reimagined: Experiences of women with SMI surrounding parenting (Psychiatric Rehabilitation Journal, 2019), with training in clinical and forensic psychology (Fielding Graduate University; Heartland Behavioral Healthcare internship), ABCT membership, and prior service as a public-company CFO.',
   publications: [
     {
       type: 'dissertation',
@@ -134,7 +134,7 @@ const siteIdentity = {
     },
   ],
   followersNote: '1,253 LinkedIn followers (profile snapshot)',
-  phoneNote: 'KLB Consultants contact listed on LinkedIn company description: 949-324-8880',
+  phoneNote: 'Public contact phone listed on LinkedIn profile materials: 949-324-8880',
 }
 
 module.exports = siteIdentity

@@ -50,7 +50,7 @@ export const pageMedia = {
   },
   about: {
     src: '/static/images/pages/about-eugene-boyle.webp',
-    alt: 'SEO GEO AEO hero: About Eugene Boyle, Ph.D. — KLB Consultants Managing Director, Los Angeles CA, California and Nevada',
+    alt: 'About Eugene Boyle, Ph.D. — clinical psychology and cognitive–behavioral approaches to investor decision-making',
   },
   publications: {
     src: '/static/images/pages/hero-publications.webp',

@@ -11,7 +11,7 @@ import { breadcrumbSchema, organizationSchema, personSchema, webPageSchema } fro
 
 const title = 'Eugene Boyle, Ph.D. on LinkedIn'
 const description =
-  'Professional profile overview for Eugene Boyle, Ph.D.—Managing Director at KLB Consultants, Fielding Clinical Psychology Ph.D., LinkedIn and ORCID links, and featured research.'
+  'Professional profile overview for Eugene Boyle, Ph.D.—clinical psychology, cognitive–behavioral investor decision-making, Fielding Ph.D., LinkedIn and ORCID links, and featured research.'
 const path = '/linkedin'
 
 export const metadata = genPageMetadata({
@@ -57,19 +57,19 @@ const featured = [
 
 const experienceHighlights = [
   {
-    title: 'Managing Director — KLB Consultants Ltd',
+    title: 'Cognitive–behavioral investor decision-making',
     detail:
-      'Financial modeling, due diligence, and waterfall structuring for multifamily and mixed-use acquisitions in California and Nevada (since 2005).',
-  },
-  {
-    title: 'Investment Director — Boyle Family Office',
-    detail:
-      'Private placement sourcing, pre-IPO diligence, and multi-asset portfolio risk (since 2009).',
+      'Writing and practice on attention, bias, and risk fluency—how people decide under uncertainty when real capital is at stake.',
   },
   {
     title: 'Clinical / research path',
     detail:
-      'Ph.D. Clinical Psychology (Fielding)—dissertation on CTMT-2 attentional assessment in children and adolescents (2024-12-02; Boyle, Eugene); forensic psychology internship at Heartland Behavioral Healthcare; qualitative analyst on women with SMI research under Lauren Mizock, Ph.D.',
+      'Ph.D. Clinical Psychology (Fielding)—dissertation on CTMT-2 attentional assessment in children and adolescents (2024-12-02; Boyle, Eugene); forensic psychology internship at Heartland Behavioral Healthcare; qualitative analyst on women with SMI research under Lauren Mizock, Ph.D.; ABCT member.',
+  },
+  {
+    title: 'Independent investor',
+    detail:
+      'Self-directed markets as a feedback-rich arena for practicing capital allocation, position sizing, and overriding cognitive biases in real time.',
   },
   {
     title: 'Public-company CFO — Samaritan Pharmaceuticals',
@@ -96,7 +96,7 @@ export default function LinkedInHubPage() {
         <PageHero
           eyebrow="Professional profile"
           title={title}
-          summary="Managing Director at KLB Consultants and clinical researcher—connect on LinkedIn or explore featured work below."
+          summary="Clinical psychologist writing on cognitive–behavioral investor decision-making—connect on LinkedIn or explore featured work below."
           imageSrc={pageMedia.linkedin.src}
           imageAlt={pageMedia.linkedin.alt}
           priority
@@ -107,8 +107,8 @@ export default function LinkedInHubPage() {
         />
 
         <AnswerCallout label="Overview">
-          Eugene Boyle, Ph.D. (Eugene Joseph Boyle) is Managing Director at KLB Consultants and
-          Investment Director at Boyle Family Office. Find him on{' '}
+          Eugene Boyle, Ph.D. (Eugene Joseph Boyle) writes on clinical psychology and
+          cognitive–behavioral approaches to investor decision-making. Find him on{' '}
           <a href={siteIdentity.linkedin} rel="noopener noreferrer">
             LinkedIn
           </a>{' '}
@@ -146,7 +146,7 @@ export default function LinkedInHubPage() {
               </a>
             </li>
             <li>
-              <strong>Phone (KLB):</strong>{' '}
+              <strong>Phone:</strong>{' '}
               <a href={siteIdentity.telephoneTel} className="text-primary-500 hover:underline">
                 {siteIdentity.telephone}
               </a>
