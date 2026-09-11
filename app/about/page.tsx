@@ -8,7 +8,8 @@ import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import siteMetadata from '@/data/siteMetadata'
 import { pageMedia } from '@/data/pageMedia'
-import { organizationSchema, personSchema } from '@/lib/schema'
+import { breadcrumbSchema, organizationSchema, personSchema, webPageSchema } from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 export const metadata = genPageMetadata({
   title: 'About Eugene Boyle, Ph.D.',
@@ -24,7 +25,23 @@ export default function Page() {
 
   return (
     <>
-      <JsonLd data={[personSchema(), organizationSchema()]} />
+      <JsonLd
+        data={[
+          personSchema(),
+          organizationSchema(),
+          webPageSchema({
+            title: 'About Eugene Boyle, Ph.D.',
+            description:
+              'About Eugene Boyle, Ph.D.—Managing Director at KLB Consultants, Investment Director at Boyle Family Office, and co-author of Motherhood reimagined (Psychiatric Rehabilitation Journal, 2019).',
+            path: '/about',
+            image: pageMedia.about,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'About', path: '/about' },
+          ]),
+        ]}
+      />
       <div className="space-y-8 pt-6">
         <PageHero
           eyebrow="About"
@@ -43,9 +60,23 @@ export default function Page() {
             { href: '/topics/motherhood-and-smi', label: 'Motherhood & SMI' },
           ]}
         />
-        <AuthorLayout content={mainContent}>
-          <MDXLayoutRenderer code={author.body.code} />
-        </AuthorLayout>
+        <SectionBlock
+          id="who"
+          title="Who is Eugene Boyle, Ph.D.?"
+          answer="Eugene Boyle, Ph.D. is Managing Director at KLB Consultants and Investment Director at Boyle Family Office, a Fielding Clinical Psychology Ph.D., and co-author of Motherhood reimagined (2019)."
+        />
+
+        <SectionBlock
+          id="biography"
+          title="Biography & background"
+          answer="Full biography covering clinical psychology training, CTMT-2 dissertation research, motherhood & SMI co-authorship, and professional leadership."
+        >
+          <div className="mt-2">
+            <AuthorLayout content={mainContent}>
+              <MDXLayoutRenderer code={author.body.code} />
+            </AuthorLayout>
+          </div>
+        </SectionBlock>
         <NapBlock />
       </div>
     </>

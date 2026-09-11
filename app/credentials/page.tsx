@@ -7,6 +7,7 @@ import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
 import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 const title = 'Credentials & Education'
 const description = `Education, credentials, and memberships for ${siteIdentity.name}.`
@@ -41,10 +42,11 @@ export default function CredentialsPage() {
           priority
         />
 
-        <section>
-          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Education
-          </h2>
+        <SectionBlock
+          id="education"
+          title="Education"
+          answer={`${siteIdentity.name} holds a Ph.D. in Clinical Psychology from Fielding Graduate University, with additional graduate training spanning business and law.`}
+        >
           <ul className="mt-4 space-y-4">
             {siteIdentity.education.map((edu) => (
               <li
@@ -62,29 +64,31 @@ export default function CredentialsPage() {
               </li>
             ))}
           </ul>
-        </section>
+        </SectionBlock>
 
-        <section>
-          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Credentials
-          </h2>
+        <SectionBlock
+          id="credentials-list"
+          title="Credentials"
+          answer="Professional credentials include Registered U.S. Patent Agent (USPTO) and real estate broker/sales agent licensure."
+        >
           <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
             {siteIdentity.credentials.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </section>
+        </SectionBlock>
 
-        <section>
-          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Memberships
-          </h2>
+        <SectionBlock
+          id="memberships"
+          title="Memberships"
+          answer="Professional memberships include APA, APS, and ABCT."
+        >
           <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
             {siteIdentity.memberships.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </section>
+        </SectionBlock>
 
         <p className="text-sm text-gray-600 dark:text-gray-400">
           Related:{' '}

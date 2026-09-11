@@ -10,7 +10,15 @@ export default function HomeHero({ imageSrc, imageAlt }: HomeHeroProps) {
   return (
     <section className="page-hero relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-hidden">
       <div className="absolute inset-0">
-        <Image src={imageSrc} alt={imageAlt} title={imageAlt} fill className="object-cover" priority sizes="100vw" />
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          title={imageAlt}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
         <span className="sr-only">{imageAlt}</span>
         <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-ink)] via-[color:var(--color-ink)]/88 to-[color:var(--color-ink)]/45" />
         <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-ink)]/70 via-transparent to-[color:var(--color-ink)]/20" />
@@ -23,7 +31,7 @@ export default function HomeHero({ imageSrc, imageAlt }: HomeHeroProps) {
         <h1 className="font-display max-w-4xl text-5xl leading-[1.05] font-semibold text-white sm:text-6xl md:text-7xl">
           Eugene Boyle, Ph.D.
         </h1>
-        <p className="mt-5 max-w-xl text-lg text-white/88 sm:text-xl">
+        <p className="mt-5 max-w-xl text-lg text-white/88 sm:text-xl" data-speakable>
           CTMT-2 attentional assessment dissertation and motherhood & SMI research—plus acquisition
           insight across California and Nevada.
         </p>

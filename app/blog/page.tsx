@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd'
 import { pageMedia } from '@/data/pageMedia'
 import siteMetadata from '@/data/siteMetadata'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 const POSTS_PER_PAGE = 5
 const title = 'Research Blog'
@@ -51,12 +52,20 @@ export default async function BlogPage(props: { searchParams: Promise<{ page: st
           imageAlt={pageMedia.blog.alt}
           priority
         />
-        <ListLayout
-          posts={posts}
-          initialDisplayPosts={initialDisplayPosts}
-          pagination={pagination}
-          title="All Posts"
-        />
+        <SectionBlock
+          id="all-posts"
+          title="All research posts"
+          answer="Browse answer-first research briefs by Eugene Boyle, Ph.D. on CTMT-2 attentional assessment and motherhood & SMI."
+        >
+          <div className="mt-4">
+            <ListLayout
+              posts={posts}
+              initialDisplayPosts={initialDisplayPosts}
+              pagination={pagination}
+              title="All Posts"
+            />
+          </div>
+        </SectionBlock>
       </div>
     </>
   )

@@ -12,6 +12,8 @@ import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
+import JsonLd from '@/components/JsonLd'
+import { blogPostingSchema, breadcrumbSchema, webPageSchema } from '@/lib/schema'
 import { notFound } from 'next/navigation'
 
 const defaultLayout = 'PostLayout'
@@ -52,6 +54,7 @@ export async function generateMetadata(props: {
   return {
     title: post.title,
     description: post.summary,
+    alternates: { canonical: `${siteMetadata.siteUrl}/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.summary,
@@ -97,17 +100,43 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
   })
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
-    return {
-      '@type': 'Person',
-      name: author.name,
-    }
-  })
-
   const Layout = layouts[post.layout || defaultLayout]
+  const pagePath = `/blog/${slug}`
+  const schemas = [
+    webPageSchema({
+      title: post.title,
+      description: post.summary || '',
+      path: pagePath,
+      image: post.images?.[0] ? { src: post.images[0], alt: post.title } : undefined,
+    }),
+    blogPostingSchema({
+      title: post.title,
+      description: post.summary || '',
+      path: pagePath,
+      datePublished: new Date(post.date).toISOString(),
+      dateModified: new Date(post.lastmod || post.date).toISOString(),
+      image: Array.isArray(post.images) ? post.images[0] : post.images,
+    }),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blog' },
+      { name: post.title, path: pagePath },
+    ]),
+  ]
+
+  jsonLd['author'] = authorDetails.map((author) => ({
+    '@type': 'Person',
+    '@id': `${siteMetadata.siteUrl}/about#person`,
+    name: author.name,
+  }))
+  jsonLd['speakable'] = {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', '.answer-callout', '[data-speakable]', 'article h2'],
+  }
 
   return (
     <>
+      <JsonLd data={schemas} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

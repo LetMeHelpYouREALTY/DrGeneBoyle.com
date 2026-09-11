@@ -3,6 +3,7 @@ import JsonLd from '@/components/JsonLd'
 import NapBlock from '@/components/NapBlock'
 import PageHero from '@/components/PageHero'
 import AnswerCallout from '@/components/AnswerCallout'
+import SectionBlock from '@/components/SectionBlock'
 import siteIdentity from '@/data/siteIdentity'
 import siteMetadata from '@/data/siteMetadata'
 import { pageMedia } from '@/data/pageMedia'
@@ -119,51 +120,58 @@ export default function LinkedInHubPage() {
           , or continue on this site for research briefs and contact details.
         </AnswerCallout>
 
-        <section className="rounded-xl border border-gray-200 bg-white/80 p-6 dark:border-gray-700 dark:bg-gray-900/50">
-          <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
-            Contact & profiles
-          </h2>
-          <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
-            <li>
-              <strong>Name:</strong> {siteIdentity.name} (Eugene Joseph Boyle)
-            </li>
-            <li>
-              <strong>Role:</strong> {siteIdentity.headline}
-            </li>
-            <li>
-              <strong>Location:</strong> {siteIdentity.address.addressLocality} Metropolitan Area
-            </li>
-            <li>
-              <strong>LinkedIn:</strong>{' '}
-              <a href={siteIdentity.linkedin} className="text-primary-500 hover:underline">
-                linkedin.com/in/geneboyle
-              </a>
-            </li>
-            <li>
-              <strong>ORCID:</strong>{' '}
-              <a href={siteIdentity.orcid} className="text-primary-500 hover:underline">
-                0000-0002-0183-8740
-              </a>
-            </li>
-            <li>
-              <strong>Phone (KLB):</strong>{' '}
-              <a href={siteIdentity.telephoneTel} className="text-primary-500 hover:underline">
-                {siteIdentity.telephone}
-              </a>
-            </li>
-            <li>
-              <strong>Email:</strong>{' '}
-              <a href={`mailto:${siteIdentity.email}`} className="text-primary-500 hover:underline">
-                {siteIdentity.email}
-              </a>
-            </li>
-          </ul>
-        </section>
+        <SectionBlock
+          id="contact-profiles"
+          title="Contact & profiles"
+          answer="Eugene Boyle, Ph.D. publishes contact, LinkedIn, ORCID, and location details on this hub for consistent entity citation across search and answer engines."
+        >
+          <div className="mt-4 rounded-xl border border-gray-200 bg-white/80 p-6 dark:border-gray-700 dark:bg-gray-900/50">
+            <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+              <li>
+                <strong>Name:</strong> {siteIdentity.name} (Eugene Joseph Boyle)
+              </li>
+              <li>
+                <strong>Role:</strong> {siteIdentity.headline}
+              </li>
+              <li>
+                <strong>Location:</strong> {siteIdentity.address.addressLocality} Metropolitan Area
+              </li>
+              <li>
+                <strong>LinkedIn:</strong>{' '}
+                <a href={siteIdentity.linkedin} className="text-primary-500 hover:underline">
+                  linkedin.com/in/geneboyle
+                </a>
+              </li>
+              <li>
+                <strong>ORCID:</strong>{' '}
+                <a href={siteIdentity.orcid} className="text-primary-500 hover:underline">
+                  0000-0002-0183-8740
+                </a>
+              </li>
+              <li>
+                <strong>Phone (KLB):</strong>{' '}
+                <a href={siteIdentity.telephoneTel} className="text-primary-500 hover:underline">
+                  {siteIdentity.telephone}
+                </a>
+              </li>
+              <li>
+                <strong>Email:</strong>{' '}
+                <a
+                  href={`mailto:${siteIdentity.email}`}
+                  className="text-primary-500 hover:underline"
+                >
+                  {siteIdentity.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </SectionBlock>
 
-        <section>
-          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Experience highlights
-          </h2>
+        <SectionBlock
+          id="experience-highlights"
+          title="Experience highlights"
+          answer="Experience spans KLB Consultants acquisition advisory, Boyle Family Office investing, CTMT-2 clinical research training, and prior public-company CFO leadership."
+        >
           <ul className="mt-6 grid gap-4 md:grid-cols-2">
             {experienceHighlights.map((item) => (
               <li
@@ -177,12 +185,13 @@ export default function LinkedInHubPage() {
               </li>
             ))}
           </ul>
-        </section>
+        </SectionBlock>
 
-        <section>
-          <h2 className="font-display text-2xl font-semibold text-gray-900 dark:text-gray-100">
-            Featured research & pages
-          </h2>
+        <SectionBlock
+          id="featured-research"
+          title="Featured research & pages"
+          answer="Featured destinations include the CTMT-2 dissertation brief, motherhood & SMI hub, FAQ/glossary pages, and the About biography."
+        >
           <ul className="mt-6 divide-y divide-gray-200 rounded-xl border border-gray-200 bg-white/70 dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-900/50">
             {featured.map((item) => (
               <li key={item.href} className="p-5">
@@ -196,7 +205,7 @@ export default function LinkedInHubPage() {
               </li>
             ))}
           </ul>
-        </section>
+        </SectionBlock>
 
         <NapBlock />
       </div>

@@ -8,6 +8,7 @@ import siteMetadata from '@/data/siteMetadata'
 import siteIdentity from '@/data/siteIdentity'
 import { pageMedia } from '@/data/pageMedia'
 import { breadcrumbSchema, webPageSchema } from '@/lib/schema'
+import SectionBlock from '@/components/SectionBlock'
 
 const title = 'Topics'
 const description = `Topic hubs for ${siteIdentity.name}: CTMT-2 attentional assessment dissertation and motherhood & SMI research.`
@@ -93,35 +94,41 @@ export default function TopicsPage() {
           imageAlt={pageMedia.topics.alt}
           priority
         />
-        <ul className="grid gap-6 md:grid-cols-2">
-          {topics.map((topic) => (
-            <li key={topic.href}>
-              <Link
-                href={topic.href}
-                className="group block overflow-hidden rounded-xl border border-gray-200 bg-white/80 transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-700 dark:bg-gray-900/60"
-              >
-                <div className="relative h-40 overflow-hidden">
-                  <Image
-                    src={topic.image.src}
-                    alt={topic.image.alt}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="p-5">
-                  <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
-                    {topic.title}
-                  </h2>
-                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{topic.summary}</p>
-                  <span className="text-primary-500 mt-3 inline-block text-sm font-medium">
-                    Open topic →
-                  </span>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <SectionBlock
+          id="topic-hubs"
+          title="Research topic hubs"
+          answer="This site organizes Eugene Boyle’s research into CTMT-2 attentional assessment and motherhood & SMI topic hubs, each with briefs, FAQs, and glossary terms."
+        >
+          <ul className="mt-4 grid gap-6 md:grid-cols-2">
+            {topics.map((topic) => (
+              <li key={topic.href}>
+                <Link
+                  href={topic.href}
+                  className="group block overflow-hidden rounded-xl border border-gray-200 bg-white/80 transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-700 dark:bg-gray-900/60"
+                >
+                  <div className="relative h-40 overflow-hidden">
+                    <Image
+                      src={topic.image.src}
+                      alt={topic.image.alt}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
+                      {topic.title}
+                    </h2>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{topic.summary}</p>
+                    <span className="text-primary-500 mt-3 inline-block text-sm font-medium">
+                      Open topic →
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </SectionBlock>
         <NapBlock />
       </div>
     </>
