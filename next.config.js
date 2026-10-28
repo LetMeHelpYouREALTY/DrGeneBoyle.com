@@ -4,16 +4,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// You might need to insert additional domains in script-src if you are using external services
+// You might need to insert additional domains in script-src https://widgetbe.com https://*.widgetbe.com if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is;
+  script-src https://widgetbe.com https://*.widgetbe.com 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is;
   style-src 'self' 'unsafe-inline';
-  img-src * blob: data:;
+  img-src https://widgetbe.com https://*.widgetbe.com * blob: data:;
   media-src *.s3.amazonaws.com;
-  connect-src *;
+  connect-src https://widgetbe.com https://*.widgetbe.com *;
   font-src 'self';
-  frame-src giscus.app
+  frame-src https://widgetbe.com https://*.widgetbe.com giscus.app
 `
 
 const securityHeaders = [
