@@ -7,13 +7,13 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // You might need to insert additional domains in script-src https://widgetbe.com https://*.widgetbe.com if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src https://d1buiexcd5gara.cloudfront.net https://widgetbe.com https://*.widgetbe.com 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is;
-  style-src https://widgetbe.com https://d1buiexcd5gara.cloudfront.net 'self' 'unsafe-inline';
-  img-src https://d1buiexcd5gara.cloudfront.net https://widgetbe.com https://*.widgetbe.com * blob: data:;
+  script-src https://widgetbe.com https://*.widgetbe.com 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is;
+  style-src 'self' 'unsafe-inline';
+  img-src https://widgetbe.com https://*.widgetbe.com * blob: data:;
   media-src *.s3.amazonaws.com;
-  connect-src https://d1buiexcd5gara.cloudfront.net https://widgetbe.com https://*.widgetbe.com *;
-  font-src https://widgetbe.com https://d1buiexcd5gara.cloudfront.net 'self';
-  frame-src https://d1buiexcd5gara.cloudfront.net https://widgetbe.com https://*.widgetbe.com giscus.app
+  connect-src https://widgetbe.com https://*.widgetbe.com *;
+  font-src 'self';
+  frame-src https://widgetbe.com https://*.widgetbe.com giscus.app
 `
 
 const securityHeaders = [
