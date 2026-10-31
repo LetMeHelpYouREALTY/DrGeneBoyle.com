@@ -17,6 +17,8 @@ import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
 import Script from "next/script";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 const dmSans = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -140,6 +142,8 @@ e.parentNode.insertBefore(t,e);})
 window.widgetTracker("create", "WT-XQHVYQWW");
 window.widgetTracker("send", "pageview");
         `}</Script>
+  <VercelAnalytics />
+  <VercelSpeedInsights />
 </body>
     </html>
   )
